@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7yesl1getc7r"]
+
+[ext_resource type="Script" uid="uid://coml24hdpysp1" path="res://Objects/player.gd" id="1_3y5cq"]
+[ext_resource type="PackedScene" uid="uid://c1htcegl4dlvr" path="res://Models/jolt snowboard.glb" id="1_y0qk3"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_y0qk3"]
+
+[node name="Player" type="CharacterBody3D"]
+floor_constant_speed = true
+floor_snap_length = 2.0
+script = ExtResource("1_3y5cq")
+
+[node name="Model" parent="." instance=ExtResource("1_y0qk3")]
+transform = Transform3D(-0.54499996, 0, 8.229271e-08, 0, 0.54499996, 0, -8.229271e-08, 0, -0.54499996, 0, -0.3246174, -1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+shape = SubResource("CapsuleShape3D_y0qk3")
