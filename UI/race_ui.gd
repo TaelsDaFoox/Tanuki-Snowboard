@@ -6,21 +6,28 @@ var emptyTex := load("res://UI/Button Prompts/empty.png")
 var QTEqueue := []
 var QTElength := 8
 var QTEprogress := 0
-var QTEactive := true
+var QTEactive := false
+@onready var QTEcontainer = $QTE
+var linkedPlayer: CharacterBody3D
 
 func _ready() -> void:
+	QTEcontainer.visible = false
+
+func QTEstart():
+	QTEcontainer.visible=true
+	QTEactive=true
 	for i in QTElength:
 		QTEqueue.append(randi_range(0,inputNames.size()-1))
 		promptLabels[i].texture = promptTextures[QTEqueue[i]]
-	
-	print(QTEqueue)
 
-func _unhandled_input(event: InputEvent) -> void:
+func _input(event: InputEvent) -> void:
 	if QTEactive:
 		if event.is_action_pressed(inputNames[QTEqueue[QTEprogress]]):
 			promptLabels[QTEprogress].texture = emptyTex
 			QTEprogress+=1
 			if QTEprogress>=QTElength:
 				QTEactive=false
+				if linkedPlayer:
+					linkedPlayer.tricked()
 		else:
 			pass #fail trick

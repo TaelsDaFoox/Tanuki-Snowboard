@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://cndd3ks4vkk0t"]
+[gd_scene load_steps=9 format=3 uid="uid://cndd3ks4vkk0t"]
 
 [ext_resource type="PackedScene" uid="uid://b7yesl1getc7r" path="res://Objects/player.tscn" id="1_a02cp"]
 [ext_resource type="Material" uid="uid://di16i85s8n3gf" path="res://Materials/CheckerGrass.tres" id="2_go701"]
 [ext_resource type="Script" uid="uid://daepbqqygqty6" path="res://Scenes/camera.gd" id="3_5a7ea"]
 [ext_resource type="PackedScene" uid="uid://hkot4a21y65c" path="res://Objects/ramp.tscn" id="4_8j60k"]
+[ext_resource type="PackedScene" uid="uid://ddtmob8xtdrl6" path="res://UI/RaceUI.tscn" id="5_fo5ed"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_go701"]
 
@@ -16,8 +17,13 @@ sky = SubResource("Sky_5a7ea")
 
 [node name="World" type="Node3D"]
 
-[node name="Player" parent="." instance=ExtResource("1_a02cp")]
+[node name="Player" parent="." node_paths=PackedStringArray("linkedUI") instance=ExtResource("1_a02cp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5083902, 0)
+linkedUI = NodePath("../GridContainer/SubViewportContainer/RaceUI")
+
+[node name="Player2" parent="." node_paths=PackedStringArray("linkedUI") instance=ExtResource("1_a02cp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.48851, 1.5083902, 0)
+linkedUI = NodePath("../GridContainer/SubViewportContainer2/RaceUI")
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
 use_collision = true
@@ -34,14 +40,63 @@ environment = SubResource("Environment_8j60k")
 transform = Transform3D(0.8660253, -0.12940955, 0.48296297, -0.482963, -0.46650642, 0.74102545, 0.12940955, -0.87500006, -0.46650645, 0, 3.2991993, 0)
 shadow_enabled = true
 
-[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("player")]
-transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.49999997, 0, -0.49999997, 0.8660254, 0, 6.5402436, 5.2124605)
-script = ExtResource("3_5a7ea")
-player = NodePath("../Player")
-followspd = 10.0
-
 [node name="Ramp" parent="." instance=ExtResource("4_8j60k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.554476, -58.373245)
 
 [node name="Ramp2" parent="." instance=ExtResource("4_8j60k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.78765, -21.421524, -216.2422)
+
+[node name="GridContainer" type="GridContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+stretch_shrink = 2
+
+[node name="SubViewport" type="SubViewport" parent="GridContainer/SubViewportContainer"]
+handle_input_locally = false
+oversampling = false
+oversampling_override = 16.0
+size = Vector2i(576, 162)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="GridContainer/SubViewportContainer/SubViewport" node_paths=PackedStringArray("player")]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.49999997, 0, -0.49999997, 0.8660254, 0, 6.5402436, 5.2124605)
+script = ExtResource("3_5a7ea")
+player = NodePath("../../../../Player")
+followspd = 10.0
+
+[node name="RaceUI" parent="GridContainer/SubViewportContainer" instance=ExtResource("5_fo5ed")]
+layout_mode = 2
+
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+stretch_shrink = 2
+
+[node name="SubViewport" type="SubViewport" parent="GridContainer/SubViewportContainer2"]
+handle_input_locally = false
+oversampling = false
+oversampling_override = 16.0
+size = Vector2i(576, 162)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="GridContainer/SubViewportContainer2/SubViewport" node_paths=PackedStringArray("player")]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.49999997, 0, -0.49999997, 0.8660254, 0, 6.5402436, 5.2124605)
+script = ExtResource("3_5a7ea")
+player = NodePath("../../../../Player2")
+followspd = 10.0
+
+[node name="RaceUI" parent="GridContainer/SubViewportContainer2" instance=ExtResource("5_fo5ed")]
+layout_mode = 2
