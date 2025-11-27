@@ -58,6 +58,10 @@ Crouch={
 ]
 }
 
+[layer_names]
+
+3d_physics/layer_3="Ramp"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

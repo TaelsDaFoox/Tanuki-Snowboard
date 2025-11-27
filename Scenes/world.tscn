@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cndd3ks4vkk0t"]
+[gd_scene load_steps=8 format=3 uid="uid://cndd3ks4vkk0t"]
 
 [ext_resource type="PackedScene" uid="uid://b7yesl1getc7r" path="res://Objects/player.tscn" id="1_a02cp"]
 [ext_resource type="Material" uid="uid://di16i85s8n3gf" path="res://Materials/CheckerGrass.tres" id="2_go701"]
 [ext_resource type="Script" uid="uid://daepbqqygqty6" path="res://Scenes/camera.gd" id="3_5a7ea"]
+[ext_resource type="PackedScene" uid="uid://hkot4a21y65c" path="res://Objects/ramp.tscn" id="4_8j60k"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_go701"]
 
@@ -38,3 +39,9 @@ transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.49999997, 0, -0.49999997, 0.866
 script = ExtResource("3_5a7ea")
 player = NodePath("../Player")
 followspd = 10.0
+
+[node name="Ramp" parent="." instance=ExtResource("4_8j60k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.554476, -58.373245)
+
+[node name="Ramp2" parent="." instance=ExtResource("4_8j60k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.78765, -21.421524, -216.2422)
