@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddtmob8xtdrl6"]
+
+[ext_resource type="Script" uid="uid://cx7rssjw2itil" path="res://UI/race_ui.gd" id="1_bit1n"]
+[ext_resource type="Texture2D" uid="uid://bp448n1df4bon" path="res://UI/Button Prompts/XboxSeriesX_A.png" id="1_vlk8u"]
+
+[node name="RaceUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bit1n")
+
+[node name="QTE" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 274.0
+offset_bottom = -274.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Prompt1" type="TextureRect" parent="QTE"]
+layout_mode = 2
+texture = ExtResource("1_vlk8u")
+
+[node name="Prompt2" type="TextureRect" parent="QTE"]
+layout_mode = 2
+texture = ExtResource("1_vlk8u")
+
+[node name="Prompt3" type="TextureRect" parent="QTE"]
+layout_mode = 2
+texture = ExtResource("1_vlk8u")
+
+[node name="Prompt4" type="TextureRect" parent="QTE"]
+layout_mode = 2
+texture = ExtResource("1_vlk8u")
+
+[node name="Prompt5" type="TextureRect" parent="QTE"]
+layout_mode = 2
+texture = ExtResource("1_vlk8u")
+
+[node name="Prompt6" type="TextureRect" parent="QTE"]
+layout_mode = 2
+texture = ExtResource("1_vlk8u")
+
+[node name="Prompt7" type="TextureRect" parent="QTE"]
+layout_mode = 2
+texture = ExtResource("1_vlk8u")
+
+[node name="Prompt8" type="TextureRect" parent="QTE"]
+layout_mode = 2
+texture = ExtResource("1_vlk8u")
