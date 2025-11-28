@@ -6,12 +6,14 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_y0qk3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3y5cq"]
-size = Vector3(1, 0.5385742, 1)
+size = Vector3(1.3212891, 0.7595215, 2.4794922)
 
 [node name="Player" type="CharacterBody3D"]
 floor_constant_speed = true
 floor_snap_length = 2.0
 script = ExtResource("1_3y5cq")
+mainSpeed = 80.0
+maxturnspd = 3.0
 
 [node name="Model" parent="." instance=ExtResource("1_y0qk3")]
 transform = Transform3D(-0.54499996, 0, 8.229271e-08, 0, 0.54499996, 0, -8.229271e-08, 0, -0.54499996, 0, -0.3246174, -1)
@@ -25,5 +27,5 @@ collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RampArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7692871, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.87976074, -1)
 shape = SubResource("BoxShape3D_3y5cq")

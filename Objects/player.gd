@@ -15,21 +15,28 @@ var turnvel = 0.0
 @onready var rampArea = $RampArea
 @export var linkedUI: Control
 @export var trickBoost = 80.0
+var trickFailWait = 0.0
 var slopeDir := 0.0
 var extraBoost = 0.0
 var trickState = false
+var input
+#var playerNum = 0
 func _ready() -> void:
+	#input = DeviceInput.new(-1)
 	if linkedUI:
 		linkedUI.linkedPlayer=self
 	anim.play("Board",0.25,0.0)
 func _physics_process(delta: float) -> void:
+	if linkedUI and linkedUI.QTEactive:
+		linkedUI.QTEinput(input)
+	trickFailWait = move_toward(trickFailWait,0.0,delta)
 	if is_on_floor():
 		if not (get_floor_normal().y==1.0 or rampArea.has_overlapping_areas()):
 			slopeDir=-(Vector2(get_floor_normal().x,get_floor_normal().z).angle())-(PI/2)
-		if linkedUI and linkedUI.QTEactive:
+		if linkedUI and linkedUI.QTEactive and not trickFailWait:
 			linkedUI.cancelQTE()
 			trickState=false
-		if Input.is_action_pressed("Crouch"):
+		if input.is_action_pressed("Crouch"):
 			anim.play("Crouch",0.25,0.0)
 			movespd = lerpf(movespd,crouchSpeed,delta*2.0)
 		else:
@@ -37,21 +44,23 @@ func _physics_process(delta: float) -> void:
 			movespd = lerpf(movespd,mainSpeed+extraBoost,delta*2.0)
 	else:
 		movespd = lerpf(movespd,mainSpeed+extraBoost,delta*2.0)
-	if Input.is_action_just_released("Crouch") and is_on_floor():
+	if input.is_action_just_released("Crouch") and is_on_floor():
 		anim.play("Board",0.25,0.0)
 		if rampArea.has_overlapping_areas():
 			velocity.y=50.0
 			trickState=true
 			if linkedUI:
 				linkedUI.QTEstart()
+				trickFailWait=0.5
 		else:
 			velocity.y=jumpHeight
+			print("no trick")
 	if anim.current_animation=="Board" or anim.current_animation=="Crouch":
 		var animturn = 0.833+clampf(-rotation.y,-0.83,0.83)
 		anim.seek(animturn)
 	velocity.x=-sin(rotation.y)*movespd
 	velocity.z=-cos(rotation.y)*movespd
-	turnvel=move_toward(turnvel,(Input.get_action_strength("Right")-Input.get_action_strength("Left"))*turnspeed,delta*(turnlerpspeed+(extraBoost/300.0)))
+	turnvel=move_toward(turnvel,(input.get_action_strength("Right")-input.get_action_strength("Left"))*turnspeed,delta*(turnlerpspeed+(extraBoost/300.0)))
 	rotation.y-=turnvel
 	turnvel = lerpf(turnvel,0.0,delta*2.5)
 	rotation.y=lerp_angle(rotation.y,slopeDir,delta*velocity.length()*0.1)
@@ -74,6 +83,7 @@ func _physics_process(delta: float) -> void:
 	collider.global_rotation=Vector3.ZERO
 	move_and_slide()
 	extraBoost=move_toward(extraBoost,0.0,delta*20)
+	#print(trickFailWait)
 
 func tricked():
 	anim.play("Trick",0.1,1.5)

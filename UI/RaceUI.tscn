@@ -18,42 +18,52 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 274.0
+offset_right = -230.40002
 offset_bottom = -274.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.25, 1.25)
 alignment = 1
 
 [node name="Prompt1" type="TextureRect" parent="QTE"]
 layout_mode = 2
 texture = ExtResource("1_vlk8u")
+stretch_mode = 3
 
 [node name="Prompt2" type="TextureRect" parent="QTE"]
 layout_mode = 2
 texture = ExtResource("1_vlk8u")
+stretch_mode = 3
 
 [node name="Prompt3" type="TextureRect" parent="QTE"]
 layout_mode = 2
 texture = ExtResource("1_vlk8u")
+stretch_mode = 3
 
 [node name="Prompt4" type="TextureRect" parent="QTE"]
 layout_mode = 2
 texture = ExtResource("1_vlk8u")
+stretch_mode = 3
 
 [node name="Prompt5" type="TextureRect" parent="QTE"]
 layout_mode = 2
 texture = ExtResource("1_vlk8u")
+stretch_mode = 3
 
 [node name="Prompt6" type="TextureRect" parent="QTE"]
 layout_mode = 2
 texture = ExtResource("1_vlk8u")
+stretch_mode = 3
 
 [node name="Prompt7" type="TextureRect" parent="QTE"]
 layout_mode = 2
 texture = ExtResource("1_vlk8u")
+stretch_mode = 3
 
 [node name="Prompt8" type="TextureRect" parent="QTE"]
 layout_mode = 2
 texture = ExtResource("1_vlk8u")
+stretch_mode = 3
 
 [node name="PlacementLabel" type="Label" parent="."]
 layout_mode = 1

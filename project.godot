@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="Tanuki Snowboard"
-run/main_scene="uid://cndd3ks4vkk0t"
+run/main_scene="uid://cisxr82mdbgc8"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+PlayerManager="*res://PlayerManager.gd"
+MultiplayerInput="*res://addons/multiplayer_input/multiplayer_input.gd"
 
 [display]
 

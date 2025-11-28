@@ -1,0 +1,21 @@
+extends Control
+@onready var consoleLabel = $ConsoleLabel
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("Crouch") and event is InputEventKey:
+		if not PlayerManager.playerDevices.has(-1):
+			PlayerManager.playerDevices.append(-1)
+		else:
+			print("kb already added!!")
+func _process(delta: float) -> void:
+	consoleLabel.text = "devices: \n"+str(PlayerManager.playerDevices)
+	for i in Input.get_connected_joypads():
+		if MultiplayerInput.is_action_just_pressed(i, "Crouch"):
+			print("some input, somewhere")
+			if not PlayerManager.playerDevices.has(i):
+				PlayerManager.playerDevices.append(i)
+				print("append gamepad " + str(i))
+			else:
+				print("device already added!!")
+
+func _on_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/Courses/Course1.tscn")

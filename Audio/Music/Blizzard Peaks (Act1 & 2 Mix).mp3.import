@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c1p3trwau4co6"
+path="res://.godot/imported/Blizzard Peaks (Act1 & 2 Mix).mp3-7f36f7c42ba025d62cb60fcc38ec1668.mp3str"
+
+[deps]
+
+source_file="res://Audio/Music/Blizzard Peaks (Act1 & 2 Mix).mp3"
+dest_files=["res://.godot/imported/Blizzard Peaks (Act1 & 2 Mix).mp3-7f36f7c42ba025d62cb60fcc38ec1668.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
