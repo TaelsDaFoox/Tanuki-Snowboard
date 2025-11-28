@@ -15,6 +15,7 @@ var turnvel = 0.0
 @onready var rampArea = $RampArea
 @export var linkedUI: Control
 @export var trickBoost = 80.0
+var slopeDir := 0.0
 var extraBoost = 0.0
 var trickState = false
 func _ready() -> void:
@@ -23,8 +24,11 @@ func _ready() -> void:
 	anim.play("Board",0.25,0.0)
 func _physics_process(delta: float) -> void:
 	if is_on_floor():
+		if not (get_floor_normal().y==1.0 or rampArea.has_overlapping_areas()):
+			slopeDir=-(Vector2(get_floor_normal().x,get_floor_normal().z).angle())-(PI/2)
 		if linkedUI and linkedUI.QTEactive:
 			linkedUI.cancelQTE()
+			trickState=false
 		if Input.is_action_pressed("Crouch"):
 			anim.play("Crouch",0.25,0.0)
 			movespd = lerpf(movespd,crouchSpeed,delta*2.0)
@@ -47,15 +51,18 @@ func _physics_process(delta: float) -> void:
 		anim.seek(animturn)
 	velocity.x=-sin(rotation.y)*movespd
 	velocity.z=-cos(rotation.y)*movespd
-	turnvel=move_toward(turnvel,(Input.get_action_strength("Right")-Input.get_action_strength("Left"))*turnspeed,delta*turnlerpspeed)
+	turnvel=move_toward(turnvel,(Input.get_action_strength("Right")-Input.get_action_strength("Left"))*turnspeed,delta*(turnlerpspeed+(extraBoost/300.0)))
 	rotation.y-=turnvel
 	turnvel = lerpf(turnvel,0.0,delta*2.5)
-	rotation.y=lerp_angle(rotation.y,0.0,delta*velocity.length()*0.1)
+	rotation.y=lerp_angle(rotation.y,slopeDir,delta*velocity.length()*0.1)
 	if is_on_floor():
 		if velocity.y<0.0:
 			velocity.y=-0.0
-		model.rotation.x = -get_floor_normal().z
-		model.rotation.z = get_floor_normal().x
+		#model.rotation.x = -get_floor_normal().z
+		#model.rotation.z = get_floor_normal().x
+		var slopeAng = Vector3.UP-get_floor_normal()
+		model.global_rotation.x = slopeAng.z
+		model.global_rotation.z = slopeAng.x
 		trickState=false
 	else:
 		if trickState:

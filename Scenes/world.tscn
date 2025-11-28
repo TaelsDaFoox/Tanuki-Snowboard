@@ -29,8 +29,23 @@ linkedUI = NodePath("../GridContainer/SubViewportContainer2/RaceUI")
 use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 0.99727976, 0.07370817, 0, -0.07370817, 0.99727976, 0, -62.84899, -630.72943)
-size = Vector3(134.98071, 18.970703, 1346.0144)
+transform = Transform3D(1, 0, 0, 0, 0.99727976, 0.07370817, 0, -0.07370817, 0.99727976, 0, -38.090378, -295.74258)
+size = Vector3(134.98071, 18.970703, 674.21326)
+material = ExtResource("2_go701")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.8037738, 0.04385157, -0.5933166, 0, 0.99727976, 0.07370817, 0.594935, -0.059244696, 0.80158734, 164.46121, -82.695854, -818.8273)
+size = Vector3(134.98071, 18.970703, 674.21326)
+material = ExtResource("2_go701")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 62.08954, -80.00783, -358.7975)
+size = Vector3(56.090942, 98.510254, 76.76558)
+material = ExtResource("2_go701")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, -18.301773, -72.74582, -260.11462)
+size = Vector3(56.090942, 98.510254, 76.76558)
 material = ExtResource("2_go701")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -41,10 +56,16 @@ transform = Transform3D(0.8660253, -0.12940955, 0.48296297, -0.482963, -0.466506
 shadow_enabled = true
 
 [node name="Ramp" parent="." instance=ExtResource("4_8j60k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.554476, -58.373245)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, -9.168065, -58.373245)
 
 [node name="Ramp2" parent="." instance=ExtResource("4_8j60k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.78765, -21.421524, -216.2422)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 33.78765, -20.836033, -216.2422)
+
+[node name="Ramp4" parent="." instance=ExtResource("4_8j60k")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -14.026733, -21.567968, -293.92288)
+
+[node name="Ramp3" parent="." instance=ExtResource("4_8j60k")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 44.52045, -28.829977, -393.06006)
 
 [node name="GridContainer" type="GridContainer" parent="."]
 anchors_preset = 15
