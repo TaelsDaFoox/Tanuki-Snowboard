@@ -14,18 +14,25 @@ var turnvel = 0.0
 @onready var collider = $CollisionShape3D
 @onready var rampArea = $RampArea
 @export var linkedUI: Control
+@export var trickBoost = 80.0
+var extraBoost = 0.0
 var trickState = false
 func _ready() -> void:
 	if linkedUI:
 		linkedUI.linkedPlayer=self
+	anim.play("Board",0.25,0.0)
 func _physics_process(delta: float) -> void:
 	if is_on_floor():
+		if linkedUI and linkedUI.QTEactive:
+			linkedUI.cancelQTE()
 		if Input.is_action_pressed("Crouch"):
 			anim.play("Crouch",0.25,0.0)
 			movespd = lerpf(movespd,crouchSpeed,delta*2.0)
 		else:
 			anim.play("Board",0.25,0.0)
-			movespd = lerpf(movespd,mainSpeed,delta*2.0)
+			movespd = lerpf(movespd,mainSpeed+extraBoost,delta*2.0)
+	else:
+		movespd = lerpf(movespd,mainSpeed+extraBoost,delta*2.0)
 	if Input.is_action_just_released("Crouch") and is_on_floor():
 		anim.play("Board",0.25,0.0)
 		if rampArea.has_overlapping_areas():
@@ -59,8 +66,11 @@ func _physics_process(delta: float) -> void:
 		model.rotation.z=lerp_angle(rotation.z,0.0,delta*10)
 	collider.global_rotation=Vector3.ZERO
 	move_and_slide()
+	extraBoost=move_toward(extraBoost,0.0,delta*20)
 
 func tricked():
-	anim.play("Trick",0.1,1.0)
+	anim.play("Trick",0.1,1.5)
 	velocity.y=10.0
 	print("trick1!!")
+	extraBoost+=trickBoost
+	movespd = mainSpeed+extraBoost*1.5

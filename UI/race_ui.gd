@@ -16,6 +16,7 @@ func _ready() -> void:
 func QTEstart():
 	QTEcontainer.visible=true
 	QTEactive=true
+	QTEprogress=0
 	for i in QTElength:
 		QTEqueue.append(randi_range(0,inputNames.size()-1))
 		promptLabels[i].texture = promptTextures[QTEqueue[i]]
@@ -31,3 +32,6 @@ func _input(event: InputEvent) -> void:
 					linkedPlayer.tricked()
 		else:
 			pass #fail trick
+func cancelQTE():
+	QTEactive=false
+	QTEcontainer.visible=false
