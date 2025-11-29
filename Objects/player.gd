@@ -18,6 +18,8 @@ var turnvel = 0.0
 @export var trickBoost = 80.0
 @export var fastFallGravity = 8.0
 @onready var sfx = $SFX
+@onready var trickParticles = $TrickParticles
+@onready var snowParticles = $SnowParticles
 var boardsfx = load("res://Audio/Sfx/browniannoise.mp3")
 var crouchsfx = load("res://Audio/Sfx/pinknoise.mp3")
 var trickFailWait = 0.0
@@ -32,11 +34,13 @@ func _ready() -> void:
 		linkedUI.linkedPlayer=self
 	anim.play("Board",0.25,0.0)
 func _physics_process(delta: float) -> void:
-	print(trickState)
+	#print(trickState)
 	if linkedUI and linkedUI.QTEactive:
 		linkedUI.QTEinput(input)
 	trickFailWait = move_toward(trickFailWait,0.0,delta)
 	if is_on_floor():
+		snowParticles.emitting=true
+		snowParticles.local_coords=true
 		if not (get_floor_normal().y==1.0 or noSlopeArea.has_overlapping_areas()):
 			slopeDir=-(Vector2(get_floor_normal().x,get_floor_normal().z).angle())-(PI/2)
 		if linkedUI and linkedUI.QTEactive and not trickFailWait:
@@ -53,6 +57,8 @@ func _physics_process(delta: float) -> void:
 			anim.play("Board",0.25,0.0)
 			movespd = lerpf(movespd,mainSpeed+extraBoost,delta*2.0)
 	else:
+		snowParticles.emitting=false
+		snowParticles.local_coords=false
 		movespd = lerpf(movespd,mainSpeed+extraBoost,delta*2.0)
 	if input.is_action_just_released("Crouch") and is_on_floor():
 		anim.play("Board",0.25,0.0)
@@ -105,6 +111,7 @@ func _physics_process(delta: float) -> void:
 	#print(trickFailWait)
 
 func tricked():
+	trickParticles.emitting=true
 	trickState=false
 	anim.play("Trick",0.1,1.5)
 	velocity.y=10.0

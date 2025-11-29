@@ -316,7 +316,7 @@ transform = Transform3D(10, 0, 0, 0, 2, 0, 0, 0, 5, 701.2468, -786.98987, -4768.
 transform = Transform3D(10, 0, 0, 0, 2, 0, 0, 0, 5, 854.91254, -412.68124, -3464.434)
 
 [node name="Ramp17" parent="." instance=ExtResource("4_8j60k")]
-transform = Transform3D(10, 0, 0, 0, 2, 0, 0, 0, 5, 736.10425, -553.8364, -3874.642)
+transform = Transform3D(10, 0, 0, 0, 2, 0, 0, 0, 5, 736.10425, -554.9041, -3874.642)
 
 [node name="Ramp18" parent="." instance=ExtResource("4_8j60k")]
 transform = Transform3D(10, 0, 0, 0, 2, 0, 0, 0, 5, 891.62305, -809.91394, -4599.705)

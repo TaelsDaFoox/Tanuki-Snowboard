@@ -1,12 +1,12 @@
 [gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bsji82dofgvp5"]
 
-[ext_resource type="Texture2D" uid="uid://bsd18fon6ja74" path="res://Textures/snowChecker.png" id="1_83hke"]
+[ext_resource type="Texture2D" uid="uid://bo4li1fi7g0yg" path="res://Textures/snow2.png" id="1_83hke"]
 
 [resource]
 albedo_texture = ExtResource("1_83hke")
 metallic = 0.5
 rim = 0.27
 ao_light_affect = 1.0
-uv1_scale = Vector3(0.05, 0.05, 0.05)
+uv1_scale = Vector3(0.015, 0.015, 0.015)
 uv1_triplanar = true
 uv1_world_triplanar = true

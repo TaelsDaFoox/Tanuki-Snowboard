@@ -3,8 +3,8 @@ extends Control
 var inputNames := ["Left","Right","Up","Down","Crouch"]
 var promptTextures = [load("res://UI/Button Prompts/XboxSeriesX_Dpad_Left.png"),load("res://UI/Button Prompts/XboxSeriesX_Dpad_Right.png"),load("res://UI/Button Prompts/XboxSeriesX_Dpad_Up.png"),load("res://UI/Button Prompts/XboxSeriesX_Dpad_Down.png"),load("res://UI/Button Prompts/XboxSeriesX_A.png")]
 var emptyTex := load("res://UI/Button Prompts/empty.png")
-var dirSFX := [load("res://Audio/Sfx/tricks/left.wav"),load("res://Audio/Sfx/tricks/right.wav"),load("res://Audio/Sfx/tricks/up.wav"),load("res://Audio/Sfx/tricks/down.wav"),load("res://Audio/Sfx/tricks/left.wav")]
-var trickedSFX := [load("res://Audio/Sfx/tricks/left-f.wav"),load("res://Audio/Sfx/tricks/right-f.wav"),load("res://Audio/Sfx/tricks/up-f.wav"),load("res://Audio/Sfx/tricks/down-f.wav"),load("res://Audio/Sfx/tricks/left-f.wav")]
+#var dirSFX := [load("res://Audio/Sfx/tricks/left.wav"),load("res://Audio/Sfx/tricks/right.wav"),load("res://Audio/Sfx/tricks/up.wav"),load("res://Audio/Sfx/tricks/down.wav"),load("res://Audio/Sfx/tricks/left.wav")]
+#var trickedSFX := [load("res://Audio/Sfx/tricks/left-f.wav"),load("res://Audio/Sfx/tricks/right-f.wav"),load("res://Audio/Sfx/tricks/up-f.wav"),load("res://Audio/Sfx/tricks/down-f.wav"),load("res://Audio/Sfx/tricks/left-f.wav")]
 @onready var sfx = $SFX
 @onready var sfx2 = $SFX2
 @onready var nopesfx = $nopeSFX
@@ -21,6 +21,8 @@ func _ready() -> void:
 	QTEcontainer.visible = false
 
 func QTEstart():
+	for i in promptLabels.size():
+		promptLabels[i].visible = i<QTElength
 	sfx.pitch_scale=1.0-QTElength/10.0
 	QTEcontainer.visible=true
 	QTEactive=true
