@@ -12,6 +12,7 @@ size = Vector3(4.352539, 3.738037, 6.056885)
 size = Vector3(6.8361816, 6.3164063, 10.744141)
 
 [node name="Ramp" type="StaticBody3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
 [node name="snowboardramp" parent="." instance=ExtResource("1_pqh0i")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -2.9316897e-08, 0, -0.67069244)
