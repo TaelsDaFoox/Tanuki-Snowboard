@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cd13cn4tknk8w"]
+[gd_scene load_steps=16 format=3 uid="uid://cd13cn4tknk8w"]
 
 [ext_resource type="Material" uid="uid://bsji82dofgvp5" path="res://Materials/Snow.tres" id="1_s6hkt"]
 [ext_resource type="Script" uid="uid://daepbqqygqty6" path="res://Scenes/camera.gd" id="3_5a7ea"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ddtmob8xtdrl6" path="res://UI/RaceUI.tscn" id="5_fo5ed"]
 [ext_resource type="Script" uid="uid://dirloat7rwshx" path="res://Scenes/Courses/player_init.gd" id="6_540df"]
 [ext_resource type="Script" uid="uid://d30p27ii7dudq" path="res://Scenes/Courses/filler_bg_scroll.gd" id="6_s6hkt"]
+[ext_resource type="AudioStream" uid="uid://c1p3trwau4co6" path="res://Audio/Music/Blizzard Peaks (Act1 & 2 Mix).mp3" id="8_jdjlm"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_go701"]
 sky_top_color = Color(0.17251666, 0.15950002, 0.55, 1)
@@ -119,8 +120,8 @@ size = Vector3(156.70178, 10.860565, 1156.5757)
 material = ExtResource("1_s6hkt")
 
 [node name="CSGBox3D17" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 0.9438875, 0.33026728, 0, -0.33026728, 0.9438875, 793.45276, -665.3851, -4115.1035)
-size = Vector3(729.3649, 37.687775, 1890.5823)
+transform = Transform3D(1, 0, 0, 0, 0.9438875, 0.33026728, 0, -0.33026728, 0.9438875, 793.45276, -667.24097, -4115.528)
+size = Vector3(729.3649, 37.687775, 1888.5559)
 material = ExtResource("1_s6hkt")
 
 [node name="CSGBox3D20" type="CSGBox3D" parent="CSGCombiner3D"]
@@ -230,10 +231,10 @@ followspd = 20.0
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -2146.0
-offset_top = -1682.0
-offset_right = 2246.0
-offset_bottom = 1907.0
+offset_left = -820.0
+offset_top = -2851.0
+offset_right = 3572.0
+offset_bottom = 738.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_540df")
@@ -319,3 +320,8 @@ transform = Transform3D(10, 0, 0, 0, 2, 0, 0, 0, 5, 736.10425, -553.8364, -3874.
 
 [node name="Ramp18" parent="." instance=ExtResource("4_8j60k")]
 transform = Transform3D(10, 0, 0, 0, 2, 0, 0, 0, 5, 891.62305, -809.91394, -4599.705)
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_jdjlm")
+volume_db = -10.0
+autoplay = true

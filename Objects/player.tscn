@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://b7yesl1getc7r"]
+[gd_scene load_steps=7 format=3 uid="uid://b7yesl1getc7r"]
 
 [ext_resource type="Script" uid="uid://coml24hdpysp1" path="res://Objects/player.gd" id="1_3y5cq"]
 [ext_resource type="PackedScene" uid="uid://c1htcegl4dlvr" path="res://Models/jolt snowboard.glb" id="1_y0qk3"]
+[ext_resource type="AudioStream" uid="uid://baslth8yeoc8q" path="res://Audio/Sfx/browniannoise.mp3" id="3_2i4gt"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_y0qk3"]
 
@@ -40,3 +41,7 @@ collision_mask = 8
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NoSlopeAngle"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.87976074, -1)
 shape = SubResource("SphereShape3D_3y5cq")
+
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_2i4gt")
+volume_db = -10.0

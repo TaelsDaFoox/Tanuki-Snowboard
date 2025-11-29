@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://cisxr82mdbgc8"]
+[gd_scene load_steps=4 format=3 uid="uid://cisxr82mdbgc8"]
 
 [ext_resource type="Script" uid="uid://djmvtalrua53t" path="res://UI/join_menu.gd" id="1_o4gvc"]
+[ext_resource type="Texture2D" uid="uid://c3vimms87tjyt" path="res://Textures/fillerBG.png" id="2_l842o"]
+[ext_resource type="Script" uid="uid://d30p27ii7dudq" path="res://Scenes/Courses/filler_bg_scroll.gd" id="3_0slxv"]
 
 [node name="JoinMenu" type="Control"]
 layout_mode = 3
@@ -10,6 +12,23 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_o4gvc")
+
+[node name="FillerBG" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2196.0
+offset_top = -1794.5
+offset_right = 2196.0
+offset_bottom = 1794.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_l842o")
+stretch_mode = 1
+script = ExtResource("3_0slxv")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1

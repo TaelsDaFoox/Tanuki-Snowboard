@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://ddtmob8xtdrl6"]
+[gd_scene load_steps=7 format=3 uid="uid://ddtmob8xtdrl6"]
 
 [ext_resource type="Script" uid="uid://cx7rssjw2itil" path="res://UI/race_ui.gd" id="1_bit1n"]
 [ext_resource type="Texture2D" uid="uid://bp448n1df4bon" path="res://UI/Button Prompts/XboxSeriesX_A.png" id="1_vlk8u"]
+[ext_resource type="AudioStream" uid="uid://2h7nqbvnb8cu" path="res://Audio/Sfx/KonamiHit.mp3" id="3_0dniu"]
+[ext_resource type="AudioStream" uid="uid://ckmvc40bel1oe" path="res://Audio/Sfx/idk2.mp3" id="4_ls6kt"]
+[ext_resource type="AudioStream" uid="uid://o7qr6te3chlg" path="res://Audio/Sfx/nope.mp3" id="5_6sn7h"]
+[ext_resource type="Texture2D" uid="uid://bntjwnvbcn4vx" path="res://UI/Button Prompts/nope.png" id="6_uedqn"]
 
 [node name="RaceUI" type="Control"]
 layout_mode = 3
@@ -81,3 +85,29 @@ theme_override_font_sizes/font_size = 98
 text = "1st"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_0dniu")
+volume_db = -5.0
+
+[node name="SFX2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ls6kt")
+volume_db = -5.0
+
+[node name="nopeSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_6sn7h")
+volume_db = -8.0
+
+[node name="nopeTimer" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
+[node name="nope" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 54.0
+offset_top = 274.0
+offset_right = 178.0
+offset_bottom = 398.0
+size_flags_horizontal = 4
+texture = ExtResource("6_uedqn")

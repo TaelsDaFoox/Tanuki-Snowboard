@@ -17,6 +17,9 @@ var turnvel = 0.0
 @export var linkedUI: Control
 @export var trickBoost = 80.0
 @export var fastFallGravity = 8.0
+@onready var sfx = $SFX
+var boardsfx = load("res://Audio/Sfx/browniannoise.mp3")
+var crouchsfx = load("res://Audio/Sfx/pinknoise.mp3")
 var trickFailWait = 0.0
 var slopeDir := 0.0
 var extraBoost = 0.0
@@ -40,9 +43,13 @@ func _physics_process(delta: float) -> void:
 			linkedUI.cancelQTE()
 			trickState=false
 		if input.is_action_pressed("Crouch"):
+			if not sfx.stream==crouchsfx:
+				sfx.stream=crouchsfx
 			anim.play("Crouch",0.25,0.0)
 			movespd = lerpf(movespd,crouchSpeed,delta*2.0)
 		else:
+			if not sfx.stream==boardsfx:
+				sfx.stream=boardsfx
 			anim.play("Board",0.25,0.0)
 			movespd = lerpf(movespd,mainSpeed+extraBoost,delta*2.0)
 	else:
@@ -88,9 +95,13 @@ func _physics_process(delta: float) -> void:
 	collider.global_rotation=Vector3.ZERO
 	move_and_slide()
 	if is_on_floor():
+		sfx.volume_db=-10-(5*(PlayerManager.playerDevices.size()-1))
+		if not sfx.playing:
+			sfx.playing=true
 		extraBoost=move_toward(extraBoost,0.0,delta*40)
 	else:
-		extraBoost=move_toward(extraBoost,0.0,delta*7)
+		sfx.playing=false
+		extraBoost=move_toward(extraBoost,0.0,delta*5)
 	#print(trickFailWait)
 
 func tricked():

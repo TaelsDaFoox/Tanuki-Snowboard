@@ -12,8 +12,8 @@ dest_files=["res://.godot/imported/Blizzard Peaks (Act1 & 2 Mix).mp3-7f36f7c42ba
 
 [params]
 
-loop=false
-loop_offset=0
-bpm=0
+loop=true
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4
