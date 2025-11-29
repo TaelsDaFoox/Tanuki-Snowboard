@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://cd13cn4tknk8w"]
+[gd_scene load_steps=15 format=3 uid="uid://cd13cn4tknk8w"]
 
 [ext_resource type="Material" uid="uid://di16i85s8n3gf" path="res://Materials/CheckerGrass.tres" id="2_go701"]
 [ext_resource type="Script" uid="uid://daepbqqygqty6" path="res://Scenes/camera.gd" id="3_5a7ea"]
 [ext_resource type="PackedScene" uid="uid://hkot4a21y65c" path="res://Objects/ramp.tscn" id="4_8j60k"]
+[ext_resource type="Texture2D" uid="uid://c3vimms87tjyt" path="res://Textures/fillerBG.png" id="5_540df"]
 [ext_resource type="PackedScene" uid="uid://ddtmob8xtdrl6" path="res://UI/RaceUI.tscn" id="5_fo5ed"]
 [ext_resource type="Script" uid="uid://dirloat7rwshx" path="res://Scenes/Courses/player_init.gd" id="6_540df"]
+[ext_resource type="Script" uid="uid://d30p27ii7dudq" path="res://Scenes/Courses/filler_bg_scroll.gd" id="6_s6hkt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_go701"]
 
@@ -15,8 +17,17 @@ sky_material = SubResource("ProceduralSkyMaterial_go701")
 background_mode = 2
 sky = SubResource("Sky_5a7ea")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_tjfqf"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_540df"]
 viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_s6hkt"]
+viewport_path = NodePath("SubViewport2")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_jdjlm"]
+viewport_path = NodePath("SubViewport3")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_tjfqf"]
+viewport_path = NodePath("SubViewport4")
 
 [node name="World" type="Node3D"]
 
@@ -119,6 +130,60 @@ followspd = 20.0
 
 [node name="RaceUI" parent="SubViewport" instance=ExtResource("5_fo5ed")]
 
+[node name="SubViewport2" type="SubViewport" parent="."]
+handle_input_locally = false
+oversampling = false
+oversampling_override = 16.0
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport2"]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.49999997, 0, -0.49999997, 0.8660254, 0, 6.5402436, 5.2124605)
+script = ExtResource("3_5a7ea")
+followspd = 20.0
+
+[node name="RaceUI" parent="SubViewport2" instance=ExtResource("5_fo5ed")]
+
+[node name="SubViewport3" type="SubViewport" parent="."]
+handle_input_locally = false
+oversampling = false
+oversampling_override = 16.0
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport3"]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.49999997, 0, -0.49999997, 0.8660254, 0, 6.5402436, 5.2124605)
+script = ExtResource("3_5a7ea")
+followspd = 20.0
+
+[node name="RaceUI" parent="SubViewport3" instance=ExtResource("5_fo5ed")]
+
+[node name="SubViewport4" type="SubViewport" parent="."]
+handle_input_locally = false
+oversampling = false
+oversampling_override = 16.0
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport4"]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.49999997, 0, -0.49999997, 0.8660254, 0, 6.5402436, 5.2124605)
+script = ExtResource("3_5a7ea")
+followspd = 20.0
+
+[node name="RaceUI" parent="SubViewport4" instance=ExtResource("5_fo5ed")]
+
+[node name="FillerBG" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 2246.0
+offset_bottom = 1907.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_540df")
+stretch_mode = 1
+script = ExtResource("6_s6hkt")
+
 [node name="GridContainer" type="GridContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
@@ -133,21 +198,21 @@ columns = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource("ViewportTexture_tjfqf")
+texture = SubResource("ViewportTexture_540df")
 expand_mode = 1
 
 [node name="SplitscreenRect2" type="TextureRect" parent="GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource("ViewportTexture_tjfqf")
+texture = SubResource("ViewportTexture_s6hkt")
 expand_mode = 1
 
 [node name="SplitscreenRect3" type="TextureRect" parent="GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource("ViewportTexture_tjfqf")
+texture = SubResource("ViewportTexture_jdjlm")
 expand_mode = 1
 
 [node name="SplitscreenRect4" type="TextureRect" parent="GridContainer"]
