@@ -13,6 +13,7 @@ var turnvel = 0.0
 @onready var model = $Model
 @onready var collider = $CollisionShape3D
 @onready var rampArea = $RampArea
+@onready var noSlopeArea = $NoSlopeAngle
 @export var linkedUI: Control
 @export var trickBoost = 80.0
 var trickFailWait = 0.0
@@ -31,7 +32,7 @@ func _physics_process(delta: float) -> void:
 		linkedUI.QTEinput(input)
 	trickFailWait = move_toward(trickFailWait,0.0,delta)
 	if is_on_floor():
-		if not (get_floor_normal().y==1.0 or rampArea.has_overlapping_areas()):
+		if not (get_floor_normal().y==1.0 or noSlopeArea.has_overlapping_areas()):
 			slopeDir=-(Vector2(get_floor_normal().x,get_floor_normal().z).angle())-(PI/2)
 		if linkedUI and linkedUI.QTEactive and not trickFailWait:
 			linkedUI.cancelQTE()

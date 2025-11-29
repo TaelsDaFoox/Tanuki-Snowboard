@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://b7yesl1getc7r"]
+[gd_scene load_steps=6 format=3 uid="uid://b7yesl1getc7r"]
 
 [ext_resource type="Script" uid="uid://coml24hdpysp1" path="res://Objects/player.gd" id="1_3y5cq"]
 [ext_resource type="PackedScene" uid="uid://c1htcegl4dlvr" path="res://Models/jolt snowboard.glb" id="1_y0qk3"]
@@ -7,6 +7,9 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3y5cq"]
 size = Vector3(1.3212891, 0.7595215, 2.4794922)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_3y5cq"]
+radius = 2.645942
 
 [node name="Player" type="CharacterBody3D"]
 floor_constant_speed = true
@@ -29,3 +32,11 @@ collision_mask = 4
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RampArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.87976074, -1)
 shape = SubResource("BoxShape3D_3y5cq")
+
+[node name="NoSlopeAngle" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NoSlopeAngle"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.87976074, -1)
+shape = SubResource("SphereShape3D_3y5cq")

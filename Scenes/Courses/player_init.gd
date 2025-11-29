@@ -19,3 +19,6 @@ func _ready() -> void:
 	for i in 4:
 		screens[i].visible = i<PlayerManager.playerDevices.size()
 	screenContainer.columns=ceil(PlayerManager.playerDevices.size()/2.0)
+	if PlayerManager.playerDevices.size()==2:
+		$"../SubViewport".size.x=1152*2
+		$"../SubViewport2".size.x=1152*2
