@@ -6,13 +6,13 @@
 points = PackedVector3Array(-2, -0.05, -3.1, -2, -0.05, 3, 2, -0.05, 3, 2, -0.05, -3.1, 2, 2.945, 3, -2, 2.945, 3)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pqh0i"]
-size = Vector3(2.8010254, 7.3567505, 9.097717)
+size = Vector3(2.8010254, 7.3567505, 11.602081)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0im7m"]
 size = Vector3(6.8361816, 6.3164063, 10.744141)
 
 [node name="Ramp" type="StaticBody3D"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
 
 [node name="snowboardramp" parent="." instance=ExtResource("1_pqh0i")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -2.9316897e-08, 0, -0.67069244)
@@ -26,7 +26,7 @@ collision_layer = 4
 collision_mask = 0
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8093567, -0.14639282)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8093567, -1.3985748)
 shape = SubResource("BoxShape3D_pqh0i")
 
 [node name="Area3D2" type="Area3D" parent="."]

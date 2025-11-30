@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d4anfohra318m"
+path="res://.godot/imported/Get Edgy - Sonic Rush [OST].mp3-5131e8cc2b7ecad6d02b0c825088115d.mp3str"
+
+[deps]
+
+source_file="res://Audio/Music/Get Edgy - Sonic Rush [OST].mp3"
+dest_files=["res://.godot/imported/Get Edgy - Sonic Rush [OST].mp3-5131e8cc2b7ecad6d02b0c825088115d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

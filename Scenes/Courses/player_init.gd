@@ -8,7 +8,11 @@ var player = load("res://Objects/player.tscn")
 @onready var ui = $"../SubViewport/RaceUI"
 @onready var screen1 = $"../GridContainer/SplitscreenRect1"
 @onready var screenContainer = $"../GridContainer"
+@onready var music = $"../Music"
+var songs = [load("res://Audio/Music/Blizzard Peaks (Act1 & 2 Mix).mp3"),load("res://Audio/Music/ICECAP3.mp3"),load("res://Audio/Music/stuck.mp3"),load("res://Audio/Music/Sonic The Hedgehog 3 - IceCap Zone (Dumpster Fired).mp3"),load("res://Audio/Music/Get Edgy - Sonic Rush [OST].mp3")]
 func _ready() -> void:
+	music.stream = songs[randi_range(0,songs.size()-1)]
+	music.play()
 	for i in PlayerManager.playerDevices.size():
 		var spawnplr = player.instantiate()
 		spawnplr.position = spawnPos+Vector3(2.0,0.0,0.0)*i

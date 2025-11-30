@@ -20,6 +20,7 @@ var turnvel = 0.0
 @onready var sfx = $SFX
 @onready var trickParticles = $TrickParticles
 @onready var snowParticles = $SnowParticles
+@onready var CoyoteTimer = $CoyoteTimer
 var boardsfx = load("res://Audio/Sfx/browniannoise.mp3")
 var crouchsfx = load("res://Audio/Sfx/pinknoise.mp3")
 var trickFailWait = 0.0
@@ -27,6 +28,7 @@ var slopeDir := 0.0
 var extraBoost = 0.0
 var trickState = false
 var input
+var prevGrounded := false
 #var playerNum = 0
 func _ready() -> void:
 	#input = DeviceInput.new(-1)
@@ -57,10 +59,13 @@ func _physics_process(delta: float) -> void:
 			anim.play("Board",0.25,0.0)
 			movespd = lerpf(movespd,mainSpeed+extraBoost,delta*2.0)
 	else:
+		if prevGrounded:
+			CoyoteTimer.start()
 		snowParticles.emitting=false
 		snowParticles.local_coords=false
 		movespd = lerpf(movespd,mainSpeed+extraBoost,delta*2.0)
-	if input.is_action_just_released("Crouch") and is_on_floor():
+	#print(CoyoteTimer.time_left)
+	if input.is_action_just_released("Crouch") and (is_on_floor() or not CoyoteTimer.is_stopped()):
 		anim.play("Board",0.25,0.0)
 		if rampArea.has_overlapping_areas():
 			velocity.y=50.0
@@ -107,8 +112,9 @@ func _physics_process(delta: float) -> void:
 		extraBoost=move_toward(extraBoost,0.0,delta*40)
 	else:
 		sfx.playing=false
-		extraBoost=move_toward(extraBoost,0.0,delta*5)
+		extraBoost=move_toward(extraBoost,0.0,delta*3)
 	#print(trickFailWait)
+	prevGrounded=is_on_floor()
 
 func tricked():
 	trickParticles.emitting=true

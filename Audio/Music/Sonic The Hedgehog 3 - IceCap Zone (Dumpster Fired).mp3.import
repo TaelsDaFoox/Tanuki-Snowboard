@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bjqiuq1emm83l"
+path="res://.godot/imported/Sonic The Hedgehog 3 - IceCap Zone (Dumpster Fired).mp3-5a3432e1f94f919af0f277fed0d82db2.mp3str"
+
+[deps]
+
+source_file="res://Audio/Music/Sonic The Hedgehog 3 - IceCap Zone (Dumpster Fired).mp3"
+dest_files=["res://.godot/imported/Sonic The Hedgehog 3 - IceCap Zone (Dumpster Fired).mp3-5a3432e1f94f919af0f277fed0d82db2.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

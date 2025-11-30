@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b7yesl1getc7r"]
+[gd_scene load_steps=10 format=3 uid="uid://br2sfenye47b0"]
 
 [ext_resource type="Script" uid="uid://coml24hdpysp1" path="res://Objects/player.gd" id="1_3y5cq"]
 [ext_resource type="PackedScene" uid="uid://c1htcegl4dlvr" path="res://Models/jolt snowboard.glb" id="1_y0qk3"]
@@ -9,7 +9,7 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_y0qk3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3y5cq"]
-size = Vector3(1.3212891, 0.7595215, 2.4794922)
+size = Vector3(1.3212891, 3.282959, 2.4794922)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_3y5cq"]
 radius = 2.645942
@@ -40,7 +40,7 @@ collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RampArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.87976074, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25988984, -1)
 shape = SubResource("BoxShape3D_3y5cq")
 
 [node name="NoSlopeAngle" type="Area3D" parent="."]
@@ -62,6 +62,7 @@ local_coords = true
 
 [node name="SnowParticles" type="CPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8890095, 0.16153228)
+emitting = false
 amount = 200
 lifetime = 0.25
 local_coords = true
@@ -73,3 +74,7 @@ spread = 26.0
 gravity = Vector3(0, -10, 0)
 initial_velocity_min = 8.0
 initial_velocity_max = 20.0
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+wait_time = 0.15
+one_shot = true
