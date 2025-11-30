@@ -56,7 +56,7 @@ func _physics_process(delta: float) -> void:
 		if input.is_action_pressed("Crouch"):
 			if not sfx.stream==crouchsfx:
 				sfx.stream=crouchsfx
-			anim.play("Crouch",0.25,0.0)
+			anim.play("Crouch",0.1,0.0)
 			anim.seek(0.833+clampf(-rotation.y,-0.83,0.83))
 			movespd = lerpf(movespd,crouchSpeed,delta*2.0)
 		else:
@@ -89,10 +89,10 @@ func _physics_process(delta: float) -> void:
 		anim.seek(0.833+clampf(-rotation.y,-0.83,0.83))
 	velocity.x=-sin(rotation.y)*movespd
 	velocity.z=-cos(rotation.y)*movespd
-	turnvel=move_toward(turnvel,(input.get_action_strength("Right")-input.get_action_strength("Left"))*turnspeed,delta*(turnlerpspeed+(extraBoost/300.0)))
+	turnvel=move_toward(turnvel,(input.get_action_strength("Right")-input.get_action_strength("Left"))*turnspeed,delta*(turnlerpspeed))
 	rotation.y-=turnvel
 	turnvel = lerpf(turnvel,0.0,delta*2.5)
-	rotation.y=lerp_angle(rotation.y,slopeDir,delta*velocity.length()*0.1)
+	rotation.y=lerp_angle(rotation.y,slopeDir,delta*(velocity.length()-extraBoost)*0.1)
 	if is_on_floor():
 		if velocity.y<0.0:
 			velocity.y=-0.0

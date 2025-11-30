@@ -24,6 +24,8 @@ rings = 1
 floor_constant_speed = true
 floor_snap_length = 2.0
 script = ExtResource("1_3y5cq")
+turnspeed = 4.0
+turnlerpspeed = 0.4
 mainSpeed = 80.0
 maxturnspd = 3.0
 

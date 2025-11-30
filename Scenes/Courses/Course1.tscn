@@ -175,8 +175,8 @@ size = Vector3(863.5199, 179.69151, 4394.3604)
 material = ExtResource("1_s6hkt")
 
 [node name="CSGBox3D42" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(-0.03179449, -0.06876408, 0.99712616, -6.170012e-09, 0.9976306, 0.06879886, -0.99949443, 0.0021874262, -0.031719107, -7583.006, -2879.8694, -11213.733)
-size = Vector3(1193.5059, 179.69151, 4394.3604)
+transform = Transform3D(-0.03179449, -0.06876408, 0.99712616, -6.170012e-09, 0.9976306, 0.06879886, -0.99949443, 0.0021874262, -0.031719107, -7562.341, -3179.6816, -11214.391)
+size = Vector3(1193.5059, 780.7403, 4394.3604)
 material = ExtResource("1_s6hkt")
 
 [node name="CSGBox3D41" type="CSGBox3D" parent="CSGCombiner3D"]

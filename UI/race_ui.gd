@@ -16,6 +16,7 @@ var QTEactive := false
 @onready var nopeTimer = $nopeTimer
 @onready var nopeX = $nope
 var linkedPlayer: CharacterBody3D
+var awesometext = ["GROOVY!","THAT'S IT!","LET'S MAKE IT!!","WON'T STOP!","FUNKY!","LET'S GO!","DON'T BLINK","MOVE IT!!","ONLY FORWARDS","DON'T STOP NOW"]
 
 func _ready() -> void:
 	QTEcontainer.visible = false
