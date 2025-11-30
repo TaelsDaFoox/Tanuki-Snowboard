@@ -21,6 +21,7 @@ var turnvel = 0.0
 @onready var trickParticles = $TrickParticles
 @onready var snowParticles = $SnowParticles
 @onready var CoyoteTimer = $CoyoteTimer
+@onready var oneSFX = $OneshotSFX
 var playernum: int
 var boardsfx = load("res://Audio/Sfx/browniannoise.mp3")
 var crouchsfx = load("res://Audio/Sfx/pinknoise.mp3")
@@ -76,6 +77,7 @@ func _physics_process(delta: float) -> void:
 	#print(CoyoteTimer.time_left)
 	if input.is_action_just_released("Crouch") and (is_on_floor() or not CoyoteTimer.is_stopped() or rampArea.has_overlapping_areas()):
 		anim.play("Board",0.25,0.0)
+		oneSFX.play()
 		if rampArea.has_overlapping_areas() and not trickState:
 			velocity.y=50.0
 			trickState=true
