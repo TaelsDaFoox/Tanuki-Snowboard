@@ -78,7 +78,7 @@ Crouch={
 
 [physics]
 
-common/max_physics_steps_per_frame=32
+common/max_physics_steps_per_frame=64
 common/physics_jitter_fix=2.0
 
 [rendering]

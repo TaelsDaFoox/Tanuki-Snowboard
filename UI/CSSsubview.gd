@@ -6,7 +6,7 @@ extends SubViewport
 var prevchar = -1
 func _ready() -> void:
 	anim.play("CharSelect")
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if not prevchar == PlayerManager.playerChars[playerNum] and PlayerManager.playerChars[playerNum]<=PlayerManager.charModels.size()-1:
 		prevchar = PlayerManager.playerChars[playerNum]
 		if model:
