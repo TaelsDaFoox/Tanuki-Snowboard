@@ -1,19 +1,29 @@
-[gd_scene load_steps=16 format=3 uid="uid://cisxr82mdbgc8"]
+[gd_scene load_steps=20 format=3 uid="uid://cisxr82mdbgc8"]
 
 [ext_resource type="Script" uid="uid://djmvtalrua53t" path="res://UI/join_menu.gd" id="1_o4gvc"]
 [ext_resource type="Texture2D" uid="uid://c3vimms87tjyt" path="res://Textures/fillerBG.png" id="2_l842o"]
 [ext_resource type="Script" uid="uid://d30p27ii7dudq" path="res://Scenes/Courses/filler_bg_scroll.gd" id="3_0slxv"]
 [ext_resource type="Script" uid="uid://2sy50bk3gxw3" path="res://UI/CSSsubview.gd" id="4_qhe80"]
-[ext_resource type="PackedScene" uid="uid://c1htcegl4dlvr" path="res://Models/jolt snowboard.glb" id="5_v6bfk"]
 [ext_resource type="Texture2D" uid="uid://smmvjfqkvbwm" path="res://Textures/Character Icons/jolt css.png" id="6_v6bfk"]
+[ext_resource type="PackedScene" uid="uid://v0n446d7hxhf" path="res://Models/Characters/Jolt.tscn" id="6_x35vu"]
 [ext_resource type="Texture2D" uid="uid://blff5mgl0qwlg" path="res://Textures/CssCursorP1.png" id="7_csbn6"]
+[ext_resource type="Texture2D" uid="uid://h5d5pw5lxlkp" path="res://Textures/Character Icons/sapph css.png" id="7_x35vu"]
 [ext_resource type="Texture2D" uid="uid://w1r2egnw3it" path="res://Textures/CssCursorP2.png" id="8_efvf7"]
 [ext_resource type="Texture2D" uid="uid://bmf1mg0hcnj21" path="res://Textures/CssCursorP3.png" id="9_27h71"]
 [ext_resource type="Texture2D" uid="uid://bak3gdbvf32n5" path="res://Textures/CssCursorP4.png" id="10_x35vu"]
 [ext_resource type="AudioStream" uid="uid://be5iedl0ctci1" path="res://Audio/Music/stuck.mp3" id="11_27h71"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_csbn6"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_27h71"]
 viewport_path = NodePath("SubViewport1")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_x35vu"]
+viewport_path = NodePath("SubViewport2")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_kkpwc"]
+viewport_path = NodePath("SubViewport3")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_csbn6"]
+viewport_path = NodePath("SubViewport4")
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qhe80"]
 sky_top_color = Color(0.17251666, 0.15950002, 0.55, 1)
@@ -90,46 +100,61 @@ size = Vector2i(256, 256)
 script = ExtResource("4_qhe80")
 
 [node name="Camera3D" type="Camera3D" parent="SubViewport1"]
-transform = Transform3D(0.7800701, 0.119945064, -0.6140878, 7.0574324e-09, 0.9814536, 0.19169982, 0.6256922, -0.14953929, 0.76560265, -3.654186, 1.4845127, 5.2296968)
+transform = Transform3D(-0.84946924, -0.10114816, 0.5178524, -2.3314044e-09, 0.98145366, 0.19169982, -0.52763826, 0.1628431, -0.83371466, 2.8491309, 1.2411065, -3.5951166)
 fov = 50.0
 
-[node name="Model" parent="SubViewport1" instance=ExtResource("5_v6bfk")]
+[node name="Model" parent="SubViewport1" instance=ExtResource("6_x35vu")]
+
+[node name="spawnPos" type="Node3D" parent="SubViewport1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.325, 2)
 
 [node name="SubViewport2" type="SubViewport" parent="."]
 transparent_bg = true
 size = Vector2i(256, 256)
 script = ExtResource("4_qhe80")
+playerNum = 1
 
 [node name="Camera3D" type="Camera3D" parent="SubViewport2"]
-transform = Transform3D(0.7800701, 0.119945064, -0.6140878, 7.0574324e-09, 0.9814536, 0.19169982, 0.6256922, -0.14953929, 0.76560265, 10.345814, 1.4845127, 5.2296968)
+transform = Transform3D(-0.84946924, -0.10114816, 0.5178524, -2.3314044e-09, 0.98145366, 0.19169982, -0.52763826, 0.1628431, -0.83371466, -3.5940855, 1.241107, -11.14735)
 fov = 50.0
 
-[node name="Model" parent="SubViewport2" instance=ExtResource("5_v6bfk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 0)
+[node name="Model" parent="SubViewport2" instance=ExtResource("6_x35vu")]
+transform = Transform3D(-0.54499996, 0, 8.229271e-08, 0, 0.54499996, 0, -8.229271e-08, 0, -0.54499996, -6.4432163, -0.3246169, -8.552234)
+
+[node name="spawnPos" type="Node3D" parent="SubViewport2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.4432163, -0.3249995, -5.5522337)
 
 [node name="SubViewport3" type="SubViewport" parent="."]
 transparent_bg = true
 size = Vector2i(256, 256)
 script = ExtResource("4_qhe80")
+playerNum = 2
 
 [node name="Camera3D" type="Camera3D" parent="SubViewport3"]
-transform = Transform3D(0.7800701, 0.119945064, -0.6140878, 7.0574324e-09, 0.9814536, 0.19169982, 0.6256922, -0.14953929, 0.76560265, 23.345814, 1.4845127, 5.2296968)
+transform = Transform3D(-0.84946924, -0.10114816, 0.5178524, -2.3314044e-09, 0.98145366, 0.19169982, -0.52763826, 0.1628431, -0.83371466, -17.967623, 1.2411075, -27.128788)
 fov = 50.0
 
-[node name="Model" parent="SubViewport3" instance=ExtResource("5_v6bfk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27, 0, 0)
+[node name="Model" parent="SubViewport3" instance=ExtResource("6_x35vu")]
+transform = Transform3D(-0.54499996, 0, 8.229271e-08, 0, 0.54499996, 0, -8.229271e-08, 0, -0.54499996, -20.816753, -0.32461643, -24.53367)
+
+[node name="spawnPos" type="Node3D" parent="SubViewport3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.816753, -0.32499903, -21.53367)
 
 [node name="SubViewport4" type="SubViewport" parent="."]
 transparent_bg = true
 size = Vector2i(256, 256)
 script = ExtResource("4_qhe80")
+playerNum = 3
 
 [node name="Camera3D" type="Camera3D" parent="SubViewport4"]
-transform = Transform3D(0.7800701, 0.119945064, -0.6140878, 7.0574324e-09, 0.9814536, 0.19169982, 0.6256922, -0.14953929, 0.76560265, 37.345814, 1.4845127, 5.2296968)
+transform = Transform3D(-0.84946924, -0.10114816, 0.5178524, -2.3314044e-09, 0.98145366, 0.19169982, -0.52763826, 0.1628431, -0.83371466, -35.74235, 1.2411046, -44.66586)
 fov = 50.0
 
-[node name="Model" parent="SubViewport4" instance=ExtResource("5_v6bfk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41, 0, 0)
+[node name="Model" parent="SubViewport4" instance=ExtResource("6_x35vu")]
+transform = Transform3D(-0.54499996, 0, 8.229271e-08, 0, 0.54499996, 0, -8.229271e-08, 0, -0.54499996, -38.591484, -0.3246193, -42.070744)
+
+[node name="spawnPos" type="Node3D" parent="SubViewport4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.591484, -0.3250019, -39.070744)
 
 [node name="PlayerRect1" type="TextureRect" parent="."]
 texture_filter = 1
@@ -138,7 +163,7 @@ offset_left = 15.0
 offset_top = 16.0
 offset_right = 271.0
 offset_bottom = 272.0
-texture = SubResource("ViewportTexture_csbn6")
+texture = SubResource("ViewportTexture_27h71")
 
 [node name="PlayerRect2" type="TextureRect" parent="."]
 texture_filter = 1
@@ -151,7 +176,7 @@ offset_top = 16.0
 offset_right = -12.0
 offset_bottom = 272.0
 grow_horizontal = 0
-texture = SubResource("ViewportTexture_csbn6")
+texture = SubResource("ViewportTexture_x35vu")
 
 [node name="PlayerRect3" type="TextureRect" parent="."]
 texture_filter = 1
@@ -164,7 +189,7 @@ offset_top = -271.0
 offset_right = 271.0
 offset_bottom = -15.0
 grow_vertical = 0
-texture = SubResource("ViewportTexture_csbn6")
+texture = SubResource("ViewportTexture_kkpwc")
 
 [node name="PlayerRect4" type="TextureRect" parent="."]
 texture_filter = 1
@@ -186,7 +211,7 @@ texture = SubResource("ViewportTexture_csbn6")
 environment = SubResource("Environment_v6bfk")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
-transform = Transform3D(-0.78283274, -0.5532117, -0.2848328, -0.11521069, -0.32097575, 0.9400538, -0.6114731, 0.7687207, 0.18753456, 0, 3.2991993, 0)
+transform = Transform3D(0.87280387, -0.48455507, -0.05847978, -0.11521066, -0.32097575, 0.94005394, -0.47427833, -0.8137451, -0.33597475, 0.059451103, 3.2686012, 4.7683716e-07)
 shadow_enabled = true
 
 [node name="CharacterIcons" type="GridContainer" parent="."]
@@ -230,7 +255,7 @@ texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 5
-texture = ExtResource("6_v6bfk")
+texture = ExtResource("7_x35vu")
 
 [node name="CharIcon5" type="TextureRect" parent="CharacterIcons"]
 texture_filter = 1

@@ -13,6 +13,8 @@ func _input(event: InputEvent) -> void:
 		if MultiplayerInput.is_action_just_pressed(PlayerManager.playerDevices[i],"Up"):
 			PlayerManager.playerChars[i]-=4
 		PlayerManager.playerChars[i] = fmod(PlayerManager.playerChars[i],$CharacterIcons.get_child_count())
+		if PlayerManager.playerChars[i]<0:
+			PlayerManager.playerChars[i]=$CharacterIcons.get_child_count()-1
 			
 	if event.is_action_pressed("Crouch") and event is InputEventKey:
 		if not PlayerManager.playerDevices.has(-1):

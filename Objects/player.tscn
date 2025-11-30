@@ -1,7 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://br2sfenye47b0"]
+[gd_scene load_steps=9 format=3 uid="uid://br2sfenye47b0"]
 
 [ext_resource type="Script" uid="uid://coml24hdpysp1" path="res://Objects/player.gd" id="1_3y5cq"]
-[ext_resource type="PackedScene" uid="uid://c1htcegl4dlvr" path="res://Models/jolt snowboard.glb" id="1_y0qk3"]
 [ext_resource type="AudioStream" uid="uid://baslth8yeoc8q" path="res://Audio/Sfx/browniannoise.mp3" id="3_2i4gt"]
 [ext_resource type="PackedScene" uid="uid://cupepal8eibqd" path="res://collect_particle.tscn" id="4_0ad8t"]
 [ext_resource type="Material" uid="uid://bsji82dofgvp5" path="res://Materials/Snow.tres" id="5_x20fu"]
@@ -27,9 +26,6 @@ floor_snap_length = 2.0
 script = ExtResource("1_3y5cq")
 mainSpeed = 80.0
 maxturnspd = 3.0
-
-[node name="Model" parent="." instance=ExtResource("1_y0qk3")]
-transform = Transform3D(-0.54499996, 0, 8.229271e-08, 0, 0.54499996, 0, -8.229271e-08, 0, -0.54499996, 0, -0.3246174, -1)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
@@ -74,6 +70,8 @@ spread = 26.0
 gravity = Vector3(0, -10, 0)
 initial_velocity_min = 8.0
 initial_velocity_max = 20.0
+scale_amount_min = 2.0
+scale_amount_max = 2.0
 
 [node name="CoyoteTimer" type="Timer" parent="."]
 wait_time = 0.15

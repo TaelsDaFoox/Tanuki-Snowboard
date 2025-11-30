@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bl0qk2nmufeog"]
+
+[ext_resource type="Texture2D" uid="uid://u5fjotlo3qis" path="res://Textures/Jolt Alts/Tammy.png" id="1_loeny"]
+
+[resource]
+albedo_texture = ExtResource("1_loeny")
+metallic_specular = 0.0
+texture_filter = 0

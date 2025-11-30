@@ -6,11 +6,11 @@ var turnvel = 0.0
 @export var jumpHeight = 15.0
 @export var mainSpeed = 50.0
 @export var crouchSpeed = 30.0
-@onready var anim = $Model/AnimationPlayer
+@onready var anim# = $ModelTemp/AnimationPlayer
 @export var maxturnspd = 2.0
 @export var gravity := 1.0
 @export var trickGravity :=0.8
-@onready var model = $Model
+@onready var model# = $ModelTemp
 @onready var collider = $CollisionShape3D
 @onready var rampArea = $RampArea
 @onready var noSlopeArea = $NoSlopeAngle
@@ -21,6 +21,7 @@ var turnvel = 0.0
 @onready var trickParticles = $TrickParticles
 @onready var snowParticles = $SnowParticles
 @onready var CoyoteTimer = $CoyoteTimer
+var playernum: int
 var boardsfx = load("res://Audio/Sfx/browniannoise.mp3")
 var crouchsfx = load("res://Audio/Sfx/pinknoise.mp3")
 var trickFailWait = 0.0
@@ -29,12 +30,16 @@ var extraBoost = 0.0
 var trickState = false
 var input
 var prevGrounded := false
-#var playerNum = 0
+var playerNum
 func _ready() -> void:
+	model = PlayerManager.charModels[PlayerManager.playerChars[playerNum]].instantiate()
+	add_child(model)
+	anim=model.get_node("AnimationPlayer")
 	#input = DeviceInput.new(-1)
 	if linkedUI:
 		linkedUI.linkedPlayer=self
 	anim.play("Board",0.25,0.0)
+	anim.seek(0.833+clampf(-rotation.y,-0.83,0.83))
 func _physics_process(delta: float) -> void:
 	#print(trickState)
 	if linkedUI and linkedUI.QTEactive:
@@ -52,11 +57,13 @@ func _physics_process(delta: float) -> void:
 			if not sfx.stream==crouchsfx:
 				sfx.stream=crouchsfx
 			anim.play("Crouch",0.25,0.0)
+			anim.seek(0.833+clampf(-rotation.y,-0.83,0.83))
 			movespd = lerpf(movespd,crouchSpeed,delta*2.0)
 		else:
 			if not sfx.stream==boardsfx:
 				sfx.stream=boardsfx
 			anim.play("Board",0.25,0.0)
+			anim.seek(0.833+clampf(-rotation.y,-0.83,0.83))
 			movespd = lerpf(movespd,mainSpeed+extraBoost,delta*2.0)
 	else:
 		if trickState:
@@ -67,9 +74,9 @@ func _physics_process(delta: float) -> void:
 		snowParticles.local_coords=false
 		movespd = lerpf(movespd,mainSpeed+extraBoost,delta*2.0)
 	#print(CoyoteTimer.time_left)
-	if input.is_action_just_released("Crouch") and (is_on_floor() or not CoyoteTimer.is_stopped()):
+	if input.is_action_just_released("Crouch") and (is_on_floor() or not CoyoteTimer.is_stopped() or rampArea.has_overlapping_areas()):
 		anim.play("Board",0.25,0.0)
-		if rampArea.has_overlapping_areas():
+		if rampArea.has_overlapping_areas() and not trickState:
 			velocity.y=50.0
 			trickState=true
 			if linkedUI:
@@ -79,8 +86,7 @@ func _physics_process(delta: float) -> void:
 			velocity.y=jumpHeight
 			print("no trick")
 	if anim.current_animation=="Board" or anim.current_animation=="Crouch":
-		var animturn = 0.833+clampf(-rotation.y,-0.83,0.83)
-		anim.seek(animturn)
+		anim.seek(0.833+clampf(-rotation.y,-0.83,0.83))
 	velocity.x=-sin(rotation.y)*movespd
 	velocity.z=-cos(rotation.y)*movespd
 	turnvel=move_toward(turnvel,(input.get_action_strength("Right")-input.get_action_strength("Left"))*turnspeed,delta*(turnlerpspeed+(extraBoost/300.0)))

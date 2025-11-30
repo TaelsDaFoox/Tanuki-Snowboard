@@ -76,6 +76,11 @@ Crouch={
 
 3d_physics/layer_3="Ramp"
 
+[physics]
+
+common/max_physics_steps_per_frame=32
+common/physics_jitter_fix=2.0
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
