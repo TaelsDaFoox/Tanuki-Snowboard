@@ -59,6 +59,8 @@ func _physics_process(delta: float) -> void:
 			anim.play("Board",0.25,0.0)
 			movespd = lerpf(movespd,mainSpeed+extraBoost,delta*2.0)
 	else:
+		if trickState:
+			anim.play("Spin",0.2,2.0)
 		if prevGrounded:
 			CoyoteTimer.start()
 		snowParticles.emitting=false

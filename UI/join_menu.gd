@@ -1,19 +1,18 @@
 extends Control
 @onready var consoleLabel = $ConsoleLabel
 @onready var cursors = [$CursorP1,$CursorP2,$CursorP3,$CursorP4]
-var playerChars = [0,0,0,0]
 @onready var CSSrects = [$PlayerRect1,$PlayerRect2,$PlayerRect3,$PlayerRect4]
 func _input(event: InputEvent) -> void:
 	for i in PlayerManager.playerDevices.size():
 		if MultiplayerInput.is_action_just_pressed(PlayerManager.playerDevices[i],"Right"):
-			playerChars[i]+=1
+			PlayerManager.playerChars[i]+=1
 		if MultiplayerInput.is_action_just_pressed(PlayerManager.playerDevices[i],"Left"):
-			playerChars[i]-=1
+			PlayerManager.playerChars[i]-=1
 		if MultiplayerInput.is_action_just_pressed(PlayerManager.playerDevices[i],"Down"):
-			playerChars[i]+=4
+			PlayerManager.playerChars[i]+=4
 		if MultiplayerInput.is_action_just_pressed(PlayerManager.playerDevices[i],"Up"):
-			playerChars[i]-=4
-		playerChars[i] = fmod(playerChars[i],$CharacterIcons.get_child_count())
+			PlayerManager.playerChars[i]-=4
+		PlayerManager.playerChars[i] = fmod(PlayerManager.playerChars[i],$CharacterIcons.get_child_count())
 			
 	if event.is_action_pressed("Crouch") and event is InputEventKey:
 		if not PlayerManager.playerDevices.has(-1):
@@ -33,7 +32,7 @@ func _process(delta: float) -> void:
 	for i in cursors.size():
 		cursors[i].visible = i<PlayerManager.playerDevices.size()
 		CSSrects[i].visible = i<PlayerManager.playerDevices.size()
-		cursors[i].global_position = cursors[i].global_position.lerp($CharacterIcons.get_child(playerChars[i]).global_position,delta*20)
+		cursors[i].global_position = cursors[i].global_position.lerp($CharacterIcons.get_child(PlayerManager.playerChars[i]).global_position,delta*20)
 	
 
 func _on_button_pressed() -> void:
