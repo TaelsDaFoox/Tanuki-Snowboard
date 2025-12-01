@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cd13cn4tknk8w"]
+[gd_scene load_steps=18 format=3 uid="uid://cd13cn4tknk8w"]
 
 [ext_resource type="Material" uid="uid://bsji82dofgvp5" path="res://Materials/Snow.tres" id="1_s6hkt"]
 [ext_resource type="Script" uid="uid://daepbqqygqty6" path="res://Scenes/camera.gd" id="3_5a7ea"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://dirloat7rwshx" path="res://Scenes/Courses/player_init.gd" id="6_540df"]
 [ext_resource type="Script" uid="uid://d30p27ii7dudq" path="res://Scenes/Courses/filler_bg_scroll.gd" id="6_s6hkt"]
 [ext_resource type="AudioStream" uid="uid://c1p3trwau4co6" path="res://Audio/Music/Blizzard Peaks (Act1 & 2 Mix).mp3" id="8_jdjlm"]
+[ext_resource type="Script" uid="uid://b1vhg3lncnwdo" path="res://Scenes/Courses/checkpoint.gd" id="9_j4uft"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_go701"]
 sky_top_color = Color(0.17251666, 0.15950002, 0.55, 1)
@@ -33,6 +34,9 @@ viewport_path = NodePath("SubViewport3")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_tjfqf"]
 viewport_path = NodePath("SubViewport4")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x6fwp"]
+size = Vector3(3624.4392, 1698.4435, 293.62524)
 
 [node name="World" type="Node3D"]
 
@@ -582,4 +586,41 @@ transform = Transform3D(2.5386147, 0, 19.996712, 0, 10, 0, -139.977, 0, 0.362659
 [node name="SpawnPos" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3218555, 1333.5206, -3.6656003)
 
-[node name="Checkpoint" type="Area3D" parent="."]
+[node name="Checkpoints" type="Node" parent="."]
+
+[node name="Checkpoint" type="Area3D" parent="Checkpoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1035156e-05, 1250.8567, -1062.1206)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("9_j4uft")
+checkpointNum = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.677734, 82.10608, 0.23547363)
+shape = SubResource("BoxShape3D_x6fwp")
+
+[node name="Checkpoint2" type="Area3D" parent="Checkpoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 736.54645, 1086.5336, -2658.967)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("9_j4uft")
+checkpointNum = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.677734, 82.10608, 0.23547363)
+shape = SubResource("BoxShape3D_x6fwp")
+
+[node name="Checkpoint3" type="Area3D" parent="Checkpoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 736.54645, 274.8552, -5131.0996)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("9_j4uft")
+checkpointNum = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.677734, 82.10608, 0.23547363)
+shape = SubResource("BoxShape3D_x6fwp")
+
+[connection signal="body_entered" from="Checkpoints/Checkpoint" to="Checkpoints/Checkpoint" method="_on_body_entered"]
+[connection signal="body_entered" from="Checkpoints/Checkpoint2" to="Checkpoints/Checkpoint2" method="_on_body_entered"]
+[connection signal="body_entered" from="Checkpoints/Checkpoint3" to="Checkpoints/Checkpoint3" method="_on_body_entered"]

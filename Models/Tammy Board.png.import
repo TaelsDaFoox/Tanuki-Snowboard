@@ -2,20 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4j7jy0lx8lgy"
-path="res://.godot/imported/Pi.png-7f3f4360591c4a3606434b1441635445.ctex"
+uid="uid://22pq88jwukdt"
+path.s3tc="res://.godot/imported/Tammy Board.png-c48ba5b8a1e7e5e0df3bf36e1d4ed9e9.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
-source_file="res://Textures/Jolt Alts/Pi.png"
-dest_files=["res://.godot/imported/Pi.png-7f3f4360591c4a3606434b1441635445.ctex"]
+source_file="res://Models/Tammy Board.png"
+dest_files=["res://.godot/imported/Tammy Board.png-c48ba5b8a1e7e5e0df3bf36e1d4ed9e9.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

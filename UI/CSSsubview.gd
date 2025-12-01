@@ -16,13 +16,11 @@ func _process(_delta: float) -> void:
 		anim = model.get_node("AnimationPlayer")
 		anim.play("CharSelect")
 		model.visible=false
-		if PlayerManager.playerChars[playerNum]==3:
-			model.scale*=1.5
-		else:
-			model.scale*=2
+		model.scale*=4
 		call_deferred("add_child",model)
 		await get_tree().create_timer(1.0/30.0).timeout
 		model.global_position = spawnpos.global_position
+		model.position.y-=2
 		model.visible=true
 		
 		

@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://df0jk7fnhc6al"]
+
+[ext_resource type="PackedScene" uid="uid://c1htcegl4dlvr" path="res://Models/jolt snowboard.glb" id="1_amx4o"]
+[ext_resource type="Material" uid="uid://duo40s41gtvnr" path="res://Materials/Pi.tres" id="2_amx4o"]
+
+[node name="Pi" instance=ExtResource("1_amx4o")]
+
+[node name="Arms" parent="Armature/Skeleton3D" index="0"]
+surface_material_override/0 = ExtResource("2_amx4o")
+
+[node name="Eyes" parent="Armature/Skeleton3D" index="2"]
+surface_material_override/0 = ExtResource("2_amx4o")
+
+[node name="Hat" parent="Armature/Skeleton3D" index="3"]
+surface_material_override/0 = ExtResource("2_amx4o")
+
+[node name="Head" parent="Armature/Skeleton3D" index="4"]
+surface_material_override/0 = ExtResource("2_amx4o")
+
+[node name="Legs" parent="Armature/Skeleton3D" index="5"]
+surface_material_override/0 = ExtResource("2_amx4o")
+
+[node name="Shoes" parent="Armature/Skeleton3D" index="6"]
+surface_material_override/0 = ExtResource("2_amx4o")
+
+[node name="Tail" parent="Armature/Skeleton3D" index="7"]
+surface_material_override/0 = ExtResource("2_amx4o")
+
+[node name="Torso" parent="Armature/Skeleton3D" index="8"]
+surface_material_override/0 = ExtResource("2_amx4o")

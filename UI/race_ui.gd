@@ -16,6 +16,7 @@ var QTEactive := false
 @onready var nopeTimer = $nopeTimer
 @onready var nopeX = $nope
 var linkedPlayer: CharacterBody3D
+@onready var placementLabel = $PlacementLabel
 var awesometext = ["GROOVY!","THAT'S IT!","LET'S MAKE IT!!","WON'T STOP!","FUNKY!","LET'S GO!","DON'T BLINK","MOVE IT!!","ONLY FORWARDS","DON'T STOP NOW"]
 
 func _ready() -> void:
@@ -37,6 +38,8 @@ func cancelQTE():
 	QTEactive=false
 	QTEcontainer.visible=false
 func _process(delta: float) -> void:
+	if linkedPlayer:
+		placementLabel.text=str(PlayerManager.playerPlacements[linkedPlayer.playerNum])
 	if QTEactive and not nopeTimer.is_stopped():
 		nopeX.position = promptLabels[QTEprogress].global_position
 		nopeX.scale = promptLabels[QTEprogress].scale

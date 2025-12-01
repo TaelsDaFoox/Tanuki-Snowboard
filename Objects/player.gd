@@ -22,6 +22,9 @@ var turnvel = 0.0
 @onready var snowParticles = $SnowParticles
 @onready var CoyoteTimer = $CoyoteTimer
 @onready var oneSFX = $OneshotSFX
+var checkpointDist: float
+@onready var checkpoints
+var currentCheckpoint := 0
 var playernum: int
 var boardsfx = load("res://Audio/Sfx/browniannoise.mp3")
 var crouchsfx = load("res://Audio/Sfx/pinknoise.mp3")
@@ -35,13 +38,17 @@ var playerNum
 func _ready() -> void:
 	model = PlayerManager.charModels[PlayerManager.playerChars[playerNum]].instantiate()
 	add_child(model)
+	model.scale*=2
+	model.position.y-=1
+	model.position.z-=1
 	anim=model.get_node("AnimationPlayer")
+	#model.rotation.y+=PI
 	#input = DeviceInput.new(-1)
 	if linkedUI:
 		linkedUI.linkedPlayer=self
 	anim.play("Board",0.25,0.0)
-	anim.seek(0.833+clampf(-rotation.y,-0.83,0.83))
 func _physics_process(delta: float) -> void:
+	model.global_rotation.y=rotation.y+PI
 	#print(trickState)
 	if linkedUI and linkedUI.QTEactive:
 		linkedUI.QTEinput(input)
@@ -58,13 +65,11 @@ func _physics_process(delta: float) -> void:
 			if not sfx.stream==crouchsfx:
 				sfx.stream=crouchsfx
 			anim.play("Crouch",0.1,0.0)
-			anim.seek(0.833+clampf(-rotation.y,-0.83,0.83))
 			movespd = lerpf(movespd,crouchSpeed,delta*2.0)
 		else:
 			if not sfx.stream==boardsfx:
 				sfx.stream=boardsfx
 			anim.play("Board",0.25,0.0)
-			anim.seek(0.833+clampf(-rotation.y,-0.83,0.83))
 			movespd = lerpf(movespd,mainSpeed+extraBoost,delta*2.0)
 	else:
 		if trickState:
@@ -88,7 +93,7 @@ func _physics_process(delta: float) -> void:
 			velocity.y=jumpHeight
 			print("no trick")
 	if anim.current_animation=="Board" or anim.current_animation=="Crouch":
-		anim.seek(0.833+clampf(-rotation.y,-0.83,0.83))
+		anim.seek(0.833+clampf(rotation.y-slopeDir,-0.83,0.83))
 	velocity.x=-sin(rotation.y)*movespd
 	velocity.z=-cos(rotation.y)*movespd
 	turnvel=move_toward(turnvel,(input.get_action_strength("Right")-input.get_action_strength("Left"))*turnspeed,delta*(turnlerpspeed))
@@ -115,6 +120,9 @@ func _physics_process(delta: float) -> void:
 		model.rotation.z=lerp_angle(rotation.z,0.0,delta*10)
 	collider.global_rotation=Vector3.ZERO
 	move_and_slide()
+	if checkpoints.get_child_count()>currentCheckpoint:
+		checkpointDist = abs((checkpoints.get_child(currentCheckpoint).global_position-global_position).length())
+	PlayerManager.logDist(playerNum,currentCheckpoint+(1.0/checkpointDist))
 	if is_on_floor():
 		sfx.volume_db=-10-(5*(PlayerManager.playerDevices.size()-1))
 		if not sfx.playing:
@@ -134,3 +142,5 @@ func tricked():
 	print("trick1!!")
 	extraBoost+=trickBoost
 	movespd = mainSpeed+extraBoost*1.5
+func hitCheckpoint(num):
+	currentCheckpoint=num

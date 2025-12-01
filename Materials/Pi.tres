@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://duo40s41gtvnr"]
+
+[ext_resource type="Texture2D" uid="uid://b4j7jy0lx8lgy" path="res://Textures/Jolt Alts/Pi.png" id="1_1x6uk"]
+
+[resource]
+albedo_texture = ExtResource("1_1x6uk")
+metallic_specular = 0.0
+texture_filter = 0

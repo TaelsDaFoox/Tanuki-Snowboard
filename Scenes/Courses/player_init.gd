@@ -19,6 +19,7 @@ func _ready() -> void:
 		spawnplr.playerNum = i
 		spawnplr.position = spawnPos.global_position+Vector3(2.0,0.0,0.0)*i
 		spawnplr.input = DeviceInput.new(PlayerManager.playerDevices[i])
+		spawnplr.checkpoints = $"../Checkpoints"
 		get_parent().call_deferred("add_child",spawnplr)
 		#var spawnmdl = charModels[PlayerManager.playerChars[i]].instantiate()
 		#spawnplr.call_deferred("add_child",spawnmdl)

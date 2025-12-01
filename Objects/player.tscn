@@ -22,10 +22,11 @@ radial_segments = 4
 rings = 1
 
 [node name="Player" type="CharacterBody3D"]
+collision_layer = 2
 floor_constant_speed = true
 floor_snap_length = 2.0
 script = ExtResource("1_3y5cq")
-turnlerpspeed = 0.4
+turnlerpspeed = 0.3
 mainSpeed = 80.0
 maxturnspd = 3.0
 
