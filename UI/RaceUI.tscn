@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://ddtmob8xtdrl6"]
+[gd_scene load_steps=8 format=3 uid="uid://ddtmob8xtdrl6"]
 
 [ext_resource type="Script" uid="uid://cx7rssjw2itil" path="res://UI/race_ui.gd" id="1_bit1n"]
 [ext_resource type="Texture2D" uid="uid://bp448n1df4bon" path="res://UI/Button Prompts/XboxSeriesX_A.png" id="1_vlk8u"]
 [ext_resource type="AudioStream" uid="uid://2h7nqbvnb8cu" path="res://Audio/Sfx/KonamiHit.mp3" id="3_0dniu"]
+[ext_resource type="FontFile" uid="uid://b8xsi0etksurk" path="res://Fonts/FOT-Rodin Pro B.otf" id="3_1guh7"]
 [ext_resource type="AudioStream" uid="uid://ckmvc40bel1oe" path="res://Audio/Sfx/idk2.mp3" id="4_ls6kt"]
 [ext_resource type="AudioStream" uid="uid://o7qr6te3chlg" path="res://Audio/Sfx/nope.mp3" id="5_6sn7h"]
 [ext_resource type="Texture2D" uid="uid://bntjwnvbcn4vx" path="res://UI/Button Prompts/nope.png" id="6_uedqn"]
@@ -81,10 +82,27 @@ offset_right = 168.0
 offset_bottom = 3.0
 grow_vertical = 0
 theme_override_constants/outline_size = 45
+theme_override_fonts/font = ExtResource("3_1guh7")
 theme_override_font_sizes/font_size = 98
 text = "1st"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="FinishedHeader" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 18.0
+offset_bottom = 219.0
+grow_horizontal = 2
+theme_override_constants/line_spacing = -10
+theme_override_constants/outline_size = 42
+theme_override_fonts/font = ExtResource("3_1guh7")
+theme_override_font_sizes/font_size = 64
+text = "Finished ?st!
+Time for a victory lap!"
+horizontal_alignment = 1
 
 [node name="SFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_0dniu")

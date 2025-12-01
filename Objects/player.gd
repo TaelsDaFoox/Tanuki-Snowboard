@@ -35,6 +35,7 @@ var trickState = false
 var input
 var prevGrounded := false
 var playerNum
+var finished = false
 func _ready() -> void:
 	model = PlayerManager.charModels[PlayerManager.playerChars[playerNum]].instantiate()
 	add_child(model)
@@ -122,7 +123,15 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	if checkpoints.get_child_count()>currentCheckpoint:
 		checkpointDist = abs((checkpoints.get_child(currentCheckpoint).global_position-global_position).length())
-	PlayerManager.logDist(playerNum,currentCheckpoint+(1.0/checkpointDist))
+	else:
+		if not finished:
+			finished=true
+			PlayerManager.finishOrder.append(playerNum)
+			PlayerManager.someoneFinished()
+	if finished:
+		PlayerManager.logDist(playerNum,1000+(PlayerManager.finishOrder.size()-PlayerManager.finishOrder.find(playerNum)))
+	else:
+		PlayerManager.logDist(playerNum,currentCheckpoint+(1.0/checkpointDist))
 	if is_on_floor():
 		sfx.volume_db=-10-(5*(PlayerManager.playerDevices.size()-1))
 		if not sfx.playing:
@@ -144,3 +153,6 @@ func tricked():
 	movespd = mainSpeed+extraBoost*1.5
 func hitCheckpoint(num):
 	currentCheckpoint=num
+func respawn():
+	if not finished:
+		position = checkpoints.get_child(currentCheckpoint).position

@@ -1,11 +1,12 @@
 extends Node
 var playerDevices: Array
 var playerChars = [0,0,0,0]
-var charModels = [load("res://Models/jolt snowboard.glb"),load("res://Models/Characters/Blolt.tscn"),load("res://Models/Characters/Tammy.tscn"),load("res://Models/Re-Sapph Snowboard.glb"),load("res://Models/Characters/Pi.tscn")]
-var charNames = ["Jolt","Blolt","Tammy","Sapphire","Pi"]
+var charModels = [load("res://Models/jolt snowboard.glb"),load("res://Models/Characters/Blolt.tscn"),load("res://Models/Characters/Tammy.tscn"),load("res://Models/Re-Sapph Snowboard.glb"),load("res://Models/Characters/Pi.tscn"),load("res://Models/suzanne snowboard.glb"),load("res://Models/Characters/Penn Guiny.tscn")]
+var charNames = ["Jolt","Blolt","Tammy","Sapphire","Pi","Suzanne","Penn Guiny"]
 var playerCheckDists := [10000.0,10000.0,10000.0,10000.0]
 var playerCheckpoints := [0,0,0,0]
 var playerPlacements := [1,2,3,4]
+var finishOrder := []
 
 func _process(delta: float) -> void:
 	if not playerPlacements.size() == playerDevices.size():
@@ -20,10 +21,15 @@ func _process(delta: float) -> void:
 	for i in playerPlacements.size():
 		playerPlacements[i] = sortedCheckDists.find(playerCheckDists[i])+1
 	#print(playerCheckDists)
-	print(playerPlacements)
+	#print(playerPlacements)
 func logDist(plr:int,val:float):
 	playerCheckDists[plr]=val
-
+func someoneFinished():
+	if finishOrder.size()>=playerDevices.size():
+		await get_tree().create_timer(3.0).timeout
+		finishOrder.clear()
+		playerDevices.clear()
+		get_tree().change_scene_to_file("res://UI/join_menu.tscn")
 #I was looking into mod support and while it's definitely possible to do,
 #I think it's out of the scope of the Siege build
 

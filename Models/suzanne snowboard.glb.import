@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ci00tuccl6xjm"
-path="res://.godot/imported/Re-Sapph Snowboard.glb-0cbfe2abd41bc6600e92b1246f2e69c7.scn"
+uid="uid://c40aohfgl61tk"
+path="res://.godot/imported/suzanne snowboard.glb-c23d4a79865b6d1d2a1e402d21bbb945.scn"
 
 [deps]
 
-source_file="res://Models/Re-Sapph Snowboard.glb"
-dest_files=["res://.godot/imported/Re-Sapph Snowboard.glb-0cbfe2abd41bc6600e92b1246f2e69c7.scn"]
+source_file="res://Models/suzanne snowboard.glb"
+dest_files=["res://.godot/imported/suzanne snowboard.glb-c23d4a79865b6d1d2a1e402d21bbb945.scn"]
 
 [params]
 

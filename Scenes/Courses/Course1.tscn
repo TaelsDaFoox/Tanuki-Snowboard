@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cd13cn4tknk8w"]
+[gd_scene load_steps=22 format=3 uid="uid://cd13cn4tknk8w"]
 
 [ext_resource type="Material" uid="uid://bsji82dofgvp5" path="res://Materials/Snow.tres" id="1_s6hkt"]
 [ext_resource type="Script" uid="uid://daepbqqygqty6" path="res://Scenes/camera.gd" id="3_5a7ea"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://d30p27ii7dudq" path="res://Scenes/Courses/filler_bg_scroll.gd" id="6_s6hkt"]
 [ext_resource type="AudioStream" uid="uid://c1p3trwau4co6" path="res://Audio/Music/Blizzard Peaks (Act1 & 2 Mix).mp3" id="8_jdjlm"]
 [ext_resource type="Script" uid="uid://b1vhg3lncnwdo" path="res://Scenes/Courses/checkpoint.gd" id="9_j4uft"]
+[ext_resource type="Script" uid="uid://dv340etc0ar8e" path="res://Scenes/Courses/deathplane.gd" id="10_x6fwp"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_go701"]
 sky_top_color = Color(0.17251666, 0.15950002, 0.55, 1)
@@ -37,6 +38,15 @@ viewport_path = NodePath("SubViewport4")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x6fwp"]
 size = Vector3(3624.4392, 1698.4435, 293.62524)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j4uft"]
+size = Vector3(12170.691, 1059.626, 8160.421)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7n0ub"]
+size = Vector3(12170.691, 1059.626, 8160.421)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_45hrh"]
+size = Vector3(121700.69, 1059.626, 816000.44)
 
 [node name="World" type="Node3D"]
 
@@ -654,9 +664,35 @@ checkpointNum = 6
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.677734, 82.10608, 0.23547363)
 shape = SubResource("BoxShape3D_x6fwp")
 
+[node name="Deathplane" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("10_x6fwp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Deathplane"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 509.1394, 1176.5342)
+shape = SubResource("BoxShape3D_j4uft")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Deathplane"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00012207031, -1415.8925, -3724.6455)
+shape = SubResource("BoxShape3D_j4uft")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Deathplane"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2029.007, -2769.8271, -10644.397)
+shape = SubResource("BoxShape3D_j4uft")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Deathplane"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8899.446, -2769.8271, -10644.397)
+shape = SubResource("BoxShape3D_7n0ub")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="Deathplane"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8899.446, -4808.8936, -10644.397)
+shape = SubResource("BoxShape3D_45hrh")
+
 [connection signal="body_entered" from="Checkpoints/Checkpoint" to="Checkpoints/Checkpoint" method="_on_body_entered"]
 [connection signal="body_entered" from="Checkpoints/Checkpoint2" to="Checkpoints/Checkpoint2" method="_on_body_entered"]
 [connection signal="body_entered" from="Checkpoints/Checkpoint3" to="Checkpoints/Checkpoint3" method="_on_body_entered"]
 [connection signal="body_entered" from="Checkpoints/Checkpoint4" to="Checkpoints/Checkpoint4" method="_on_body_entered"]
 [connection signal="body_entered" from="Checkpoints/Checkpoint5" to="Checkpoints/Checkpoint5" method="_on_body_entered"]
 [connection signal="body_entered" from="Checkpoints/Checkpoint6" to="Checkpoints/Checkpoint6" method="_on_body_entered"]
+[connection signal="body_entered" from="Deathplane" to="Deathplane" method="_on_body_entered"]

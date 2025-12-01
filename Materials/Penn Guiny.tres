@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cg0n336ootcs7"]
+
+[ext_resource type="Texture2D" uid="uid://e81mad40gaf5" path="res://Models/Penn Guiny.png" id="1_i5udf"]
+
+[resource]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("1_i5udf")
+texture_filter = 0
+billboard_mode = 2

@@ -19,6 +19,7 @@ var linkedPlayer: CharacterBody3D
 @onready var placementLabel = $PlacementLabel
 var awesometext = ["GROOVY!","THAT'S IT!","LET'S MAKE IT!!","WON'T STOP!","FUNKY!","LET'S GO!","DON'T BLINK","MOVE IT!!","ONLY FORWARDS","DON'T STOP NOW"]
 var placementEndings := ["th","st","nd","rd","th","th","th","th","th","th",]
+@onready var finishedHeader = $FinishedHeader
 func _ready() -> void:
 	QTEcontainer.visible = false
 
@@ -39,6 +40,9 @@ func cancelQTE():
 	QTEcontainer.visible=false
 func _process(delta: float) -> void:
 	if linkedPlayer:
+		if linkedPlayer.finished:
+			finishedHeader.text = "Finished "+str(PlayerManager.finishOrder.find(linkedPlayer.playerNum)+1)+placementEndings[fmod(PlayerManager.finishOrder.find(linkedPlayer.playerNum)+1,10)]
+			finishedHeader.visible=true
 		var placement = PlayerManager.playerPlacements[linkedPlayer.playerNum]
 		placementLabel.text=str(placement)+placementEndings[fmod(PlayerManager.playerPlacements[linkedPlayer.playerNum],10)]
 	if QTEactive and not nopeTimer.is_stopped():

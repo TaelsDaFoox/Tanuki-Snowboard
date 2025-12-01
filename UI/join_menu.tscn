@@ -115,14 +115,14 @@ script = ExtResource("4_qhe80")
 playerNum = 1
 
 [node name="Camera3D" type="Camera3D" parent="SubViewport2"]
-transform = Transform3D(-0.84946924, -0.10114816, 0.5178524, -2.3314044e-09, 0.98145366, 0.19169982, -0.52763826, 0.1628431, -0.83371466, -3.5940855, 1.241107, -11.14735)
+transform = Transform3D(-0.84946924, -0.10114816, 0.5178524, -2.3314044e-09, 0.98145366, 0.19169982, -0.52763826, 0.1628431, -0.83371466, -3.5940855, 28.345028, -11.14735)
 fov = 50.0
 
 [node name="Model" parent="SubViewport2" instance=ExtResource("6_x35vu")]
-transform = Transform3D(-0.54499996, 0, 8.229271e-08, 0, 0.54499996, 0, -8.229271e-08, 0, -0.54499996, -6.4432163, -0.3246169, -8.552234)
+transform = Transform3D(-0.54499996, 0, 8.229271e-08, 0, 0.54499996, 0, -8.229271e-08, 0, -0.54499996, -6.4432163, 26.779303, -8.552234)
 
 [node name="spawnPos" type="Node3D" parent="SubViewport2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.4432163, -0.3249995, -5.5522337)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.4432163, 26.778921, -5.5522337)
 
 [node name="SubViewport3" type="SubViewport" parent="."]
 transparent_bg = true
@@ -131,14 +131,14 @@ script = ExtResource("4_qhe80")
 playerNum = 2
 
 [node name="Camera3D" type="Camera3D" parent="SubViewport3"]
-transform = Transform3D(-0.84946924, -0.10114816, 0.5178524, -2.3314044e-09, 0.98145366, 0.19169982, -0.52763826, 0.1628431, -0.83371466, -17.967623, 1.2411075, -27.128788)
+transform = Transform3D(-0.84946924, -0.10114816, 0.5178524, -2.3314044e-09, 0.98145366, 0.19169982, -0.52763826, 0.1628431, -0.83371466, -17.967623, 52.921642, -27.128788)
 fov = 50.0
 
 [node name="Model" parent="SubViewport3" instance=ExtResource("6_x35vu")]
-transform = Transform3D(-0.54499996, 0, 8.229271e-08, 0, 0.54499996, 0, -8.229271e-08, 0, -0.54499996, -20.816753, -0.32461643, -24.53367)
+transform = Transform3D(-0.54499996, 0, 8.229271e-08, 0, 0.54499996, 0, -8.229271e-08, 0, -0.54499996, -20.816753, 51.35592, -24.53367)
 
 [node name="spawnPos" type="Node3D" parent="SubViewport3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.816753, -0.32499903, -21.53367)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.816753, 51.355534, -21.53367)
 
 [node name="SubViewport4" type="SubViewport" parent="."]
 transparent_bg = true
@@ -147,14 +147,14 @@ script = ExtResource("4_qhe80")
 playerNum = 3
 
 [node name="Camera3D" type="Camera3D" parent="SubViewport4"]
-transform = Transform3D(-0.84946924, -0.10114816, 0.5178524, -2.3314044e-09, 0.98145366, 0.19169982, -0.52763826, 0.1628431, -0.83371466, -35.74235, 1.2411046, -44.66586)
+transform = Transform3D(-0.84946924, -0.10114816, 0.5178524, -2.3314044e-09, 0.98145366, 0.19169982, -0.52763826, 0.1628431, -0.83371466, -35.74235, 75.32037, -44.66586)
 fov = 50.0
 
 [node name="Model" parent="SubViewport4" instance=ExtResource("6_x35vu")]
-transform = Transform3D(-0.54499996, 0, 8.229271e-08, 0, 0.54499996, 0, -8.229271e-08, 0, -0.54499996, -38.591484, -0.3246193, -42.070744)
+transform = Transform3D(-0.54499996, 0, 8.229271e-08, 0, 0.54499996, 0, -8.229271e-08, 0, -0.54499996, -38.591484, 73.754654, -42.070744)
 
 [node name="spawnPos" type="Node3D" parent="SubViewport4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.591484, -0.3250019, -39.070744)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.591484, 73.754265, -39.070744)
 
 [node name="PlayerRect1" type="TextureRect" parent="."]
 texture_filter = 1
