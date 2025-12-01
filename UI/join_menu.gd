@@ -15,7 +15,8 @@ func _input(event: InputEvent) -> void:
 			PlayerManager.playerChars[i]+=4
 		if MultiplayerInput.is_action_just_pressed(PlayerManager.playerDevices[i],"Up"):
 			PlayerManager.playerChars[i]-=4
-		PlayerManager.playerChars[i] = fmod(PlayerManager.playerChars[i],$CharacterIcons.get_child_count())
+		PlayerManager.playerChars[i] = fmod(PlayerManager.playerChars[i],PlayerManager.charNames.size())
+		#$CharacterIcons.get_child_count()
 		if PlayerManager.playerChars[i]<0:
 			PlayerManager.playerChars[i]=$CharacterIcons.get_child_count()-1
 	if event.is_action_pressed("Crouch") and event is InputEventKey:
@@ -54,3 +55,7 @@ func _on_button_pressed() -> void:
 
 func _on_flash_timer_timeout() -> void:
 	joinPromptVisible=not joinPromptVisible
+
+
+func _on_button_focus_entered() -> void:
+	$Button.release_focus()
