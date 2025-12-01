@@ -621,6 +621,42 @@ checkpointNum = 3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.677734, 82.10608, 0.23547363)
 shape = SubResource("BoxShape3D_x6fwp")
 
+[node name="Checkpoint4" type="Area3D" parent="Checkpoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 816.6712, -247.82903, -8945.725)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("9_j4uft")
+checkpointNum = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.677734, 82.10608, 0.23547363)
+shape = SubResource("BoxShape3D_x6fwp")
+
+[node name="Checkpoint5" type="Area3D" parent="Checkpoints"]
+transform = Transform3D(-0.22013569, 0, 0.97546935, 0, 1, 0, -0.97546935, 0, -0.22013569, -3842.6484, -1010.51685, -11301.581)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("9_j4uft")
+checkpointNum = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.677734, 82.10608, 0.23547363)
+shape = SubResource("BoxShape3D_x6fwp")
+
+[node name="Checkpoint6" type="Area3D" parent="Checkpoints"]
+transform = Transform3D(-0.22013569, 0, 0.97546935, 0, 1, 0, -0.97546935, 0, -0.22013569, -6982.6294, -1401.3143, -11301.581)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("9_j4uft")
+checkpointNum = 6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.677734, 82.10608, 0.23547363)
+shape = SubResource("BoxShape3D_x6fwp")
+
 [connection signal="body_entered" from="Checkpoints/Checkpoint" to="Checkpoints/Checkpoint" method="_on_body_entered"]
 [connection signal="body_entered" from="Checkpoints/Checkpoint2" to="Checkpoints/Checkpoint2" method="_on_body_entered"]
 [connection signal="body_entered" from="Checkpoints/Checkpoint3" to="Checkpoints/Checkpoint3" method="_on_body_entered"]
+[connection signal="body_entered" from="Checkpoints/Checkpoint4" to="Checkpoints/Checkpoint4" method="_on_body_entered"]
+[connection signal="body_entered" from="Checkpoints/Checkpoint5" to="Checkpoints/Checkpoint5" method="_on_body_entered"]
+[connection signal="body_entered" from="Checkpoints/Checkpoint6" to="Checkpoints/Checkpoint6" method="_on_body_entered"]
