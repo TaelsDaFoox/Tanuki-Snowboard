@@ -1,14 +1,16 @@
-[gd_scene load_steps=20 format=3 uid="uid://cisxr82mdbgc8"]
+[gd_scene load_steps=22 format=3 uid="uid://cisxr82mdbgc8"]
 
 [ext_resource type="Script" uid="uid://djmvtalrua53t" path="res://UI/join_menu.gd" id="1_o4gvc"]
 [ext_resource type="Texture2D" uid="uid://c3vimms87tjyt" path="res://Textures/fillerBG.png" id="2_l842o"]
 [ext_resource type="Script" uid="uid://d30p27ii7dudq" path="res://Scenes/Courses/filler_bg_scroll.gd" id="3_0slxv"]
 [ext_resource type="Script" uid="uid://2sy50bk3gxw3" path="res://UI/CSSsubview.gd" id="4_qhe80"]
+[ext_resource type="Texture2D" uid="uid://d1ehxnais38sy" path="res://Textures/Character Icons/jolt css v2.png" id="6_uyq6i"]
 [ext_resource type="Texture2D" uid="uid://smmvjfqkvbwm" path="res://Textures/Character Icons/jolt css.png" id="6_v6bfk"]
 [ext_resource type="PackedScene" uid="uid://v0n446d7hxhf" path="res://Models/Characters/Jolt.tscn" id="6_x35vu"]
 [ext_resource type="Texture2D" uid="uid://blff5mgl0qwlg" path="res://Textures/CssCursorP1.png" id="7_csbn6"]
 [ext_resource type="Texture2D" uid="uid://h5d5pw5lxlkp" path="res://Textures/Character Icons/sapph css.png" id="7_x35vu"]
 [ext_resource type="Texture2D" uid="uid://w1r2egnw3it" path="res://Textures/CssCursorP2.png" id="8_efvf7"]
+[ext_resource type="Texture2D" uid="uid://4mrdu8b23hdh" path="res://Textures/Character Icons/tammy css.png" id="8_x07j1"]
 [ext_resource type="Texture2D" uid="uid://bmf1mg0hcnj21" path="res://Textures/CssCursorP3.png" id="9_27h71"]
 [ext_resource type="Texture2D" uid="uid://bak3gdbvf32n5" path="res://Textures/CssCursorP4.png" id="10_x35vu"]
 [ext_resource type="AudioStream" uid="uid://be5iedl0ctci1" path="res://Audio/Music/stuck.mp3" id="11_27h71"]
@@ -351,7 +353,7 @@ texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 5
-texture = ExtResource("6_v6bfk")
+texture = ExtResource("6_uyq6i")
 
 [node name="CharIcon2" type="TextureRect" parent="CharacterIcons"]
 texture_filter = 1
@@ -365,7 +367,7 @@ texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 5
-texture = ExtResource("6_v6bfk")
+texture = ExtResource("8_x07j1")
 
 [node name="CharIcon4" type="TextureRect" parent="CharacterIcons"]
 texture_filter = 1

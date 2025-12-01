@@ -41,7 +41,7 @@ func cancelQTE():
 func _process(delta: float) -> void:
 	if linkedPlayer:
 		if linkedPlayer.finished:
-			finishedHeader.text = "Finished "+str(PlayerManager.finishOrder.find(linkedPlayer.playerNum)+1)+placementEndings[fmod(PlayerManager.finishOrder.find(linkedPlayer.playerNum)+1,10)]
+			finishedHeader.text = "Finished "+str(PlayerManager.finishOrder.find(linkedPlayer.playerNum)+1)+placementEndings[fmod(PlayerManager.finishOrder.find(linkedPlayer.playerNum)+1,10)]+"!"
 			finishedHeader.visible=true
 		var placement = PlayerManager.playerPlacements[linkedPlayer.playerNum]
 		placementLabel.text=str(placement)+placementEndings[fmod(PlayerManager.playerPlacements[linkedPlayer.playerNum],10)]
