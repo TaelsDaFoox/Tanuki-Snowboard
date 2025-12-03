@@ -16,6 +16,8 @@ var songs = [load("res://Audio/Music/Blizzard Peaks (Act1 & 2 Mix).mp3"),load("r
 func _ready() -> void:
 	music.stream = songs[randi_range(0,songs.size()-1)]
 	music.play()
+	mpSpawner.set_spawn_function(func spawnfunc(plr): return plr)
+	#await get_tree().create_timer(5.0).timeout
 	for i in PlayerManager.playerDevices.size():
 		var spawnplr = player.instantiate()
 		spawnplr.playerNum = i
@@ -23,11 +25,15 @@ func _ready() -> void:
 		spawnplr.input = DeviceInput.new(PlayerManager.playerDevices[i])
 		spawnplr.checkpoints = $"../Checkpoints"
 		playerContainer.call_deferred("add_child",spawnplr)
+		
+		#mpSpawner.call_deferred("spawn",spawnplr)
+		
 		#var spawnmdl = charModels[PlayerManager.playerChars[i]].instantiate()
 		#spawnplr.call_deferred("add_child",spawnmdl)
 		#spawnplr.model = spawnmdl
 		#spawnplr.anim = spawnmdl.get_node("AnimationPlayer")
 		#spawnplr.get_node("ModelTemp").call_deferred("queue_free")
+		
 		cams[i].player = spawnplr
 		spawnplr.linkedUI = uis[i]
 	for i in 4:
@@ -36,3 +42,6 @@ func _ready() -> void:
 	if PlayerManager.playerDevices.size()==2:
 		$"../SubViewport".size.x=1152*2
 		$"../SubViewport2".size.x=1152*2
+func _process(delta: float) -> void:
+	if playerContainer.get_child_count():
+		cams[0].player = playerContainer.get_child(0)

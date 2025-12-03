@@ -8,6 +8,9 @@ func _ready() -> void:
 
 func on_peer_connected(id:int) -> void:
 	consoleLabel.text = "id "+str(id)+" connected!"
+	if multiplayer.is_server():
+		PlayerManager.playerIDs.append(id)
+		consoleLabel.text = str(PlayerManager.playerIDs)
 
 func _on_host_pressed() -> void:
 	consoleLabel.text = "host!"
@@ -28,3 +31,4 @@ func chat_message(msg:String):
 
 func _on_chat_send_pressed() -> void:
 	chat_message.rpc_id(1,chatInput.text)
+	#get_tree().change_scene_to_file("res://UI/join_menu.tscn")

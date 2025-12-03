@@ -1,5 +1,6 @@
 extends Node
 var playerDevices: Array
+var playerIDs: Array
 var playerChars = [0,0,0,0]
 var charModels = [load("res://Models/jolt snowboard.glb"),load("res://Models/Characters/Blolt.tscn"),load("res://Models/Characters/Tammy.tscn"),load("res://Models/Re-Sapph Snowboard.glb"),load("res://Models/Characters/Pi.tscn"),load("res://Models/suzanne snowboard.glb"),load("res://Models/Characters/Penn Guiny.tscn")]
 var charNames = ["Jolt","Blolt","Tammy","Sapphire","Pi","Suzanne","Penn Guiny"]
