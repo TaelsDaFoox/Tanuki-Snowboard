@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cisxr82mdbgc8"]
+[gd_scene load_steps=26 format=3 uid="uid://cisxr82mdbgc8"]
 
 [ext_resource type="Script" uid="uid://djmvtalrua53t" path="res://UI/join_menu.gd" id="1_o4gvc"]
 [ext_resource type="Texture2D" uid="uid://c3vimms87tjyt" path="res://Textures/fillerBG.png" id="2_l842o"]
@@ -16,6 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://bmf1mg0hcnj21" path="res://Textures/CssCursorP3.png" id="9_27h71"]
 [ext_resource type="Texture2D" uid="uid://bak3gdbvf32n5" path="res://Textures/CssCursorP4.png" id="10_x35vu"]
 [ext_resource type="AudioStream" uid="uid://be5iedl0ctci1" path="res://Audio/Music/stuck.mp3" id="11_27h71"]
+[ext_resource type="Texture2D" uid="uid://btnafql0nh40k" path="res://Textures/Character Icons/the susans.png" id="12_vd6kn"]
+[ext_resource type="Texture2D" uid="uid://cplt53uxyb5vh" path="res://Textures/Character Icons/Penn Guiny Icon.png" id="13_m30ta"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_27h71"]
 viewport_path = NodePath("SubViewport1")
@@ -225,6 +227,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="JoinPrompt1" type="Label" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 13.0
 offset_top = 16.0
@@ -239,6 +242,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="JoinPrompt2" type="Label" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.99000007
@@ -256,6 +260,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="JoinPrompt3" type="Label" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -274,6 +279,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="JoinPrompt4" type="Label" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -295,6 +301,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="CharName1" type="Label" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 13.0
 offset_top = 219.0
@@ -307,6 +314,7 @@ text = "Name"
 horizontal_alignment = 1
 
 [node name="CharName2" type="Label" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -323,6 +331,7 @@ text = "Name"
 horizontal_alignment = 1
 
 [node name="CharName3" type="Label" parent="."]
+visible = false
 layout_mode = 0
 offset_top = 580.0
 offset_right = 258.0
@@ -334,6 +343,7 @@ text = "Name"
 horizontal_alignment = 1
 
 [node name="CharName4" type="Label" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -411,14 +421,14 @@ texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 5
-texture = ExtResource("7_uyq6i")
+texture = ExtResource("12_vd6kn")
 
 [node name="CharIcon7" type="TextureRect" parent="CharacterIcons"]
 texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 5
-texture = ExtResource("7_uyq6i")
+texture = ExtResource("13_m30ta")
 
 [node name="CharIcon8" type="TextureRect" parent="CharacterIcons"]
 visible = false

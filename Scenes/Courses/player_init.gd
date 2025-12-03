@@ -9,6 +9,8 @@ var player = load("res://Objects/player.tscn")
 @onready var screenContainer = $"../GridContainer"
 @onready var music = $"../Music"
 @onready var spawnPos= $"../SpawnPos"
+@onready var mpSpawner = $MultiplayerSpawner
+@export var playerContainer: Node
 #var charModels = [load("res://Models/Characters/Jolt.tscn"),load("res://Models/Characters/Blolt.tscn")]
 var songs = [load("res://Audio/Music/Blizzard Peaks (Act1 & 2 Mix).mp3"),load("res://Audio/Music/ICECAP3.mp3"),load("res://Audio/Music/stuck.mp3"),load("res://Audio/Music/Sonic The Hedgehog 3 - IceCap Zone (Dumpster Fired).mp3"),load("res://Audio/Music/Get Edgy - Sonic Rush [OST].mp3")]
 func _ready() -> void:
@@ -20,7 +22,7 @@ func _ready() -> void:
 		spawnplr.position = spawnPos.global_position+Vector3(2.0,0.0,0.0)*i
 		spawnplr.input = DeviceInput.new(PlayerManager.playerDevices[i])
 		spawnplr.checkpoints = $"../Checkpoints"
-		get_parent().call_deferred("add_child",spawnplr)
+		playerContainer.call_deferred("add_child",spawnplr)
 		#var spawnmdl = charModels[PlayerManager.playerChars[i]].instantiate()
 		#spawnplr.call_deferred("add_child",spawnmdl)
 		#spawnplr.model = spawnmdl

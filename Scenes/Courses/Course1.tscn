@@ -394,8 +394,12 @@ size_flags_vertical = 3
 texture = SubResource("ViewportTexture_tjfqf")
 expand_mode = 1
 
-[node name="PlayerInit" type="Node" parent="."]
+[node name="PlayerInit" type="Node" parent="." node_paths=PackedStringArray("playerContainer")]
 script = ExtResource("6_540df")
+playerContainer = NodePath("../PlayerContainer")
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="PlayerInit"]
+spawn_path = NodePath("../..")
 
 [node name="Ramp7" parent="." instance=ExtResource("4_8j60k")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 726.02325, 1072.9679, -2791.0735)
@@ -688,6 +692,8 @@ shape = SubResource("BoxShape3D_7n0ub")
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="Deathplane"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8899.446, -4808.8936, -10644.397)
 shape = SubResource("BoxShape3D_45hrh")
+
+[node name="PlayerContainer" type="Node" parent="."]
 
 [connection signal="body_entered" from="Checkpoints/Checkpoint" to="Checkpoints/Checkpoint" method="_on_body_entered"]
 [connection signal="body_entered" from="Checkpoints/Checkpoint2" to="Checkpoints/Checkpoint2" method="_on_body_entered"]

@@ -1,7 +1,7 @@
 extends Control
 @onready var promptLabels = [$QTE/Prompt1,$QTE/Prompt2,$QTE/Prompt3,$QTE/Prompt4,$QTE/Prompt5,$QTE/Prompt6,$QTE/Prompt7,$QTE/Prompt8]
 var inputNames := ["Left","Right","Up","Down","Crouch"]
-var promptTextures = [load("res://UI/Button Prompts/XboxSeriesX_Dpad_Left.png"),load("res://UI/Button Prompts/XboxSeriesX_Dpad_Right.png"),load("res://UI/Button Prompts/XboxSeriesX_Dpad_Up.png"),load("res://UI/Button Prompts/XboxSeriesX_Dpad_Down.png"),load("res://UI/Button Prompts/XboxSeriesX_A.png")]
+var promptTextures = [load("res://UI/Button Prompts/ArrowL.png"),load("res://UI/Button Prompts/ArrowR.png"),load("res://UI/Button Prompts/ArrowU.png"),load("res://UI/Button Prompts/ArrowD.png"),load("res://UI/Button Prompts/Button.png")]
 var emptyTex := load("res://UI/Button Prompts/empty.png")
 #var dirSFX := [load("res://Audio/Sfx/tricks/left.wav"),load("res://Audio/Sfx/tricks/right.wav"),load("res://Audio/Sfx/tricks/up.wav"),load("res://Audio/Sfx/tricks/down.wav"),load("res://Audio/Sfx/tricks/left.wav")]
 #var trickedSFX := [load("res://Audio/Sfx/tricks/left-f.wav"),load("res://Audio/Sfx/tricks/right-f.wav"),load("res://Audio/Sfx/tricks/up-f.wav"),load("res://Audio/Sfx/tricks/down-f.wav"),load("res://Audio/Sfx/tricks/left-f.wav")]
