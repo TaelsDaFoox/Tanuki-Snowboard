@@ -31,6 +31,7 @@ func chat_message(msg:String):
 
 func _on_chat_send_pressed() -> void:
 	chat_message.rpc(chatInput.text)
+	PlayerManager.sync_player_info.rpc(multiplayer.get_unique_id(),chatInput.text)
 	#chat_message.rpc_id(1,chatInput.text)
 	#get_tree().change_scene_to_file("res://UI/join_menu.tscn")
 

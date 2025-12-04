@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://br2sfenye47b0"]
+[gd_scene load_steps=10 format=3 uid="uid://br2sfenye47b0"]
 
 [ext_resource type="Script" uid="uid://coml24hdpysp1" path="res://Objects/player.gd" id="1_3y5cq"]
 [ext_resource type="AudioStream" uid="uid://baslth8yeoc8q" path="res://Audio/Sfx/browniannoise.mp3" id="3_2i4gt"]
@@ -20,11 +20,6 @@ radius = 0.05
 height = 0.1
 radial_segments = 4
 rings = 1
-
-[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_x20fu"]
-properties/0/path = NodePath(".:position")
-properties/0/spawn = true
-properties/0/replication_mode = 1
 
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 2
@@ -88,6 +83,3 @@ scale_amount_max = 2.0
 [node name="CoyoteTimer" type="Timer" parent="."]
 wait_time = 0.15
 one_shot = true
-
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
-replication_config = SubResource("SceneReplicationConfig_x20fu")

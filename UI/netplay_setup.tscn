@@ -98,6 +98,7 @@ offset_bottom = -328.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
+text = "localhost"
 placeholder_text = "IP to join (doesn't matter if hosting)"
 
 [node name="PortInput" type="TextEdit" parent="."]
@@ -112,6 +113,7 @@ offset_bottom = -251.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
+text = "5029"
 placeholder_text = "Port to join or host on"
 
 [node name="ChatInput" type="TextEdit" parent="."]

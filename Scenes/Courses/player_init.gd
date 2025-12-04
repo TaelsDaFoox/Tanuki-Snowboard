@@ -56,12 +56,16 @@ func _ready() -> void:
 			spawnplr.player_init=self
 			netplayerContainer.call_deferred("add_child",spawnplr)
 @rpc("any_peer", "call_remote", "unreliable_ordered", 0)
-func sync_player(pid:int,pos:Vector3,rot:Vector3,vel:Vector3,anim:String,animTime:float):
+func sync_player(pid:int,pos:Vector3,rot:Vector3,vel:Vector3,anim:String,animTime:float,mdl:int):
 	var player_index = PlayerManager.playerUIDs.find(pid)
 	var netp = netplayerContainer.get_child(player_index)
 	netp.global_position = pos
 	netp.global_rotation = rot
 	netp.velocity=vel
+	netp.set_model(mdl)
+	if netp.anim:
+		netp.anim.play(anim,0.1,0.0)
+		netp.anim.seek(animTime)
 func _process(delta: float) -> void:
 	for i in netplayerContainer.get_children():
 		pass

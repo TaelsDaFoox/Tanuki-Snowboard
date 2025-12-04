@@ -1,5 +1,5 @@
 extends CharacterBody3D
-@export var turnspeed = 2.0
+@export var turnspeed := 2.0
 @export var turnlerpspeed = 0.2
 var movespd = 0.0
 var turnvel = 0.0
@@ -49,6 +49,8 @@ func _ready() -> void:
 	if linkedUI:
 		linkedUI.linkedPlayer=self
 	anim.play("Board",0.25,0.0)
+	#if PlayerManager.peer:
+		#PlayerManager.sync_player_info.rpc(multiplayer.get_unique_id(),"scrunkle bungleton")
 func _physics_process(delta: float) -> void:
 	model.global_rotation.y=rotation.y+PI
 	#print(trickState)
@@ -158,6 +160,6 @@ func respawn():
 	if not finished:
 		position = checkpoints.get_child(currentCheckpoint).position
 func _process(delta: float) -> void:
-	if PlayerManager.peer and player_init:
-		player_init.sync_player.rpc(multiplayer.get_unique_id(),global_position,global_rotation,velocity,anim.current_animation,anim.current_animation_position)
+	if PlayerManager.peer and player_init and model and anim:
+		player_init.sync_player.rpc(multiplayer.get_unique_id(),global_position,model.global_rotation,velocity,anim.current_animation,anim.current_animation_position,PlayerManager.playerChars[playerNum])
 								#pid:int,pos:Vector3,rot:Vector3,vel:Vector3,anim:String,animTime:float
