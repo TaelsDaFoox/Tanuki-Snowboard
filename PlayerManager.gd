@@ -24,10 +24,10 @@ func on_peer_disconnected(id:int) -> void:
 	netplayerNames.remove_at(playerUIDs.find(id))
 	playerUIDs.remove_at(playerUIDs.find(id))
 func _process(delta: float) -> void:
-	if not playerPlacements.size() == playerDevices.size():
+	if not playerPlacements.size() == playerDevices.size()+playerUIDs.size():
 		playerPlacements.clear()
 		playerCheckDists.clear()
-		for i in playerDevices.size():
+		for i in playerDevices.size()+playerUIDs.size():
 			playerPlacements.append(1)
 			playerCheckDists.append(0)
 	var sortedCheckDists = playerCheckDists.duplicate()

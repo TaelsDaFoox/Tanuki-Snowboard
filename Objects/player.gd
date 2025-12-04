@@ -161,5 +161,5 @@ func respawn():
 		position = checkpoints.get_child(currentCheckpoint).position
 func _process(delta: float) -> void:
 	if PlayerManager.peer and player_init and model and anim:
-		player_init.sync_player.rpc(multiplayer.get_unique_id(),global_position,model.global_rotation,velocity,anim.current_animation,anim.current_animation_position,PlayerManager.playerChars[playerNum])
+		player_init.sync_player.rpc(multiplayer.get_unique_id(),global_position,rotation+model.rotation,velocity,anim.current_animation,anim.current_animation_position,PlayerManager.playerChars[playerNum],currentCheckpoint+(1.0/checkpointDist))
 								#pid:int,pos:Vector3,rot:Vector3,vel:Vector3,anim:String,animTime:float
