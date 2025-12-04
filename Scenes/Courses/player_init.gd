@@ -9,14 +9,14 @@ var player = load("res://Objects/player.tscn")
 @onready var screenContainer = $"../GridContainer"
 @onready var music = $"../Music"
 @onready var spawnPos= $"../SpawnPos"
-@onready var mpSpawner = $MultiplayerSpawner
-@export var playerContainer: Node
+var netplayer = load("res://Objects/netplayer.tscn")
+@export var netplayerContainer: Node
 #var charModels = [load("res://Models/Characters/Jolt.tscn"),load("res://Models/Characters/Blolt.tscn")]
 var songs = [load("res://Audio/Music/Blizzard Peaks (Act1 & 2 Mix).mp3"),load("res://Audio/Music/ICECAP3.mp3"),load("res://Audio/Music/stuck.mp3"),load("res://Audio/Music/Sonic The Hedgehog 3 - IceCap Zone (Dumpster Fired).mp3"),load("res://Audio/Music/Get Edgy - Sonic Rush [OST].mp3")]
 func _ready() -> void:
 	music.stream = songs[randi_range(0,songs.size()-1)]
 	music.play()
-	mpSpawner.set_spawn_function(func spawnfunc(plr): return plr)
+	#mpSpawner.set_spawn_function(func spawnfunc(plr): return plr)
 	#await get_tree().create_timer(5.0).timeout
 	for i in PlayerManager.playerDevices.size():
 		var spawnplr = player.instantiate()
@@ -24,7 +24,9 @@ func _ready() -> void:
 		spawnplr.position = spawnPos.global_position+Vector3(2.0,0.0,0.0)*i
 		spawnplr.input = DeviceInput.new(PlayerManager.playerDevices[i])
 		spawnplr.checkpoints = $"../Checkpoints"
-		playerContainer.call_deferred("add_child",spawnplr)
+		spawnplr.player_init=self
+		get_parent().call_deferred("add_child",spawnplr)
+		#playerNodes.append(spawnplr)
 		
 		#mpSpawner.call_deferred("spawn",spawnplr)
 		
@@ -42,6 +44,24 @@ func _ready() -> void:
 	if PlayerManager.playerDevices.size()==2:
 		$"../SubViewport".size.x=1152*2
 		$"../SubViewport2".size.x=1152*2
+	#setup netplayers
+	if PlayerManager.peer and PlayerManager.playerUIDs:
+		for i in PlayerManager.playerUIDs:
+			var spawnplr = netplayer.instantiate()
+			#spawnplr.playerNum = i
+			spawnplr.position = spawnPos.global_position
+			#spawnplr.input = DeviceInput.new(PlayerManager.playerDevices[i])
+			#spawnplr.checkpoints = $"../Checkpoints"
+			spawnplr.uid = i
+			spawnplr.player_init=self
+			netplayerContainer.call_deferred("add_child",spawnplr)
+@rpc("any_peer", "call_remote", "unreliable_ordered", 0)
+func sync_player(pid:int,pos:Vector3,rot:Vector3,vel:Vector3,anim:String,animTime:float):
+	var player_index = PlayerManager.playerUIDs.find(pid)
+	var netp = netplayerContainer.get_child(player_index)
+	netp.global_position = pos
+	netp.global_rotation = rot
+	netp.velocity=vel
 func _process(delta: float) -> void:
-	if playerContainer.get_child_count():
-		cams[0].player = playerContainer.get_child(0)
+	for i in netplayerContainer.get_children():
+		pass

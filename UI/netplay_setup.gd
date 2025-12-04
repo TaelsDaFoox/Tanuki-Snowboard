@@ -14,21 +14,26 @@ func on_peer_connected(id:int) -> void:
 
 func _on_host_pressed() -> void:
 	consoleLabel.text = "host!"
-	var peer = ENetMultiplayerPeer.new()
-	peer.create_server(int(portInput.text), 32)
-	multiplayer.multiplayer_peer = peer
+	PlayerManager.peer = ENetMultiplayerPeer.new()
+	PlayerManager.peer.create_server(int(portInput.text), 32)
+	multiplayer.multiplayer_peer = PlayerManager.peer
 
 
 func _on_join_pressed() -> void:
 	consoleLabel.text = "peer!"
-	var peer = ENetMultiplayerPeer.new()
-	peer.create_client(ipInput.text, int(portInput.text))
-	multiplayer.multiplayer_peer = peer
+	PlayerManager.peer = ENetMultiplayerPeer.new()
+	PlayerManager.peer.create_client(ipInput.text, int(portInput.text))
+	multiplayer.multiplayer_peer = PlayerManager.peer
 
 @rpc("any_peer", "call_remote", "reliable", 0)
 func chat_message(msg:String):
 	consoleLabel.text=msg
 
 func _on_chat_send_pressed() -> void:
-	chat_message.rpc_id(1,chatInput.text)
+	chat_message.rpc(chatInput.text)
+	#chat_message.rpc_id(1,chatInput.text)
 	#get_tree().change_scene_to_file("res://UI/join_menu.tscn")
+
+
+func _on_lobby_pressed() -> void:
+	get_tree().change_scene_to_file("res://UI/join_menu.tscn")

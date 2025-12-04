@@ -8,7 +8,15 @@ var playerCheckDists := [10000.0,10000.0,10000.0,10000.0]
 var playerCheckpoints := [0,0,0,0]
 var playerPlacements := [1,2,3,4]
 var finishOrder := []
-
+var playerUIDs:= []
+var peer
+func _ready() -> void:
+	multiplayer.peer_connected.connect(on_peer_connected)
+	multiplayer.peer_disconnected.connect(on_peer_disconnected)
+func on_peer_connected(id:int) -> void:
+	playerUIDs.append(id)
+func on_peer_disconnected(id:int) -> void:
+	playerUIDs.remove_at(playerUIDs.find(id))
 func _process(delta: float) -> void:
 	if not playerPlacements.size() == playerDevices.size():
 		playerPlacements.clear()
@@ -33,6 +41,8 @@ func someoneFinished():
 		get_tree().change_scene_to_file("res://UI/join_menu.tscn")
 #I was looking into mod support and while it's definitely possible to do,
 #I think it's out of the scope of the Siege build
+#note from future me: continuing this for another siege week so this may be a thing there
+#focusing on polish and netplay first
 
 #func _ready() -> void:
 	#var modPath = OS.get_executable_path().get_base_dir() + "/modCharacters"

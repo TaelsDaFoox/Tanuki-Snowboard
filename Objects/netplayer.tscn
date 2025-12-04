@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://celgbkri0m3eg"]
+
+[ext_resource type="Script" uid="uid://qaq8riroq1lr" path="res://Objects/netplayer.gd" id="1_cxyt4"]
+[ext_resource type="AudioStream" uid="uid://baslth8yeoc8q" path="res://Audio/Sfx/browniannoise.mp3" id="2_4pvcy"]
+[ext_resource type="AudioStream" uid="uid://dmj0irp74re0t" path="res://Audio/Sfx/Low Whoosh.wav" id="3_f7e50"]
+[ext_resource type="PackedScene" uid="uid://cupepal8eibqd" path="res://collect_particle.tscn" id="4_2bynh"]
+[ext_resource type="Material" uid="uid://bsji82dofgvp5" path="res://Materials/Snow.tres" id="5_7uof0"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_y0qk3"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_x20fu"]
+material = ExtResource("5_7uof0")
+radius = 0.05
+height = 0.1
+radial_segments = 4
+rings = 1
+
+[node name="NetPlayer" type="CharacterBody3D"]
+collision_layer = 0
+floor_constant_speed = true
+floor_snap_length = 2.0
+script = ExtResource("1_cxyt4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+shape = SubResource("CapsuleShape3D_y0qk3")
+
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_4pvcy")
+volume_db = -10.0
+
+[node name="OneshotSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_f7e50")
+volume_db = -10.0
+
+[node name="TrickParticles" parent="." instance=ExtResource("4_2bynh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.013430238, -1.0398324)
+lifetime = 0.5
+local_coords = true
+
+[node name="SnowParticles" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8890095, 0.16153228)
+emitting = false
+amount = 200
+lifetime = 0.25
+local_coords = true
+mesh = SubResource("SphereMesh_x20fu")
+emission_shape = 3
+emission_box_extents = Vector3(0.4, 0, 0)
+direction = Vector3(0, 0, 1)
+spread = 26.0
+gravity = Vector3(0, -10, 0)
+initial_velocity_min = 8.0
+initial_velocity_max = 20.0
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.0043203)
