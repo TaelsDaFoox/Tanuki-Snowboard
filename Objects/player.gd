@@ -52,6 +52,7 @@ func _ready() -> void:
 	#if PlayerManager.peer:
 		#PlayerManager.sync_player_info.rpc(multiplayer.get_unique_id(),"scrunkle bungleton")
 func _physics_process(delta: float) -> void:
+	#print(str(PlayerManager.playerPlacements))
 	model.global_rotation.y=rotation.y+PI
 	#print(trickState)
 	if linkedUI and linkedUI.QTEactive:

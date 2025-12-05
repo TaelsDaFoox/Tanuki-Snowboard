@@ -3,6 +3,7 @@ extends Control
 @onready var portInput = $PortInput
 @onready var consoleLabel = $ConsoleLabel
 @onready var chatInput = $ChatInput
+@onready var usernameInput = $UsernameInput
 func _ready() -> void:
 	multiplayer.peer_connected.connect(on_peer_connected)
 
@@ -28,13 +29,41 @@ func _on_join_pressed() -> void:
 @rpc("any_peer", "call_remote", "reliable", 0)
 func chat_message(msg:String):
 	consoleLabel.text=msg
+@rpc("any_peer", "call_remote", "reliable", 0)
+func debug_emb(emb):
+	print(str(emb))
+	var img = Image.new()
+	img.load_png_from_buffer(emb)
+	var tex = ImageTexture.create_from_image(img)
+	$TextureRect.texture = tex
+
+func decode_data(string:String, allow_objects = false):
+	return JSON.to_native(JSON.parse_string(string), allow_objects)
 
 func _on_chat_send_pressed() -> void:
 	chat_message.rpc(chatInput.text)
-	PlayerManager.sync_player_info.rpc(multiplayer.get_unique_id(),chatInput.text)
 	#chat_message.rpc_id(1,chatInput.text)
 	#get_tree().change_scene_to_file("res://UI/join_menu.tscn")
 
 
 func _on_lobby_pressed() -> void:
 	get_tree().change_scene_to_file("res://UI/join_menu.tscn")
+
+
+func _on_emblem_upload_pressed() -> void:
+	$FileDialog.popup()
+
+
+func _on_file_dialog_file_selected(path: String) -> void:
+	var img = Image.new()
+	img.load(path)
+	img.resize(32,32,0)
+	PlayerManager.localEmblem=img#.save_png_to_buffer()
+	var tex = ImageTexture.create_from_image(img)
+	$Emblem.texture = tex
+	#debug_emb.rpc(img.save_png_to_buffer())
+	PlayerManager.sync_player_info.rpc(multiplayer.get_unique_id(),usernameInput.text,PlayerManager.localEmblem.save_png_to_buffer())
+
+
+func _on_username_text_changed() -> void:
+	PlayerManager.sync_player_info.rpc(multiplayer.get_unique_id(),usernameInput.text,PlayerManager.localEmblem.save_png_to_buffer())

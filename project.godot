@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Tanuki Snowboard"
-run/main_scene="uid://cisxr82mdbgc8"
+run/main_scene="uid://dqfgf43inpmdg"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 

@@ -11,17 +11,24 @@ var finishOrder := []
 var playerUIDs:= []
 var netplayerModels:=[]
 var netplayerNames:=[]
+var netplayerEmblems:=[]
 var peer
+var localEmblem := Image.new()
 func _ready() -> void:
+	#var emb = Image.new()
+	localEmblem.load("res://Textures/tempEmblem.png")
+	#localEmblem = emb#.save_png_to_buffer()
 	multiplayer.peer_connected.connect(on_peer_connected)
 	multiplayer.peer_disconnected.connect(on_peer_disconnected)
 func on_peer_connected(id:int) -> void:
 	playerUIDs.append(id)
 	netplayerModels.append(-1)
 	netplayerNames.append("Unnamed Boarder")
+	netplayerEmblems.append(localEmblem)
 func on_peer_disconnected(id:int) -> void:
 	netplayerModels.remove_at(playerUIDs.find(id))
 	netplayerNames.remove_at(playerUIDs.find(id))
+	netplayerEmblems.remove_at(playerUIDs.find(id))
 	playerUIDs.remove_at(playerUIDs.find(id))
 func _process(delta: float) -> void:
 	if not playerPlacements.size() == playerDevices.size()+playerUIDs.size():
@@ -46,9 +53,14 @@ func someoneFinished():
 		playerDevices.clear()
 		get_tree().change_scene_to_file("res://UI/join_menu.tscn")
 @rpc("any_peer", "call_remote", "reliable", 1)
-func sync_player_info(pid:int, name:String):
+func sync_player_info(pid:int, name:String,emblem):
 	var player_index = PlayerManager.playerUIDs.find(pid)
-	PlayerManager.netplayerNames[player_index]=name
+	netplayerNames[player_index]=name
+	#var img = Image.new()
+	#img.load_png_from_buffer(emblem)
+	var img = Image.new()
+	img.load_png_from_buffer(emblem)
+	netplayerEmblems[player_index]=img
 	#var netp = netplayerContainer.get_child(player_index)
 	#netp.set_header()
 #I was looking into mod support and while it's definitely possible to do,

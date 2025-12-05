@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bcr2teys4k50f" path="res://UI/netplay_setup.gd" id="1_poejy"]
 [ext_resource type="Texture2D" uid="uid://c3vimms87tjyt" path="res://Textures/fillerBG.png" id="2_vi8mb"]
 [ext_resource type="Script" uid="uid://d30p27ii7dudq" path="res://Scenes/Courses/filler_bg_scroll.gd" id="3_0wux7"]
-[ext_resource type="Texture2D" uid="uid://cd84ru4vw1836" path="res://Textures/tempEmblem.png" id="4_vi8mb"]
+[ext_resource type="Texture2D" uid="uid://e81mad40gaf5" path="res://Models/Penn Guiny.png" id="4_vi8mb"]
 
 [node name="NetplaySetup" type="Control"]
 layout_mode = 3
@@ -60,7 +60,6 @@ theme_override_font_sizes/font_size = 46
 text = "Join Server"
 
 [node name="ChatSend" type="Button" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -119,7 +118,6 @@ text = "5029"
 placeholder_text = "Port to join or host on"
 
 [node name="ChatInput" type="TextEdit" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -132,20 +130,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
 placeholder_text = "Chat message..."
-
-[node name="UsernameInput" type="TextEdit" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 149.0
-offset_top = 407.0
-offset_right = -463.0
-offset_bottom = -169.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 30
-placeholder_text = "Username..."
 
 [node name="ConsoleLabel" type="Label" parent="."]
 layout_mode = 1
@@ -169,37 +153,34 @@ access = 2
 
 [node name="EmblemUpload" type="Button" parent="."]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 1
+anchor_left = 1.0
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 694.0
-offset_top = 408.0
-offset_right = -173.0
-offset_bottom = -168.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = -274.0
+offset_top = 16.0
+offset_right = -20.0
+offset_bottom = 88.0
+grow_horizontal = 0
 theme_override_font_sizes/font_size = 32
 text = "Upload Emblem
 "
 
-[node name="Emblem" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
 texture_filter = 1
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 2
+anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 976.0
-offset_top = 408.0
-offset_right = -48.0
-offset_bottom = -112.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = 15.0
+offset_top = -144.0
+offset_right = 134.0
+offset_bottom = -25.0
+grow_vertical = 0
 texture = ExtResource("4_vi8mb")
 
 [connection signal="pressed" from="Host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="Join" to="." method="_on_join_pressed"]
 [connection signal="pressed" from="ChatSend" to="." method="_on_chat_send_pressed"]
 [connection signal="pressed" from="lobby" to="." method="_on_lobby_pressed"]
-[connection signal="text_changed" from="UsernameInput" to="." method="_on_username_text_changed"]
 [connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]
 [connection signal="pressed" from="EmblemUpload" to="." method="_on_emblem_upload_pressed"]

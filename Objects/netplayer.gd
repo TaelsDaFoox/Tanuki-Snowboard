@@ -4,8 +4,17 @@ extends CharacterBody3D
 var uid:int
 var player_init:Node
 var modelSet = false
+var placementEndings := ["th","st","nd","rd","th","th","th","th","th","th",]
+@onready var username =$SubViewport/HBoxContainer/Username
+@onready var icon =$SubViewport/HBoxContainer/PlayerIcon
 func _ready() -> void:
 	set_header()
+func _process(delta: float) -> void:
+	var player_index = PlayerManager.playerUIDs.find(uid)
+	var placement = PlayerManager.playerPlacements.find(player_index+2)+1
+	var placementstr = str(placement)+placementEndings[fmod(placement,10)]
+	if player_index>=PlayerManager.netplayerNames.size()-1:
+		username.text = PlayerManager.netplayerNames[player_index]+" ("+placementstr+")"
 func set_model(modelNum:int) -> void:
 	if not modelSet:
 		modelSet = true
@@ -18,4 +27,10 @@ func set_model(modelNum:int) -> void:
 
 func set_header():
 	var player_index = PlayerManager.playerUIDs.find(uid)
-	$SubViewport/HBoxContainer/Username.text = PlayerManager.netplayerNames[player_index]
+	username.text = PlayerManager.netplayerNames[player_index]
+	#var img = Image.new()
+	#img.load_png_from_buffer(PlayerManager.netplayerEmblems[player_index])
+	var img = PlayerManager.netplayerEmblems[player_index]
+	var tex = ImageTexture.create_from_image(img)
+	icon.texture=tex
+	print(img)
