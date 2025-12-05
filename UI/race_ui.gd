@@ -45,6 +45,7 @@ func _process(delta: float) -> void:
 			finishedHeader.visible=true
 		var placement = PlayerManager.playerPlacements[linkedPlayer.playerNum]
 		placementLabel.text=str(placement)+placementEndings[fmod(PlayerManager.playerPlacements[linkedPlayer.playerNum],10)]
+		placementLabel.text = str(PlayerManager.playerPlacements)
 	if QTEactive and not nopeTimer.is_stopped():
 		nopeX.position = promptLabels[QTEprogress].global_position
 		nopeX.scale = promptLabels[QTEprogress].scale

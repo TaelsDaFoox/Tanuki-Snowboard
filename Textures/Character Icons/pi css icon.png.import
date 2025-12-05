@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgcdl1soax3v3"
-path="res://.godot/imported/Taels Emblem.png-e6998642c353d4ff5a216784fe9db9e5.ctex"
+uid="uid://ds5fs6618krh1"
+path="res://.godot/imported/pi css icon.png-d71d26570d834579cf6b4ca88681cb82.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Taels Emblem.png"
-dest_files=["res://.godot/imported/Taels Emblem.png-e6998642c353d4ff5a216784fe9db9e5.ctex"]
+source_file="res://Textures/Character Icons/pi css icon.png"
+dest_files=["res://.godot/imported/pi css icon.png-d71d26570d834579cf6b4ca88681cb82.ctex"]
 
 [params]
 

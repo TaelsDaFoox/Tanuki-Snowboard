@@ -15,6 +15,7 @@ var netplayerEmblems:=[]
 var peer
 var localEmblem := Image.new()
 func _ready() -> void:
+	fix_list_lengths()
 	#var emb = Image.new()
 	localEmblem.load("res://Textures/tempEmblem.png")
 	#localEmblem = emb#.save_png_to_buffer()
@@ -30,13 +31,15 @@ func on_peer_disconnected(id:int) -> void:
 	netplayerNames.remove_at(playerUIDs.find(id))
 	netplayerEmblems.remove_at(playerUIDs.find(id))
 	playerUIDs.remove_at(playerUIDs.find(id))
-func _process(delta: float) -> void:
+func fix_list_lengths():
 	if not playerPlacements.size() == playerDevices.size()+playerUIDs.size():
 		playerPlacements.clear()
 		playerCheckDists.clear()
 		for i in playerDevices.size()+playerUIDs.size():
 			playerPlacements.append(1)
 			playerCheckDists.append(0)
+func _process(delta: float) -> void:
+	fix_list_lengths()
 	var sortedCheckDists = playerCheckDists.duplicate()
 	sortedCheckDists.sort()
 	sortedCheckDists.reverse()

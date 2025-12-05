@@ -33,13 +33,14 @@ script = ExtResource("3_0wux7")
 
 [node name="Host" type="Button" parent="."]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
+anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 0.5
 offset_left = 687.0
-offset_top = 248.0
+offset_top = -76.0
 offset_right = -174.0
-offset_bottom = -328.0
+offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 46
@@ -47,13 +48,13 @@ text = "Host Server"
 
 [node name="Join" type="Button" parent="."]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
+anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 0.5
 offset_left = 687.0
-offset_top = 324.0
 offset_right = -174.0
-offset_bottom = -252.0
+offset_bottom = 72.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 46
@@ -76,13 +77,14 @@ text = "Send"
 
 [node name="lobby" type="Button" parent="."]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
+anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 0.5
 offset_left = 460.0
-offset_top = 539.0
+offset_top = 215.0
 offset_right = -401.0
-offset_bottom = -37.0
+offset_bottom = 287.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 46
@@ -90,13 +92,14 @@ text = "lobby"
 
 [node name="IpInput" type="TextEdit" parent="."]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
+anchor_top = 0.49400002
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 0.49400002
 offset_left = 149.0
-offset_top = 248.0
+offset_top = -72.112
 offset_right = -463.0
-offset_bottom = -328.0
+offset_bottom = -0.11199951
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
@@ -105,13 +108,14 @@ placeholder_text = "IP to join (doesn't matter if hosting)"
 
 [node name="PortInput" type="TextEdit" parent="."]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
+anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 0.50200003
 offset_left = 149.0
-offset_top = 325.0
+offset_top = 1.0
 offset_right = -463.0
-offset_bottom = -251.0
+offset_bottom = 71.70398
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
@@ -135,13 +139,14 @@ placeholder_text = "Chat message..."
 
 [node name="UsernameInput" type="TextEdit" parent="."]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
+anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 0.5
 offset_left = 149.0
-offset_top = 407.0
+offset_top = 83.0
 offset_right = -463.0
-offset_bottom = -169.0
+offset_bottom = 155.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
@@ -149,13 +154,14 @@ placeholder_text = "Username..."
 
 [node name="ConsoleLabel" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
+anchor_top = 0.012
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 0.012
 offset_left = 12.0
-offset_top = 8.0
+offset_top = 0.22399998
 offset_right = -12.0
-offset_bottom = -399.0
+offset_bottom = 241.224
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/outline_size = 15
@@ -169,32 +175,54 @@ access = 2
 
 [node name="EmblemUpload" type="Button" parent="."]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
+anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 0.5
 offset_left = 694.0
-offset_top = 408.0
+offset_top = 84.0
 offset_right = -173.0
-offset_bottom = -168.0
+offset_bottom = 156.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 32
 text = "Upload Emblem
 "
 
+[node name="EmblemDesc" type="Label" parent="EmblemUpload"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.046000004
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.8899994
+offset_top = 1.0
+offset_right = -8.0
+offset_bottom = 76.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/outline_size = 15
+text = "upload a 32x32 pixel image
+with the button above, or
+drap + drop anywhere!"
+horizontal_alignment = 1
+
 [node name="Emblem" type="TextureRect" parent="."]
 texture_filter = 1
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
+anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 976.0
-offset_top = 408.0
-offset_right = -48.0
-offset_bottom = -112.0
+offset_left = -168.0
+offset_top = 409.0
+offset_right = -40.0
+offset_bottom = -111.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_vi8mb")
+stretch_mode = 4
 
 [connection signal="pressed" from="Host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="Join" to="." method="_on_join_pressed"]

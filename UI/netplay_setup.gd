@@ -6,12 +6,14 @@ extends Control
 @onready var usernameInput = $UsernameInput
 func _ready() -> void:
 	multiplayer.peer_connected.connect(on_peer_connected)
+	get_viewport().files_dropped.connect(on_files_dropped)
 
 func on_peer_connected(id:int) -> void:
 	consoleLabel.text = "id "+str(id)+" connected!"
 	if multiplayer.is_server():
 		PlayerManager.playerIDs.append(id)
 		consoleLabel.text = str(PlayerManager.playerIDs)
+	syncinfo()
 
 func _on_host_pressed() -> void:
 	consoleLabel.text = "host!"
@@ -53,17 +55,27 @@ func _on_lobby_pressed() -> void:
 func _on_emblem_upload_pressed() -> void:
 	$FileDialog.popup()
 
-
+func on_files_dropped(files):
+	print(files)
+	var path = files[0]
+	var img = Image.new()
+	img.load(path)
+	img.resize(32,32,Image.INTERPOLATE_NEAREST)
+	PlayerManager.localEmblem=img#.save_png_to_buffer()
+	var tex = ImageTexture.create_from_image(img)
+	$Emblem.texture = tex
+	syncinfo()
 func _on_file_dialog_file_selected(path: String) -> void:
 	var img = Image.new()
 	img.load(path)
-	img.resize(32,32,0)
-	PlayerManager.localEmblem=img#.save_png_to_buffer()
+	img.resize(32,32,Image.INTERPOLATE_NEAREST)
+	PlayerManager.localEmblem=img#.save_pipng_to_buffer()
 	var tex = ImageTexture.create_from_image(img)
 	$Emblem.texture = tex
 	#debug_emb.rpc(img.save_png_to_buffer())
 	PlayerManager.sync_player_info.rpc(multiplayer.get_unique_id(),usernameInput.text,PlayerManager.localEmblem.save_png_to_buffer())
-
+func syncinfo():
+	PlayerManager.sync_player_info.rpc(multiplayer.get_unique_id(),usernameInput.text,PlayerManager.localEmblem.save_png_to_buffer())
 
 func _on_username_text_changed() -> void:
 	PlayerManager.sync_player_info.rpc(multiplayer.get_unique_id(),usernameInput.text,PlayerManager.localEmblem.save_png_to_buffer())
