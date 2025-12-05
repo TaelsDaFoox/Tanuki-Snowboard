@@ -6,3 +6,5 @@ Grab some friends and some extra controllers, and race to the bottom of the cour
 Created using Godot, Blender, Paint.net, and Audacity.
 
 Play the game (and get more info + music credits) here! https://taelsdafoox.itch.io/tanuki-snowboard
+
+demo video here (slightly newer build bc I didn't record this before working a bit more, only difference should be the QTE button icons): https://youtu.be/dDqXb0yuPHA
