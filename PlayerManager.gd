@@ -32,10 +32,13 @@ func on_peer_disconnected(id:int) -> void:
 	netplayerEmblems.remove_at(playerUIDs.find(id))
 	playerUIDs.remove_at(playerUIDs.find(id))
 func fix_list_lengths():
-	if not playerPlacements.size() == playerDevices.size()+playerUIDs.size():
+	var noDevice:int
+	if not playerDevices:
+		noDevice=1
+	if not playerPlacements.size() == playerDevices.size()+playerUIDs.size()+noDevice:
 		playerPlacements.clear()
 		playerCheckDists.clear()
-		for i in playerDevices.size()+playerUIDs.size():
+		for i in playerDevices.size()+playerUIDs.size()+noDevice:
 			playerPlacements.append(1)
 			playerCheckDists.append(0)
 func _process(delta: float) -> void:
@@ -58,14 +61,23 @@ func someoneFinished():
 @rpc("any_peer", "call_remote", "reliable", 1)
 func sync_player_info(pid:int, name:String,emblem):
 	var player_index = PlayerManager.playerUIDs.find(pid)
-	netplayerNames[player_index]=name
-	#var img = Image.new()
-	#img.load_png_from_buffer(emblem)
-	var img = Image.new()
-	img.load_png_from_buffer(emblem)
-	netplayerEmblems[player_index]=img
-	#var netp = netplayerContainer.get_child(player_index)
-	#netp.set_header()
+	if not player_index==-1:
+		#fix_list_lengths()
+		if netplayerNames.size()<=player_index:
+			netplayerNames.append("Unnamed Boarder")
+		if name:
+			netplayerNames[player_index]=name
+		else:
+			netplayerNames[player_index]="Unnamed Boarder"
+		#var img = Image.new()
+		#img.load_png_from_buffer(emblem)
+		var img = Image.new()
+		img.load_png_from_buffer(emblem)
+		if netplayerEmblems.size()<=player_index:
+			netplayerEmblems.append(Image.new())
+			netplayerEmblems[player_index]=img
+		#var netp = netplayerContainer.get_child(player_index)
+		#netp.set_header()
 #I was looking into mod support and while it's definitely possible to do,
 #I think it's out of the scope of the Siege build
 #note from future me: continuing this for another siege week so this may be a thing there

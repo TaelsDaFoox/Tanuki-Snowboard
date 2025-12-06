@@ -9,11 +9,11 @@ func _ready() -> void:
 	get_viewport().files_dropped.connect(on_files_dropped)
 
 func on_peer_connected(id:int) -> void:
-	consoleLabel.text = "id "+str(id)+" connected!"
-	if multiplayer.is_server():
-		PlayerManager.playerIDs.append(id)
-		consoleLabel.text = str(PlayerManager.playerIDs)
 	syncinfo()
+	consoleLabel.text = "id "+str(id)+" connected!"
+	#if multiplayer.is_server():
+		#PlayerManager.playerUIDs.append(id)
+		#consoleLabel.text = str(PlayerManager.playerUIDs)
 
 func _on_host_pressed() -> void:
 	consoleLabel.text = "host!"
@@ -21,6 +21,16 @@ func _on_host_pressed() -> void:
 	PlayerManager.peer.create_server(int(portInput.text), 32)
 	multiplayer.multiplayer_peer = PlayerManager.peer
 
+func _process(delta: float) -> void:
+	var playerlist:Array
+	var playerlistStr:String
+	for i in PlayerManager.playerUIDs.size():
+		if PlayerManager.netplayerNames.size()>i:
+			playerlistStr=playerlistStr+PlayerManager.netplayerNames[i]+" "
+			#playerlist.append(PlayerManager.netplayerNames[i])
+	consoleLabel.text = str(playerlistStr)
+	#if multiplayer.is_server():
+	#	consoleLabel.text = str(PlayerManager.playerUIDs)
 
 func _on_join_pressed() -> void:
 	consoleLabel.text = "peer!"
