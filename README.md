@@ -7,4 +7,6 @@ Created using Godot, Blender, Paint.net, and Audacity.
 
 Play the game (and get more info + music credits) here! https://taelsdafoox.itch.io/tanuki-snowboard
 
-demo video here (slightly newer build bc I didn't record this before working a bit more, only difference should be the QTE button icons): https://youtu.be/dDqXb0yuPHA
+demo video here: https://youtu.be/u83Cro6LmmQ
+
+older demo video here that actually shows a slightly newer build, if you don't wanna see the multiplayer and me and my friends being funny in vc: https://youtu.be/dDqXb0yuPHA
