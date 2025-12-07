@@ -23,7 +23,6 @@ MultiplayerInput="*res://addons/multiplayer_input/multiplayer_input.gd"
 [display]
 
 window/stretch/mode="viewport"
-window/stretch/aspect="expand"
 
 [editor_plugins]
 

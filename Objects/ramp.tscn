@@ -6,7 +6,7 @@
 points = PackedVector3Array(-2, -0.05, -3.1, -2, -0.05, 3, 2, -0.05, 3, 2, -0.05, -3.1, 2, 2.945, 3, -2, 2.945, 3)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pqh0i"]
-size = Vector3(2.8010254, 7.3567505, 11.602081)
+size = Vector3(3.769287, 5.4490967, 13)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0im7m"]
 size = Vector3(6.8361816, 6.3164063, 10.744141)
@@ -26,7 +26,7 @@ collision_layer = 4
 collision_mask = 0
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8093567, -1.3985748)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8555298, -0.45961)
 shape = SubResource("BoxShape3D_pqh0i")
 
 [node name="Area3D2" type="Area3D" parent="."]

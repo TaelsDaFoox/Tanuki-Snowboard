@@ -32,7 +32,7 @@ func on_peer_disconnected(id:int) -> void:
 	netplayerNames.remove_at(playerUIDs.find(id))
 	netplayerEmblems.remove_at(playerUIDs.find(id))
 	playerUIDs.remove_at(playerUIDs.find(id))
-func on_server_disconnected(id:int) -> void:
+func on_server_disconnected(id:int) -> void:  
 	print("trying to leave server")
 	multiplayer.multiplayer_peer = OfflineMultiplayerPeer.new()
 	get_tree().change_scene_to_file("res://UI/netplay_setup.tscn")

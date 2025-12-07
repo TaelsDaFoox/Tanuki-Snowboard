@@ -102,9 +102,12 @@ func _physics_process(delta: float) -> void:
 	velocity.x=-sin(rotation.y)*movespd
 	velocity.z=-cos(rotation.y)*movespd
 	turnvel=move_toward(turnvel,(input.get_action_strength("Right")-input.get_action_strength("Left"))*turnspeed,delta*(turnlerpspeed))
+	if not is_on_floor():
+		slopeDir-=turnvel*0.2
 	rotation.y-=turnvel
+	#rotation.y=clamp(rotation.y,slopeDir-PI/2,slopeDir+PI/2)
 	turnvel = lerpf(turnvel,0.0,delta*2.5)
-	rotation.y=lerp_angle(rotation.y,slopeDir,delta*(velocity.length()-extraBoost)*0.1)
+	rotation.y=lerp_angle(rotation.y,slopeDir,delta*(clampf(velocity.length()-extraBoost,7.0,9999.0))*0.1)
 	if is_on_floor():
 		if velocity.y<0.0:
 			velocity.y=-0.0
