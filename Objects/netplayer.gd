@@ -9,15 +9,16 @@ var placementEndings := ["th","st","nd","rd","th","th","th","th","th","th",]
 @onready var icon =$SubViewport/HBoxContainer/PlayerIcon
 func _ready() -> void:
 	set_header()
-#func _process(delta: float) -> void:
-	#var player_index = PlayerManager.playerUIDs.find(uid)
+func _process(delta: float) -> void:
+	var player_index = PlayerManager.playerUIDs.find(uid)
 	
-	#var placement = PlayerManager.playerPlacements.find(player_index+2)+1
+	var placement = PlayerManager.playerPlacements[player_index+1]
+	#print("index "+str(player_index+1)+" is "+str(PlayerManager.playerPlacements[player_index+1]))
 	#var placement = PlayerManager.playerPlacements.find(player_index+2)
 	
-	#var placementstr = str(placement)+placementEndings[fmod(placement,10)]
+	var placementstr = str(placement)+placementEndings[fmod(placement,10)]
 	#if player_index>=PlayerManager.netplayerNames.size()-1:
-	#username.text = PlayerManager.netplayerNames[player_index]+" ("+placementstr+")"
+	username.text = PlayerManager.netplayerNames[player_index]+" ("+placementstr+")"
 func set_model(modelNum:int) -> void:
 	if not modelSet:
 		modelSet = true

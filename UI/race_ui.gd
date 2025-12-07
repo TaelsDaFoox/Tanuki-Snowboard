@@ -46,6 +46,8 @@ func _process(delta: float) -> void:
 		var placement = PlayerManager.playerPlacements[linkedPlayer.playerNum]
 		placementLabel.text=str(placement)+placementEndings[fmod(PlayerManager.playerPlacements[linkedPlayer.playerNum],10)]
 		#placementLabel.text = str(PlayerManager.playerPlacements)
+		#if multiplayer.is_server():
+		#	print(str(PlayerManager.playerCheckDists))
 	if QTEactive and not nopeTimer.is_stopped():
 		nopeX.position = promptLabels[QTEprogress].global_position
 		nopeX.scale = promptLabels[QTEprogress].scale

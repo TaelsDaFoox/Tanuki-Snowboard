@@ -63,7 +63,8 @@ func sync_player(pid:int,pos:Vector3,rot:Vector3,vel:Vector3,anim:String,animTim
 	netp.global_rotation = rot
 	netp.velocity=vel
 	netp.set_model(mdl)
-	PlayerManager.playerCheckDists[PlayerManager.playerUIDs.find(player_index)+2]=checkdist
+	#print(str(checkdist))
+	PlayerManager.playerCheckDists[player_index+1]=checkdist
 	if netp.anim:
 		netp.anim.play(anim,0.1,0.0)
 		netp.anim.seek(animTime)
