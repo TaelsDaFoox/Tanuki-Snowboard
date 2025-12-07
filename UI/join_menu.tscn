@@ -504,6 +504,22 @@ autoplay = true
 wait_time = 0.25
 autostart = true
 
+[node name="netplay setup" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 775.0
+offset_top = 252.0
+offset_right = -237.0
+offset_bottom = 288.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+text = "leave lobby"
+
 [connection signal="focus_entered" from="Button" to="." method="_on_button_focus_entered"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="FlashTimer" to="." method="_on_flash_timer_timeout"]
+[connection signal="pressed" from="netplay setup" to="." method="_on_netplay_setup_pressed"]

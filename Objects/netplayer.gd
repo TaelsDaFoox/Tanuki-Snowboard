@@ -11,6 +11,8 @@ func _ready() -> void:
 	set_header()
 func _process(delta: float) -> void:
 	var player_index = PlayerManager.playerUIDs.find(uid)
+	if not PlayerManager.playerUIDs.has(uid):
+		return
 	
 	var placement = PlayerManager.playerPlacements[player_index+1]
 	#print("index "+str(player_index+1)+" is "+str(PlayerManager.playerPlacements[player_index+1]))

@@ -14,6 +14,7 @@ var netplayer = load("res://Objects/netplayer.tscn")
 #var charModels = [load("res://Models/Characters/Jolt.tscn"),load("res://Models/Characters/Blolt.tscn")]
 var songs = [load("res://Audio/Music/Blizzard Peaks (Act1 & 2 Mix).mp3"),load("res://Audio/Music/ICECAP3.mp3"),load("res://Audio/Music/stuck.mp3"),load("res://Audio/Music/Sonic The Hedgehog 3 - IceCap Zone (Dumpster Fired).mp3"),load("res://Audio/Music/Get Edgy - Sonic Rush [OST].mp3")]
 func _ready() -> void:
+	multiplayer.peer_disconnected.connect(on_peer_disconnected)
 	music.stream = songs[randi_range(0,songs.size()-1)]
 	music.play()
 	#mpSpawner.set_spawn_function(func spawnfunc(plr): return plr)
@@ -71,3 +72,7 @@ func sync_player(pid:int,pos:Vector3,rot:Vector3,vel:Vector3,anim:String,animTim
 func _process(delta: float) -> void:
 	for i in netplayerContainer.get_children():
 		pass
+func on_peer_disconnected(id):
+	for i in netplayerContainer.get_children():
+		if i.uid==id:
+			i.queue_free()

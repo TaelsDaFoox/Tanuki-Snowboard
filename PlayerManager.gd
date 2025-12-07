@@ -21,16 +21,21 @@ func _ready() -> void:
 	#localEmblem = emb#.save_png_to_buffer()
 	multiplayer.peer_connected.connect(on_peer_connected)
 	multiplayer.peer_disconnected.connect(on_peer_disconnected)
+	multiplayer.server_disconnected.connect(on_server_disconnected)
 func on_peer_connected(id:int) -> void:
 	playerUIDs.append(id)
 	netplayerModels.append(-1)
 	netplayerNames.append("Unnamed Boarder")
-	netplayerEmblems.append(localEmblem)
+	netplayerEmblems.append(Image.new())
 func on_peer_disconnected(id:int) -> void:
 	netplayerModels.remove_at(playerUIDs.find(id))
 	netplayerNames.remove_at(playerUIDs.find(id))
 	netplayerEmblems.remove_at(playerUIDs.find(id))
 	playerUIDs.remove_at(playerUIDs.find(id))
+func on_server_disconnected(id:int) -> void:
+	print("trying to leave server")
+	multiplayer.multiplayer_peer = OfflineMultiplayerPeer.new()
+	get_tree().change_scene_to_file("res://UI/netplay_setup.tscn")
 func fix_list_lengths():
 	var noDevice:int
 	if not playerDevices:
@@ -60,22 +65,22 @@ func someoneFinished():
 		get_tree().change_scene_to_file("res://UI/join_menu.tscn")
 @rpc("any_peer", "call_remote", "reliable", 1)
 func sync_player_info(pid:int, name:String,emblem):
+	print("syncing infos")
 	var player_index = PlayerManager.playerUIDs.find(pid)
-	if not player_index==-1:
-		#fix_list_lengths()
-		if netplayerNames.size()<=player_index:
-			netplayerNames.append("Unnamed Boarder")
-		if name:
-			netplayerNames[player_index]=name
-		else:
-			netplayerNames[player_index]="Unnamed Boarder"
+	if netplayerNames.size()<=player_index:
+		netplayerNames.append("Unnamed Boarder")
+	if name:
+		netplayerNames[player_index]=name
+	else:
+		netplayerNames[player_index]="Unnamed Boarder"
 		#var img = Image.new()
 		#img.load_png_from_buffer(emblem)
-		var img = Image.new()
-		img.load_png_from_buffer(emblem)
-		if netplayerEmblems.size()<=player_index:
-			netplayerEmblems.append(Image.new())
-			netplayerEmblems[player_index]=img
+	var img = Image.new()
+	img.load_png_from_buffer(emblem)
+	print("got the custom emblem")
+	if netplayerEmblems.size()<=player_index:
+		netplayerEmblems.append(Image.new())
+	netplayerEmblems[player_index]=img
 		#var netp = netplayerContainer.get_child(player_index)
 		#netp.set_header()
 #I was looking into mod support and while it's definitely possible to do,

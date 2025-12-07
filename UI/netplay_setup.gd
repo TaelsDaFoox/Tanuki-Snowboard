@@ -10,7 +10,7 @@ func _ready() -> void:
 
 func on_peer_connected(id:int) -> void:
 	syncinfo()
-	consoleLabel.text = "id "+str(id)+" connected!"
+	#consoleLabel.text = "id "+str(id)+" connected!"
 	#if multiplayer.is_server():
 		#PlayerManager.playerUIDs.append(id)
 		#consoleLabel.text = str(PlayerManager.playerUIDs)
@@ -70,6 +70,7 @@ func on_files_dropped(files):
 	var path = files[0]
 	var img = Image.new()
 	img.load(path)
+	await img
 	img.resize(32,32,Image.INTERPOLATE_NEAREST)
 	PlayerManager.localEmblem=img#.save_png_to_buffer()
 	var tex = ImageTexture.create_from_image(img)

@@ -50,9 +50,10 @@ func _process(delta: float) -> void:
 	
 
 func _on_button_pressed() -> void:
-	if multiplayer.is_server():
-		startMatch.rpc()
-	get_tree().change_scene_to_file("res://Scenes/Courses/Course1.tscn")
+	if multiplayer.is_server() or not multiplayer.has_multiplayer_peer():
+		if multiplayer.is_server():
+			startMatch.rpc()
+		get_tree().change_scene_to_file("res://Scenes/Courses/Course1.tscn")
 
 
 func _on_flash_timer_timeout() -> void:
@@ -65,3 +66,8 @@ func _on_button_focus_entered() -> void:
 @rpc("authority", "call_remote", "reliable", 0)
 func startMatch():
 	get_tree().change_scene_to_file("res://Scenes/Courses/Course1.tscn")
+
+
+func _on_netplay_setup_pressed() -> void:
+	multiplayer.multiplayer_peer = OfflineMultiplayerPeer.new()
+	get_tree().change_scene_to_file("res://UI/netplay_setup.tscn")
