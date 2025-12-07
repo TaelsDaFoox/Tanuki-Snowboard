@@ -23,10 +23,10 @@ func _on_host_pressed() -> void:
 
 func _process(delta: float) -> void:
 	var playerlist:Array
-	var playerlistStr:String
+	var playerlistStr:="Connected Players:"
 	for i in PlayerManager.playerUIDs.size():
 		if PlayerManager.netplayerNames.size()>i:
-			playerlistStr=playerlistStr+PlayerManager.netplayerNames[i]+" "
+			playerlistStr=playerlistStr+"\n"+PlayerManager.netplayerNames[i]
 			#playerlist.append(PlayerManager.netplayerNames[i])
 	consoleLabel.text = str(playerlistStr)
 	#if multiplayer.is_server():
