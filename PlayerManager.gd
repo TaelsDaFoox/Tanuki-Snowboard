@@ -58,7 +58,7 @@ func _process(delta: float) -> void:
 func logDist(plr:int,val:float):
 	playerCheckDists[plr]=val
 func someoneFinished():
-	if finishOrder.size()>=playerDevices.size():
+	if finishOrder.size()>=playerDevices.size()+playerUIDs.size():
 		await get_tree().create_timer(3.0).timeout
 		finishOrder.clear()
 		playerDevices.clear()
@@ -81,6 +81,10 @@ func sync_player_info(pid:int, name:String,emblem):
 	if netplayerEmblems.size()<=player_index:
 		netplayerEmblems.append(Image.new())
 	netplayerEmblems[player_index]=img
+@rpc("any_peer", "call_remote", "reliable", 1)
+func netplayer_finished(pid:int):
+	finishOrder.append(playerUIDs.find(pid)+2)
+	someoneFinished()
 		#var netp = netplayerContainer.get_child(player_index)
 		#netp.set_header()
 #I was looking into mod support and while it's definitely possible to do,

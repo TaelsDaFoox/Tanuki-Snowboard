@@ -135,6 +135,7 @@ func _physics_process(delta: float) -> void:
 			finished=true
 			PlayerManager.finishOrder.append(playerNum)
 			PlayerManager.someoneFinished()
+			PlayerManager.netplayer_finished.rpc(multiplayer.get_unique_id())
 	if finished:
 		PlayerManager.logDist(playerNum,1000+(PlayerManager.finishOrder.size()-PlayerManager.finishOrder.find(playerNum)))
 	else:
@@ -165,5 +166,10 @@ func respawn():
 		position = checkpoints.get_child(currentCheckpoint).position
 func _process(delta: float) -> void:
 	if PlayerManager.peer and player_init and model and anim:
-		player_init.sync_player.rpc(multiplayer.get_unique_id(),global_position,rotation+model.rotation,velocity,anim.current_animation,anim.current_animation_position,PlayerManager.playerChars[playerNum],currentCheckpoint+(1.0/checkpointDist))
+		var checkDistOut:float
+		if finished:
+			checkDistOut = 1000+(PlayerManager.finishOrder.size()-PlayerManager.finishOrder.find(playerNum))
+		else:
+			checkDistOut = currentCheckpoint+(1.0/checkpointDist)
+		player_init.sync_player.rpc(multiplayer.get_unique_id(),global_position,rotation+model.rotation,velocity,anim.current_animation,anim.current_animation_position,PlayerManager.playerChars[playerNum],checkDistOut)
 								#pid:int,pos:Vector3,rot:Vector3,vel:Vector3,anim:String,animTime:float
