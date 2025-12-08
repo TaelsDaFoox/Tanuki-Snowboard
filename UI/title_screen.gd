@@ -1,5 +1,7 @@
 extends Control
 
+func _ready() -> void:
+	MenuMusic.play()
 
 func _on_local_pressed() -> void:
 	get_tree().change_scene_to_file("res://UI/join_menu.tscn")

@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ck62ghleg53x7" path="res://Models/snowboard tree.glb" id="1_i4ofe"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_i4ofe"]
-height = 81.03339
+height = 69.51669
 radius = 6.255371
 
 [node name="Tree" type="StaticBody3D"]
@@ -12,5 +12,5 @@ radius = 6.255371
 transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 10.729004, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 48.826954, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 54.5853, 0)
 shape = SubResource("CylinderShape3D_i4ofe")

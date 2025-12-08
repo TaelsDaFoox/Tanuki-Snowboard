@@ -21,6 +21,7 @@ var awesometext = ["GROOVY!","THAT'S IT!","LET'S MAKE IT!!","WON'T STOP!","FUNKY
 var placementEndings := ["th","st","nd","rd","th","th","th","th","th","th",]
 @onready var finishedHeader = $FinishedHeader
 func _ready() -> void:
+	MenuMusic.play()
 	QTEcontainer.visible = false
 
 func QTEstart():

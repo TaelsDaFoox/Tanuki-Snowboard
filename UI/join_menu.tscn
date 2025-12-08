@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cisxr82mdbgc8"]
+[gd_scene load_steps=26 format=3 uid="uid://cisxr82mdbgc8"]
 
 [ext_resource type="Script" uid="uid://djmvtalrua53t" path="res://UI/join_menu.gd" id="1_o4gvc"]
 [ext_resource type="Texture2D" uid="uid://c3vimms87tjyt" path="res://Textures/fillerBG.png" id="2_l842o"]
@@ -15,7 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://4mrdu8b23hdh" path="res://Textures/Character Icons/tammy css.png" id="8_x07j1"]
 [ext_resource type="Texture2D" uid="uid://bmf1mg0hcnj21" path="res://Textures/CssCursorP3.png" id="9_27h71"]
 [ext_resource type="Texture2D" uid="uid://bak3gdbvf32n5" path="res://Textures/CssCursorP4.png" id="10_x35vu"]
-[ext_resource type="AudioStream" uid="uid://be5iedl0ctci1" path="res://Audio/Music/stuck.mp3" id="11_27h71"]
 [ext_resource type="Texture2D" uid="uid://ds5fs6618krh1" path="res://Textures/Character Icons/pi css icon.png" id="12_m30ta"]
 [ext_resource type="Texture2D" uid="uid://btnafql0nh40k" path="res://Textures/Character Icons/the susans.png" id="12_vd6kn"]
 [ext_resource type="Texture2D" uid="uid://cplt53uxyb5vh" path="res://Textures/Character Icons/Penn Guiny Icon.png" id="13_m30ta"]
@@ -494,11 +493,6 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("10_x35vu")
-
-[node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("11_27h71")
-volume_db = -10.0
-autoplay = true
 
 [node name="FlashTimer" type="Timer" parent="."]
 wait_time = 0.25

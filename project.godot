@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 PlayerManager="*res://PlayerManager.gd"
 MultiplayerInput="*res://addons/multiplayer_input/multiplayer_input.gd"
+MenuMusic="*res://menu_music.tscn"
 
 [display]
 

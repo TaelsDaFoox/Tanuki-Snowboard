@@ -5,6 +5,7 @@ extends Control
 @onready var chatInput = $ChatInput
 @onready var usernameInput = $UsernameInput
 func _ready() -> void:
+	MenuMusic.play()
 	multiplayer.peer_connected.connect(on_peer_connected)
 	get_viewport().files_dropped.connect(on_files_dropped)
 
