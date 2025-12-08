@@ -20,9 +20,16 @@ var linkedPlayer: CharacterBody3D
 var awesometext = ["GROOVY!","THAT'S IT!","LET'S MAKE IT!!","WON'T STOP!","FUNKY!","LET'S GO!","DON'T BLINK","MOVE IT!!","ONLY FORWARDS","DON'T STOP NOW"]
 var placementEndings := ["th","st","nd","rd","th","th","th","th","th","th",]
 @onready var finishedHeader = $FinishedHeader
+@onready var countdown = $Countdownlabel
+@onready var countdownTimer = $CountdownTimer
+var countdownStrings :=["Go!","Get set...","On your mark...","Ready?"]
+var countdownprogress := 3
 func _ready() -> void:
 	MenuMusic.play()
 	QTEcontainer.visible = false
+	countdown.text = countdownStrings[countdownprogress]
+	countdown.visible=true
+	countdownTimer.start()
 
 func QTEstart():
 	for i in promptLabels.size():
@@ -81,3 +88,15 @@ func QTEinput(input):
 			if anyInput:
 				nopesfx.play()
 				nopeTimer.start()
+
+
+func _on_countdown_timer_timeout() -> void:
+	countdownprogress-=1
+	if countdownprogress==-1:
+		countdownTimer.stop()
+		countdown.visible=false
+	else:
+		countdown.text = countdownStrings[countdownprogress]
+	if countdownprogress==0:
+		if linkedPlayer:
+			linkedPlayer.started=true

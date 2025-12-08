@@ -37,6 +37,7 @@ var prevGrounded := false
 var playerNum
 var finished = false
 var player_init:Node
+var started := false
 func _ready() -> void:
 	model = PlayerManager.charModels[PlayerManager.playerChars[playerNum]].instantiate()
 	add_child(model)
@@ -76,6 +77,8 @@ func _physics_process(delta: float) -> void:
 				sfx.stream=boardsfx
 			anim.play("Board",0.25,0.0)
 			movespd = lerpf(movespd,mainSpeed+extraBoost,delta*2.0)
+		if not started:
+			movespd=0.0
 	else:
 		if trickState:
 			anim.play("Spin",0.2,2.0)

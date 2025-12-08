@@ -73,3 +73,6 @@ func startMatch():
 func _on_netplay_setup_pressed() -> void:
 	multiplayer.multiplayer_peer = OfflineMultiplayerPeer.new()
 	get_tree().change_scene_to_file("res://UI/title_screen.tscn")
+
+func _ready() -> void:
+	MenuMusic.play()
