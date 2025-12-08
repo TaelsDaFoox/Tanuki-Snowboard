@@ -4,6 +4,7 @@ extends Control
 @onready var CSSrects = [$PlayerRect1,$PlayerRect2,$PlayerRect3,$PlayerRect4]
 @onready var joinPrompts = [$JoinPrompt1,$JoinPrompt2,$JoinPrompt3,$JoinPrompt4]
 @onready var charNameLabels = [$CharName1,$CharName2,$CharName3,$CharName4]
+@onready var startbtn = $StartButton
 var joinPromptVisible = true
 func _input(event: InputEvent) -> void:
 	for i in PlayerManager.playerDevices.size():
@@ -25,6 +26,7 @@ func _input(event: InputEvent) -> void:
 		else:
 			print("kb already added!!")
 func _process(delta: float) -> void:
+	startbtn.visible = PlayerManager.playerDevices.size()
 	for i in charNameLabels.size():
 		if PlayerManager.playerChars[i]<PlayerManager.charNames.size():
 			charNameLabels[i].text = PlayerManager.charNames[PlayerManager.playerChars[i]]
@@ -61,7 +63,7 @@ func _on_flash_timer_timeout() -> void:
 
 
 func _on_button_focus_entered() -> void:
-	$Button.release_focus()
+	startbtn.release_focus()
 
 @rpc("authority", "call_remote", "reliable", 0)
 func startMatch():
@@ -70,4 +72,4 @@ func startMatch():
 
 func _on_netplay_setup_pressed() -> void:
 	multiplayer.multiplayer_peer = OfflineMultiplayerPeer.new()
-	get_tree().change_scene_to_file("res://UI/netplay_setup.tscn")
+	get_tree().change_scene_to_file("res://UI/title_screen.tscn")

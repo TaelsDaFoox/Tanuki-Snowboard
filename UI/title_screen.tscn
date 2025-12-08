@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://chmreg4a2ders"]
+[gd_scene load_steps=4 format=3 uid="uid://chmreg4a2ders"]
 
+[ext_resource type="Script" uid="uid://ebctf78dh4uc" path="res://UI/title_screen.gd" id="1_5whv5"]
 [ext_resource type="Texture2D" uid="uid://c3vimms87tjyt" path="res://Textures/fillerBG.png" id="1_coop4"]
 [ext_resource type="Script" uid="uid://d30p27ii7dudq" path="res://Scenes/Courses/filler_bg_scroll.gd" id="2_5whv5"]
 
@@ -10,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_5whv5")
 
 [node name="FillerBG" type="TextureRect" parent="."]
 layout_mode = 1
@@ -28,54 +30,50 @@ texture = ExtResource("1_coop4")
 stretch_mode = 1
 script = ExtResource("2_5whv5")
 
-[node name="Host" type="Button" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 12
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 687.0
-offset_top = 248.0
-offset_right = -174.0
-offset_bottom = -328.0
-theme_override_font_sizes/font_size = 46
-text = "Host Server"
+offset_left = 34.0
+offset_top = -229.0
+offset_right = -34.0
+offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 64
+alignment = 1
 
-[node name="Join" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 687.0
-offset_top = 324.0
-offset_right = -174.0
-offset_bottom = -252.0
+[node name="Local" type="Button" parent="HBoxContainer"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 46
-text = "Join Server"
+text = "Singleplayer/
+Local Multiplayer"
 
-[node name="TextEdit" type="TextEdit" parent="."]
+[node name="Online" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 46
+text = "Online Multiplayer"
+
+[node name="ConsoleLabel" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 149.0
-offset_top = 248.0
-offset_right = -463.0
-offset_bottom = -328.0
+anchors_preset = -1
+anchor_top = 0.50100005
+anchor_right = 0.99700004
+anchor_bottom = 0.50100005
+offset_left = 12.0
+offset_top = -316.64804
+offset_right = 0.45593262
+offset_bottom = 131.35196
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 30
-placeholder_text = "IP to join (doesn't matter if hosting)"
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 120
+text = "Tanuki Snowboard"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
 
-[node name="TextEdit2" type="TextEdit" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 149.0
-offset_top = 325.0
-offset_right = -463.0
-offset_bottom = -251.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 30
-placeholder_text = "Port to join or host on"
+[connection signal="pressed" from="HBoxContainer/Local" to="." method="_on_local_pressed"]
+[connection signal="pressed" from="HBoxContainer/Online" to="." method="_on_online_pressed"]
