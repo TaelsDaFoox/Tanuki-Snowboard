@@ -106,7 +106,7 @@ offset_bottom = 287.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 46
-text = "lobby"
+text = "Start Racing!"
 
 [node name="IpInput" type="TextEdit" parent="."]
 layout_mode = 1
@@ -230,6 +230,21 @@ grow_vertical = 2
 texture = ExtResource("4_vi8mb")
 stretch_mode = 4
 
+[node name="Title" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 530.0
+offset_top = 284.0
+offset_right = -475.0
+offset_bottom = 320.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+text = "Return to Title"
+
 [connection signal="pressed" from="Host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="Join" to="." method="_on_join_pressed"]
 [connection signal="pressed" from="ChatSend" to="." method="_on_chat_send_pressed"]
@@ -237,3 +252,4 @@ stretch_mode = 4
 [connection signal="text_changed" from="UsernameInput" to="." method="_on_username_text_changed"]
 [connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]
 [connection signal="pressed" from="EmblemUpload" to="." method="_on_emblem_upload_pressed"]
+[connection signal="pressed" from="Title" to="." method="_on_title_pressed"]

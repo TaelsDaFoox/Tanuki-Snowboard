@@ -12,8 +12,19 @@ var playerUIDs:= []
 var netplayerModels:=[]
 var netplayerNames:=[]
 var netplayerEmblems:=[]
+var netplayersRaceReady:=[]
 var peer
 var localEmblem := Image.new()
+var netplayersCssReady:=[]
+signal netplayersRaceReadySignal
+#var readyToStart := false
+@rpc("any_peer", "call_remote", "reliable", 1)
+func readyToRace(pid:int):
+	netplayersRaceReady.append(pid)
+	#print(str(multiplayer.get_unique_id())+" - "+str(netplayersRaceReady))
+	if netplayersRaceReady.size()>=playerUIDs.size():
+		netplayersRaceReady.clear()
+		netplayersRaceReadySignal.emit()
 func _ready() -> void:
 	fix_list_lengths()
 	#var emb = Image.new()
@@ -63,6 +74,11 @@ func someoneFinished():
 		finishOrder.clear()
 		playerDevices.clear()
 		get_tree().change_scene_to_file("res://UI/join_menu.tscn")
+@rpc("any_peer", "call_remote", "unreliable", 1)
+func set_css_ready(pid:int,ready:bool):
+	while netplayersCssReady.size()<playerUIDs.size():
+		netplayersCssReady.append(false)
+	netplayersCssReady[playerUIDs.find(pid)]=ready
 @rpc("any_peer", "call_remote", "reliable", 1)
 func sync_player_info(pid:int, name:String,emblem):
 	print("syncing infos")

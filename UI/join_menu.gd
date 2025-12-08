@@ -26,7 +26,26 @@ func _input(event: InputEvent) -> void:
 		else:
 			print("kb already added!!")
 func _process(delta: float) -> void:
-	startbtn.visible = PlayerManager.playerDevices.size()
+	var playersReady = true
+	if multiplayer.has_multiplayer_peer():
+		var p1In:=false
+		if PlayerManager.playerDevices.size()>=1:
+			p1In=true
+		PlayerManager.set_css_ready.rpc(multiplayer.get_unique_id(), p1In)
+		if multiplayer.is_server():
+			for i in PlayerManager.netplayersCssReady:
+				if i==false:
+					playersReady=false
+					break
+		#	print(str(PlayerManager.netplayersCssReady))	
+	startbtn.visible = PlayerManager.playerDevices.size() and ((not multiplayer.has_multiplayer_peer()) or multiplayer.is_server())
+	if playersReady:
+		startbtn.text="Start"
+		startbtn.disabled=false
+	else:
+		startbtn.text="waiting for players..."
+		startbtn.disabled=true
+	
 	for i in charNameLabels.size():
 		if PlayerManager.playerChars[i]<PlayerManager.charNames.size():
 			charNameLabels[i].text = PlayerManager.charNames[PlayerManager.playerChars[i]]

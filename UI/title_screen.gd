@@ -2,6 +2,12 @@ extends Control
 
 func _ready() -> void:
 	MenuMusic.play()
+	PlayerManager.playerUIDs.clear()
+	PlayerManager.netplayerNames.clear()
+	PlayerManager.netplayerEmblems.clear()
+	PlayerManager.netplayerModels.clear()
+	PlayerManager.netplayersCssReady.clear()
+	PlayerManager.netplayersRaceReady.clear()
 
 func _on_local_pressed() -> void:
 	get_tree().change_scene_to_file("res://UI/join_menu.tscn")

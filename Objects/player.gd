@@ -130,6 +130,8 @@ func _physics_process(delta: float) -> void:
 		model.rotation.x=lerp_angle(rotation.x,0.0,delta*10)
 		model.rotation.z=lerp_angle(rotation.z,0.0,delta*10)
 	collider.global_rotation=Vector3.ZERO
+	if not started:
+		velocity=Vector3.ZERO
 	move_and_slide()
 	if checkpoints.get_child_count()>currentCheckpoint:
 		checkpointDist = abs((checkpoints.get_child(currentCheckpoint).global_position-global_position).length())

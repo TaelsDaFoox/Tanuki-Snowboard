@@ -132,7 +132,6 @@ size_flags_horizontal = 4
 texture = ExtResource("6_uedqn")
 
 [node name="Countdownlabel" type="Label" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -144,6 +143,7 @@ grow_vertical = 2
 theme_override_constants/outline_size = 45
 theme_override_fonts/font = ExtResource("3_1guh7")
 theme_override_font_sizes/font_size = 75
+text = "Waiting for players..."
 horizontal_alignment = 1
 vertical_alignment = 1
 

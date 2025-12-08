@@ -25,8 +25,9 @@ var placementEndings := ["th","st","nd","rd","th","th","th","th","th","th",]
 var countdownStrings :=["Go!","Get set...","On your mark...","Ready?"]
 var countdownprogress := 3
 func _ready() -> void:
-	MenuMusic.play()
 	QTEcontainer.visible = false
+	if multiplayer.has_multiplayer_peer():
+		await PlayerManager.netplayersRaceReadySignal
 	countdown.text = countdownStrings[countdownprogress]
 	countdown.visible=true
 	countdownTimer.start()
