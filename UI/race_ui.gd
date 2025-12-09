@@ -26,7 +26,7 @@ var countdownStrings :=["Go!","Get set...","On your mark...","Ready?"]
 var countdownprogress := 3
 func _ready() -> void:
 	QTEcontainer.visible = false
-	if multiplayer.has_multiplayer_peer():
+	if multiplayer.has_multiplayer_peer() and PlayerManager.playerUIDs:
 		await PlayerManager.netplayersRaceReadySignal
 	countdown.text = countdownStrings[countdownprogress]
 	countdown.visible=true

@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dmx0y8f0oaogr"
 path.s3tc="res://.godot/imported/blolt snowboard_blolt.png-e1aaa7878241fceff9d68d34ab0c9cba.s3tc.ctex"
+path.etc2="res://.godot/imported/blolt snowboard_blolt.png-e1aaa7878241fceff9d68d34ab0c9cba.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://Models/blolt snowboard_blolt.png"
-dest_files=["res://.godot/imported/blolt snowboard_blolt.png-e1aaa7878241fceff9d68d34ab0c9cba.s3tc.ctex"]
+dest_files=["res://.godot/imported/blolt snowboard_blolt.png-e1aaa7878241fceff9d68d34ab0c9cba.s3tc.ctex", "res://.godot/imported/blolt snowboard_blolt.png-e1aaa7878241fceff9d68d34ab0c9cba.etc2.ctex"]
 
 [params]
 

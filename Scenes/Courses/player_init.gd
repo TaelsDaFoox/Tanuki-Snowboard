@@ -57,7 +57,7 @@ func _ready() -> void:
 			spawnplr.uid = i
 			spawnplr.player_init=self
 			netplayerContainer.call_deferred("add_child",spawnplr)
-	if multiplayer.has_multiplayer_peer():
+	if multiplayer.has_multiplayer_peer() and PlayerManager.playerUIDs:
 		await get_tree().create_timer(1.0).timeout
 		PlayerManager.readyToRace.rpc(multiplayer.get_unique_id())
 @rpc("any_peer", "call_remote", "unreliable_ordered", 0)
