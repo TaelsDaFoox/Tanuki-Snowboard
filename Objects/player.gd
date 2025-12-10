@@ -215,5 +215,5 @@ func _on_boost_area_area_entered(area: Area3D) -> void:
 		slipTimer.start()
 		if not inSlipsteam:
 			inSlipsteam=true
-			#slipSFX.play()
+			slipSFX.play()
 		#print("boost!!")

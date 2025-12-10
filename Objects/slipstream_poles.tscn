@@ -10,14 +10,14 @@ size = Vector3(23.202148, 365.37152, 2.6142578)
 script = ExtResource("1_44o4e")
 
 [node name="Pole" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 2.262591, 0)
-pixel_size = 0.15
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 4.2500005, 0)
+pixel_size = 0.25
 billboard = 1
 texture = ExtResource("1_wyyil")
 
 [node name="Pole2" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 2.262591, 0)
-pixel_size = 0.15
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 4.2500005, 0)
+pixel_size = 0.25
 billboard = 1
 texture = ExtResource("1_wyyil")
 

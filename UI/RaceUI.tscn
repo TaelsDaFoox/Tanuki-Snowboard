@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ddtmob8xtdrl6"]
+[gd_scene load_steps=15 format=3 uid="uid://ddtmob8xtdrl6"]
 
 [ext_resource type="Script" uid="uid://cx7rssjw2itil" path="res://UI/race_ui.gd" id="1_bit1n"]
 [ext_resource type="Texture2D" uid="uid://bp448n1df4bon" path="res://UI/Button Prompts/XboxSeriesX_A.png" id="1_vlk8u"]
@@ -8,7 +8,47 @@
 [ext_resource type="AudioStream" uid="uid://ckmvc40bel1oe" path="res://Audio/Sfx/idk2.mp3" id="4_ls6kt"]
 [ext_resource type="AudioStream" uid="uid://o7qr6te3chlg" path="res://Audio/Sfx/nope.mp3" id="5_6sn7h"]
 [ext_resource type="Texture2D" uid="uid://bntjwnvbcn4vx" path="res://UI/Button Prompts/nope.png" id="6_uedqn"]
-[ext_resource type="Texture2D" uid="uid://e81mad40gaf5" path="res://Models/Penn Guiny.png" id="9_52ofj"]
+[ext_resource type="Texture2D" uid="uid://0p7utppalvbf" path="res://UI/speed lines/speedlines1.png" id="10_ed38w"]
+[ext_resource type="Texture2D" uid="uid://bdlptbd8bmlup" path="res://UI/speed lines/speedlines2.png" id="11_1roim"]
+[ext_resource type="Texture2D" uid="uid://cod0h3d4o163i" path="res://UI/speed lines/speedlines3.png" id="12_aoofs"]
+
+[sub_resource type="Animation" id="Animation_tp7ut"]
+resource_name = "SpeedLines"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("10_ed38w"), ExtResource("11_1roim"), ExtResource("12_aoofs")]
+}
+
+[sub_resource type="Animation" id="Animation_yhu5p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_ed38w")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vpj81"]
+_data = {
+&"RESET": SubResource("Animation_yhu5p"),
+&"SpeedLines": SubResource("Animation_tp7ut")
+}
 
 [node name="RaceUI" type="Control"]
 layout_mode = 3
@@ -151,12 +191,19 @@ vertical_alignment = 1
 [node name="CountdownTimer" type="Timer" parent="."]
 
 [node name="SlipFX" type="TextureRect" parent="."]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("9_52ofj")
+texture = ExtResource("10_ed38w")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SlipFX"]
+libraries = {
+&"": SubResource("AnimationLibrary_vpj81")
+}
+speed_scale = 1.5
 
 [connection signal="timeout" from="CountdownTimer" to="." method="_on_countdown_timer_timeout"]

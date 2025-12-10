@@ -7,6 +7,9 @@ var modelSet = false
 var placementEndings := ["th","st","nd","rd","th","th","th","th","th","th",]
 @onready var username =$SubViewport/HBoxContainer/Username
 @onready var icon =$SubViewport/HBoxContainer/PlayerIcon
+var prevSlipPos:=Vector3.ZERO
+@export var slipSpawnDist:=30.0
+var slipPoles = load("res://Objects/slipstream_poles.tscn")
 func _ready() -> void:
 	set_header()
 func _process(delta: float) -> void:
@@ -40,3 +43,18 @@ func set_header():
 	var tex = ImageTexture.create_from_image(img)
 	icon.texture=tex
 	print(img)
+func _physics_process(delta: float) -> void:
+	var player_index = PlayerManager.playerUIDs.find(uid)
+	if global_position.distance_to(prevSlipPos)>slipSpawnDist and PlayerManager.playerPlacements[player_index+1]==1:
+		prevSlipPos=global_position
+		spawnSlipPoles()
+	move_and_slide()
+
+func spawnSlipPoles():
+	var spawnpos := global_position
+	var spawnrot := global_rotation.y
+	await get_tree().create_timer(0.25).timeout
+	var spawnPoles = slipPoles.instantiate()
+	get_parent().add_child(spawnPoles)
+	spawnPoles.global_position=spawnpos
+	spawnPoles.global_rotation.y=spawnrot

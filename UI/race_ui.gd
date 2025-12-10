@@ -24,8 +24,10 @@ var placementEndings := ["th","st","nd","rd","th","th","th","th","th","th",]
 @onready var countdownTimer = $CountdownTimer
 var countdownStrings :=["Go!","Get set...","On your mark...","Ready?"]
 var countdownprogress := 3
+var slipFXOpacity:=0.0
 @onready var slipFX = $SlipFX
 func _ready() -> void:
+	$SlipFX/AnimationPlayer.play("SpeedLines")
 	QTEcontainer.visible = false
 	if multiplayer.has_multiplayer_peer() and PlayerManager.playerUIDs:
 		await PlayerManager.netplayersRaceReadySignal
@@ -51,13 +53,15 @@ func cancelQTE():
 func _process(delta: float) -> void:
 	if linkedPlayer:
 		if linkedPlayer.inSlipsteam:
-			slipFX.modulate=Color(1,1,1,0.2)
+			slipFXOpacity=move_toward(slipFXOpacity,0.8,delta*2.5)
 		else:
-			slipFX.modulate=Color(1,1,1,0)
+			slipFXOpacity=move_toward(slipFXOpacity,0.0,delta*2.5)
+		slipFX.modulate=Color(1,1,1,slipFXOpacity)
 		if linkedPlayer.finished:
 			finishedHeader.text = "Finished "+str(PlayerManager.finishOrder.find(linkedPlayer.playerNum)+1)+placementEndings[fmod(PlayerManager.finishOrder.find(linkedPlayer.playerNum)+1,10)]+"!"
 			finishedHeader.visible=true
 		var placement = PlayerManager.playerPlacements[linkedPlayer.playerNum]
+		#slipFX.modulate=Color(1,1,1,1.0/placement)
 		placementLabel.text=str(placement)+placementEndings[fmod(PlayerManager.playerPlacements[linkedPlayer.playerNum],10)]
 		#placementLabel.text = str(PlayerManager.playerPlacements)
 		#if multiplayer.is_server():

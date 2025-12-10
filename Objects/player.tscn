@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://br2sfenye47b0"]
 
 [ext_resource type="Script" uid="uid://coml24hdpysp1" path="res://Objects/player.gd" id="1_3y5cq"]
-[ext_resource type="AudioStream" uid="uid://bg51eiaac1gsk" path="res://Audio/Sfx/SA1 Spindash.mp3" id="3_0ar0x"]
+[ext_resource type="AudioStream" uid="uid://c3smcdumge1od" path="res://Audio/Sfx/SS_077.wav" id="3_0ar0x"]
 [ext_resource type="AudioStream" uid="uid://baslth8yeoc8q" path="res://Audio/Sfx/browniannoise.mp3" id="3_2i4gt"]
 [ext_resource type="AudioStream" uid="uid://dmj0irp74re0t" path="res://Audio/Sfx/Low Whoosh.wav" id="3_x20fu"]
 [ext_resource type="PackedScene" uid="uid://cupepal8eibqd" path="res://collect_particle.tscn" id="4_0ad8t"]
@@ -65,7 +65,7 @@ volume_db = -10.0
 
 [node name="SlipSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_0ar0x")
-volume_db = -10.0
+volume_db = -20.0
 
 [node name="OneshotSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_x20fu")
