@@ -5,6 +5,7 @@ extends Control
 @onready var chatInput = $ChatInput
 @onready var usernameInput = $UsernameInput
 @onready var lobbyBtn = $lobby
+@onready var musicCredit = $MusicCredit
 func _ready() -> void:
 	MenuMusic.play()
 	multiplayer.peer_connected.connect(on_peer_connected)
@@ -26,6 +27,7 @@ func _on_host_pressed() -> void:
 	multiplayer.multiplayer_peer = PlayerManager.peer
 
 func _process(delta: float) -> void:
+	musicCredit.text=MenuMusic.musicCredit
 	if multiplayer.has_multiplayer_peer() and multiplayer.is_server() and PlayerManager.playerUIDs.size():
 		lobbyBtn.visible=true
 	else:

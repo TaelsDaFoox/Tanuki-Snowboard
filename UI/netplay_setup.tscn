@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dqfgf43inpmdg"]
+[gd_scene load_steps=6 format=3 uid="uid://dqfgf43inpmdg"]
 
 [ext_resource type="Script" uid="uid://bcr2teys4k50f" path="res://UI/netplay_setup.gd" id="1_poejy"]
 [ext_resource type="Texture2D" uid="uid://c3vimms87tjyt" path="res://Textures/fillerBG.png" id="2_vi8mb"]
 [ext_resource type="Script" uid="uid://d30p27ii7dudq" path="res://Scenes/Courses/filler_bg_scroll.gd" id="3_0wux7"]
 [ext_resource type="Texture2D" uid="uid://cd84ru4vw1836" path="res://Textures/tempEmblem.png" id="4_vi8mb"]
+[ext_resource type="FontFile" uid="uid://b8xsi0etksurk" path="res://Fonts/FOT-Rodin Pro B.otf" id="5_0wux7"]
 
 [node name="NetplaySetup" type="Control"]
 layout_mode = 3
@@ -99,10 +100,10 @@ anchors_preset = -1
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 460.0
-offset_top = 215.0
-offset_right = -401.0
-offset_bottom = 287.0
+offset_left = 395.0
+offset_top = 157.0
+offset_right = -466.0
+offset_bottom = 229.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 46
@@ -236,14 +237,29 @@ anchors_preset = -1
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 530.0
-offset_top = 284.0
-offset_right = -475.0
-offset_bottom = 320.0
+offset_left = 503.0
+offset_top = 234.0
+offset_right = -448.0
+offset_bottom = 270.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 20
 text = "Return to Title"
+
+[node name="MusicCredit" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -136.0
+offset_right = 301.0
+offset_bottom = -2.0
+grow_vertical = 0
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("5_0wux7")
+theme_override_font_sizes/font_size = 24
+text = "♪stuck - John \"Joy\" Tay"
+vertical_alignment = 2
 
 [connection signal="pressed" from="Host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="Join" to="." method="_on_join_pressed"]

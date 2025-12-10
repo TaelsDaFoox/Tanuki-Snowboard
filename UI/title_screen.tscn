@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://chmreg4a2ders"]
+[gd_scene load_steps=5 format=3 uid="uid://chmreg4a2ders"]
 
 [ext_resource type="Script" uid="uid://ebctf78dh4uc" path="res://UI/title_screen.gd" id="1_5whv5"]
 [ext_resource type="Texture2D" uid="uid://c3vimms87tjyt" path="res://Textures/fillerBG.png" id="1_coop4"]
 [ext_resource type="Script" uid="uid://d30p27ii7dudq" path="res://Scenes/Courses/filler_bg_scroll.gd" id="2_5whv5"]
+[ext_resource type="FontFile" uid="uid://b8xsi0etksurk" path="res://Fonts/FOT-Rodin Pro B.otf" id="4_816ia"]
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -74,6 +75,21 @@ text = "Tanuki Snowboard"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 1
+
+[node name="MusicCredit" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -136.0
+offset_right = 301.0
+offset_bottom = -2.0
+grow_vertical = 0
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("4_816ia")
+theme_override_font_sizes/font_size = 24
+text = "♪stuck - John \"Joy\" Tay"
+vertical_alignment = 2
 
 [connection signal="pressed" from="HBoxContainer/Local" to="." method="_on_local_pressed"]
 [connection signal="pressed" from="HBoxContainer/Online" to="." method="_on_online_pressed"]

@@ -6,6 +6,7 @@ extends Control
 @onready var charNameLabels = [$CharName1,$CharName2,$CharName3,$CharName4]
 @onready var startbtn = $StartButton
 var joinPromptVisible = true
+@onready var musicCredit = $MusicCredit
 func _input(event: InputEvent) -> void:
 	for i in PlayerManager.playerDevices.size():
 		if MultiplayerInput.is_action_just_pressed(PlayerManager.playerDevices[i],"Right"):
@@ -26,6 +27,7 @@ func _input(event: InputEvent) -> void:
 		else:
 			print("kb already added!!")
 func _process(delta: float) -> void:
+	musicCredit.text=MenuMusic.musicCredit
 	var playersReady = true
 	if multiplayer.has_multiplayer_peer():
 		var p1In:=false
@@ -94,4 +96,4 @@ func _on_netplay_setup_pressed() -> void:
 	get_tree().change_scene_to_file("res://UI/title_screen.tscn")
 
 func _ready() -> void:
-	MenuMusic.play()
+	MenuMusic.CharSelect()

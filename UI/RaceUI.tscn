@@ -59,6 +59,22 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_bit1n")
 
+[node name="SlipFX" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_ed38w")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SlipFX"]
+libraries = {
+&"": SubResource("AnimationLibrary_vpj81")
+}
+speed_scale = 1.5
+
 [node name="QTE" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -189,21 +205,5 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="CountdownTimer" type="Timer" parent="."]
-
-[node name="SlipFX" type="TextureRect" parent="."]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("10_ed38w")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="SlipFX"]
-libraries = {
-&"": SubResource("AnimationLibrary_vpj81")
-}
-speed_scale = 1.5
 
 [connection signal="timeout" from="CountdownTimer" to="." method="_on_countdown_timer_timeout"]
