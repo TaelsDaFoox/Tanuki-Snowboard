@@ -42,7 +42,7 @@ var started := false
 var slipPoles = load("res://Objects/slipstream_poles.tscn")
 var prevSlipPos:=Vector3.ZERO
 @export var slipSpawnDist:=30.0
-@export var SlipPoleBoost:=15.0
+@export var SlipPoleBoost:=50.0
 @onready var slipTimer = $SlipstreamTimer
 @onready var slipSFX = $SlipSFX
 var inSlipsteam=false
@@ -61,6 +61,8 @@ func _ready() -> void:
 	#if PlayerManager.peer:
 		#PlayerManager.sync_player_info.rpc(multiplayer.get_unique_id(),"scrunkle bungleton")
 func _physics_process(delta: float) -> void:
+	if inSlipsteam:
+		extraBoost+=SlipPoleBoost*delta
 	if slipTimer.is_stopped() and inSlipsteam:
 		inSlipsteam=false
 		slipSFX.stop()
@@ -146,7 +148,7 @@ func _physics_process(delta: float) -> void:
 		velocity=Vector3.ZERO
 	move_and_slide()
 	
-	if global_position.distance_to(prevSlipPos)>slipSpawnDist:
+	if global_position.distance_to(prevSlipPos)>slipSpawnDist and PlayerManager.playerPlacements[playerNum]==1 and started and not finished :
 		prevSlipPos=global_position
 		spawnSlipPoles()
 	
@@ -206,11 +208,12 @@ func spawnSlipPoles():
 
 
 func _on_boost_area_area_entered(area: Area3D) -> void:
-	extraBoost+=SlipPoleBoost
-	oneSFX.stream=jumpsfx
-	oneSFX.play()
-	slipTimer.start()
-	if not inSlipsteam:
-		inSlipsteam=true
-		slipSFX.play()
-	#print("boost!!")
+	if not PlayerManager.playerPlacements[playerNum]==1:
+		#extraBoost+=SlipPoleBoost
+		#oneSFX.stream=jumpsfx
+		#oneSFX.play()
+		slipTimer.start()
+		if not inSlipsteam:
+			inSlipsteam=true
+			#slipSFX.play()
+		#print("boost!!")

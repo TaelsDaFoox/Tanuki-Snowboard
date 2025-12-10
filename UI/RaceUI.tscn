@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ddtmob8xtdrl6"]
+[gd_scene load_steps=10 format=3 uid="uid://ddtmob8xtdrl6"]
 
 [ext_resource type="Script" uid="uid://cx7rssjw2itil" path="res://UI/race_ui.gd" id="1_bit1n"]
 [ext_resource type="Texture2D" uid="uid://bp448n1df4bon" path="res://UI/Button Prompts/XboxSeriesX_A.png" id="1_vlk8u"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://ckmvc40bel1oe" path="res://Audio/Sfx/idk2.mp3" id="4_ls6kt"]
 [ext_resource type="AudioStream" uid="uid://o7qr6te3chlg" path="res://Audio/Sfx/nope.mp3" id="5_6sn7h"]
 [ext_resource type="Texture2D" uid="uid://bntjwnvbcn4vx" path="res://UI/Button Prompts/nope.png" id="6_uedqn"]
+[ext_resource type="Texture2D" uid="uid://e81mad40gaf5" path="res://Models/Penn Guiny.png" id="9_52ofj"]
 
 [node name="RaceUI" type="Control"]
 layout_mode = 3
@@ -148,5 +149,14 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="CountdownTimer" type="Timer" parent="."]
+
+[node name="SlipFX" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_52ofj")
 
 [connection signal="timeout" from="CountdownTimer" to="." method="_on_countdown_timer_timeout"]

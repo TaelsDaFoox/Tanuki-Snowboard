@@ -24,6 +24,7 @@ var placementEndings := ["th","st","nd","rd","th","th","th","th","th","th",]
 @onready var countdownTimer = $CountdownTimer
 var countdownStrings :=["Go!","Get set...","On your mark...","Ready?"]
 var countdownprogress := 3
+@onready var slipFX = $SlipFX
 func _ready() -> void:
 	QTEcontainer.visible = false
 	if multiplayer.has_multiplayer_peer() and PlayerManager.playerUIDs:
@@ -49,6 +50,10 @@ func cancelQTE():
 	QTEcontainer.visible=false
 func _process(delta: float) -> void:
 	if linkedPlayer:
+		if linkedPlayer.inSlipsteam:
+			slipFX.modulate=Color(1,1,1,0.2)
+		else:
+			slipFX.modulate=Color(1,1,1,0)
 		if linkedPlayer.finished:
 			finishedHeader.text = "Finished "+str(PlayerManager.finishOrder.find(linkedPlayer.playerNum)+1)+placementEndings[fmod(PlayerManager.finishOrder.find(linkedPlayer.playerNum)+1,10)]+"!"
 			finishedHeader.visible=true
