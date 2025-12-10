@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://br2sfenye47b0"]
+[gd_scene load_steps=11 format=3 uid="uid://br2sfenye47b0"]
 
 [ext_resource type="Script" uid="uid://coml24hdpysp1" path="res://Objects/player.gd" id="1_3y5cq"]
+[ext_resource type="AudioStream" uid="uid://bg51eiaac1gsk" path="res://Audio/Sfx/SA1 Spindash.mp3" id="3_0ar0x"]
 [ext_resource type="AudioStream" uid="uid://baslth8yeoc8q" path="res://Audio/Sfx/browniannoise.mp3" id="3_2i4gt"]
 [ext_resource type="AudioStream" uid="uid://dmj0irp74re0t" path="res://Audio/Sfx/Low Whoosh.wav" id="3_x20fu"]
 [ext_resource type="PackedScene" uid="uid://cupepal8eibqd" path="res://collect_particle.tscn" id="4_0ad8t"]
@@ -9,7 +10,7 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_y0qk3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3y5cq"]
-size = Vector3(1.8457031, 4.9313965, 3.3232422)
+size = Vector3(1.0654297, 3.3376465, 1.1962891)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_3y5cq"]
 radius = 2.645942
@@ -42,6 +43,14 @@ collision_mask = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.61444306, -1)
 shape = SubResource("BoxShape3D_3y5cq")
 
+[node name="BoostArea" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BoostArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.61444306, -1)
+shape = SubResource("BoxShape3D_3y5cq")
+
 [node name="NoSlopeAngle" type="Area3D" parent="."]
 collision_layer = 0
 collision_mask = 8
@@ -52,6 +61,10 @@ shape = SubResource("SphereShape3D_3y5cq")
 
 [node name="SFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_2i4gt")
+volume_db = -10.0
+
+[node name="SlipSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_0ar0x")
 volume_db = -10.0
 
 [node name="OneshotSFX" type="AudioStreamPlayer" parent="."]
@@ -83,3 +96,9 @@ scale_amount_max = 2.0
 [node name="CoyoteTimer" type="Timer" parent="."]
 wait_time = 0.15
 one_shot = true
+
+[node name="SlipstreamTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="area_entered" from="BoostArea" to="." method="_on_boost_area_area_entered"]

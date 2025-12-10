@@ -28,6 +28,7 @@ var currentCheckpoint := 0
 var playernum: int
 var boardsfx = load("res://Audio/Sfx/browniannoise.mp3")
 var crouchsfx = load("res://Audio/Sfx/pinknoise.mp3")
+var jumpsfx = load("res://Audio/Sfx/Low Whoosh.wav")
 var trickFailWait = 0.0
 var slopeDir := 0.0
 var extraBoost = 0.0
@@ -38,6 +39,13 @@ var playerNum
 var finished = false
 var player_init:Node
 var started := false
+var slipPoles = load("res://Objects/slipstream_poles.tscn")
+var prevSlipPos:=Vector3.ZERO
+@export var slipSpawnDist:=30.0
+@export var SlipPoleBoost:=15.0
+@onready var slipTimer = $SlipstreamTimer
+@onready var slipSFX = $SlipSFX
+var inSlipsteam=false
 func _ready() -> void:
 	model = PlayerManager.charModels[PlayerManager.playerChars[playerNum]].instantiate()
 	add_child(model)
@@ -53,6 +61,9 @@ func _ready() -> void:
 	#if PlayerManager.peer:
 		#PlayerManager.sync_player_info.rpc(multiplayer.get_unique_id(),"scrunkle bungleton")
 func _physics_process(delta: float) -> void:
+	if slipTimer.is_stopped() and inSlipsteam:
+		inSlipsteam=false
+		slipSFX.stop()
 	#print(str(PlayerManager.playerPlacements))
 	model.global_rotation.y=rotation.y+PI
 	#print(trickState)
@@ -90,6 +101,7 @@ func _physics_process(delta: float) -> void:
 	#print(CoyoteTimer.time_left)
 	if input.is_action_just_released("Crouch") and (is_on_floor() or not CoyoteTimer.is_stopped() or rampArea.has_overlapping_areas()):
 		anim.play("Board",0.25,0.0)
+		oneSFX.stream=jumpsfx
 		oneSFX.play()
 		if rampArea.has_overlapping_areas() and not trickState:
 			velocity.y=50.0
@@ -133,6 +145,11 @@ func _physics_process(delta: float) -> void:
 	if not started:
 		velocity=Vector3.ZERO
 	move_and_slide()
+	
+	if global_position.distance_to(prevSlipPos)>slipSpawnDist:
+		prevSlipPos=global_position
+		spawnSlipPoles()
+	
 	if checkpoints.get_child_count()>currentCheckpoint:
 		checkpointDist = abs((checkpoints.get_child(currentCheckpoint).global_position-global_position).length())
 	else:
@@ -178,3 +195,22 @@ func _process(delta: float) -> void:
 			checkDistOut = currentCheckpoint+(1.0/checkpointDist)
 		player_init.sync_player.rpc(multiplayer.get_unique_id(),global_position,rotation+model.rotation,velocity,anim.current_animation,anim.current_animation_position,PlayerManager.playerChars[playerNum],checkDistOut)
 								#pid:int,pos:Vector3,rot:Vector3,vel:Vector3,anim:String,animTime:float
+func spawnSlipPoles():
+	var spawnpos := global_position
+	var spawnrot := global_rotation.y
+	await get_tree().create_timer(0.25).timeout
+	var spawnPoles = slipPoles.instantiate()
+	get_parent().add_child(spawnPoles)
+	spawnPoles.global_position=spawnpos
+	spawnPoles.global_rotation.y=spawnrot
+
+
+func _on_boost_area_area_entered(area: Area3D) -> void:
+	extraBoost+=SlipPoleBoost
+	oneSFX.stream=jumpsfx
+	oneSFX.play()
+	slipTimer.start()
+	if not inSlipsteam:
+		inSlipsteam=true
+		slipSFX.play()
+	#print("boost!!")

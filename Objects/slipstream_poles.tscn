@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://ciilsesii0tym"]
+
+[ext_resource type="Script" uid="uid://cbg8b6krlvvhj" path="res://Objects/slipstream_poles.gd" id="1_44o4e"]
+[ext_resource type="Texture2D" uid="uid://dj6se8niqhwco" path="res://Textures/SlipstreamPole.png" id="1_wyyil"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wyyil"]
+size = Vector3(23.202148, 42.462112, 2.6142578)
+
+[node name="SlipstreamPoles" type="Node3D"]
+script = ExtResource("1_44o4e")
+
+[node name="Pole" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 2.262591, 0)
+pixel_size = 0.15
+billboard = 1
+texture = ExtResource("1_wyyil")
+
+[node name="Pole2" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 2.262591, 0)
+pixel_size = 0.15
+billboard = 1
+texture = ExtResource("1_wyyil")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0032907, 0)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.029884, 0)
+shape = SubResource("BoxShape3D_wyyil")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.19082785, 0)
+target_position = Vector3(0, -1000, 0)

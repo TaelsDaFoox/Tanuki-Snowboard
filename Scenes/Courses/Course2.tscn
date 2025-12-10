@@ -1,0 +1,224 @@
+[gd_scene load_steps=18 format=3 uid="uid://by02snxh2xedr"]
+
+[ext_resource type="Material" uid="uid://di16i85s8n3gf" path="res://Materials/CheckerGrass.tres" id="1_16i5s"]
+[ext_resource type="Script" uid="uid://daepbqqygqty6" path="res://Scenes/camera.gd" id="3_x618d"]
+[ext_resource type="PackedScene" uid="uid://ddtmob8xtdrl6" path="res://UI/RaceUI.tscn" id="4_tqbhu"]
+[ext_resource type="Texture2D" uid="uid://c3vimms87tjyt" path="res://Textures/fillerBG.png" id="5_lu0yc"]
+[ext_resource type="Script" uid="uid://d30p27ii7dudq" path="res://Scenes/Courses/filler_bg_scroll.gd" id="6_wby5b"]
+[ext_resource type="Script" uid="uid://dirloat7rwshx" path="res://Scenes/Courses/player_init.gd" id="7_xhjsa"]
+[ext_resource type="AudioStream" uid="uid://c1p3trwau4co6" path="res://Audio/Music/Blizzard Peaks (Act1 & 2 Mix).mp3" id="8_mkbso"]
+[ext_resource type="Script" uid="uid://b1vhg3lncnwdo" path="res://Scenes/Courses/checkpoint.gd" id="9_bmxr1"]
+[ext_resource type="Script" uid="uid://dv340etc0ar8e" path="res://Scenes/Courses/deathplane.gd" id="10_c1f2k"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_go701"]
+sky_top_color = Color(0.17251666, 0.15950002, 0.55, 1)
+sky_horizon_color = Color(0.40200004, 0.42880005, 0.67, 1)
+ground_bottom_color = Color(0.68571997, 0.68039995, 0.84, 1)
+ground_horizon_color = Color(0.40392157, 0.42745098, 0.67058825, 1)
+
+[sub_resource type="Sky" id="Sky_jdjlm"]
+sky_material = SubResource("ProceduralSkyMaterial_go701")
+
+[sub_resource type="Environment" id="Environment_8j60k"]
+background_mode = 2
+sky = SubResource("Sky_jdjlm")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_540df"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_s6hkt"]
+viewport_path = NodePath("SubViewport2")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_jdjlm"]
+viewport_path = NodePath("SubViewport3")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_tjfqf"]
+viewport_path = NodePath("SubViewport4")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x6fwp"]
+size = Vector3(3624.4392, 1698.4435, 293.62524)
+
+[node name="World" type="Node3D"]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1338.6907, 0)
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 0.99727976, 0.07370817, 0, -0.07370817, 0.99727976, 0, -89.38953, -510.45877)
+size = Vector3(306.54688, 89.63721, 1110.0398)
+material = ExtResource("1_16i5s")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 0.99727976, 0.07370817, 0, -0.07370817, 0.99727976, 0, -293.7813, -1576.7048)
+size = Vector3(830.4951, 89.63721, 1297.891)
+material = ExtResource("1_16i5s")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.8660254, -0.49999997, 0, 0.49863994, 0.86366963, 0.07370818, -0.03685409, -0.06383315, 0.9972797, 456.99908, -261.799, -1579.0687)
+size = Vector3(830.4951, 89.63721, 1297.891)
+material = ExtResource("1_16i5s")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.8660254, 0.49999997, 0, -0.49863994, 0.86366963, 0.07370818, 0.03685409, -0.06383315, 0.9972797, -575.0154, -195.68, -1583.9556)
+size = Vector3(830.4951, 89.63721, 1297.891)
+material = ExtResource("1_16i5s")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.8660253, 0.4999999, 0, -0.4986399, 0.8636696, 0.07370818, 0.036854085, -0.06383315, 0.9972797, -213.6729, -31.70593, -514.7221)
+size = Vector3(234.97461, 89.63721, 1110.0398)
+material = ExtResource("1_16i5s")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.8660254, -0.49999997, 0, 0.49863994, 0.86366963, 0.07370818, -0.03685409, -0.06383315, 0.9972797, 222.38074, -31.759895, -514.71814)
+size = Vector3(234.97461, 89.63721, 1110.0398)
+material = ExtResource("1_16i5s")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_8j60k")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(0.8660253, -0.12940955, 0.48296297, -0.482963, -0.46650642, 0.74102545, 0.12940955, -0.87500006, -0.46650645, 0, 3.2991993, 0)
+shadow_enabled = true
+
+[node name="SubViewport" type="SubViewport" parent="."]
+handle_input_locally = false
+oversampling = false
+oversampling_override = 16.0
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.49999997, 0, -0.49999997, 0.8660254, 0, 6.5402436, 5.2124605)
+script = ExtResource("3_x618d")
+followspd = 20.0
+
+[node name="RaceUI" parent="SubViewport" instance=ExtResource("4_tqbhu")]
+
+[node name="SubViewport2" type="SubViewport" parent="."]
+handle_input_locally = false
+oversampling = false
+oversampling_override = 16.0
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport2"]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.49999997, 0, -0.49999997, 0.8660254, 0, 6.5402436, 5.2124605)
+script = ExtResource("3_x618d")
+followspd = 20.0
+
+[node name="RaceUI" parent="SubViewport2" instance=ExtResource("4_tqbhu")]
+
+[node name="SubViewport3" type="SubViewport" parent="."]
+handle_input_locally = false
+oversampling = false
+oversampling_override = 16.0
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport3"]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.49999997, 0, -0.49999997, 0.8660254, 0, 6.5402436, 5.2124605)
+script = ExtResource("3_x618d")
+followspd = 20.0
+
+[node name="RaceUI" parent="SubViewport3" instance=ExtResource("4_tqbhu")]
+
+[node name="SubViewport4" type="SubViewport" parent="."]
+handle_input_locally = false
+oversampling = false
+oversampling_override = 16.0
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport4"]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.49999997, 0, -0.49999997, 0.8660254, 0, 6.5402436, 5.2124605)
+script = ExtResource("3_x618d")
+followspd = 20.0
+
+[node name="RaceUI" parent="SubViewport4" instance=ExtResource("4_tqbhu")]
+
+[node name="FillerBG" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -820.0
+offset_top = -2851.0
+offset_right = 3572.0
+offset_bottom = 738.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_lu0yc")
+stretch_mode = 1
+script = ExtResource("6_wby5b")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 2
+
+[node name="SplitscreenRect1" type="TextureRect" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource("ViewportTexture_540df")
+expand_mode = 1
+
+[node name="SplitscreenRect2" type="TextureRect" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource("ViewportTexture_s6hkt")
+expand_mode = 1
+
+[node name="SplitscreenRect3" type="TextureRect" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource("ViewportTexture_jdjlm")
+expand_mode = 1
+
+[node name="SplitscreenRect4" type="TextureRect" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource("ViewportTexture_tjfqf")
+expand_mode = 1
+
+[node name="PlayerInit" type="Node" parent="." node_paths=PackedStringArray("netplayerContainer")]
+script = ExtResource("7_xhjsa")
+netplayerContainer = NodePath("../NetPlayers")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_mkbso")
+volume_db = -10.0
+
+[node name="SpawnPos" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3218555, 1333.5206, -3.6656003)
+
+[node name="Checkpoints" type="Node" parent="."]
+
+[node name="Checkpoint" type="Area3D" parent="Checkpoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1035156e-05, 1250.8567, -1062.1206)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("9_bmxr1")
+checkpointNum = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.677734, 82.10608, 0.23547363)
+shape = SubResource("BoxShape3D_x6fwp")
+
+[node name="Deathplane" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("10_c1f2k")
+
+[node name="NetPlayers" type="Node" parent="."]
+
+[connection signal="body_entered" from="Checkpoints/Checkpoint" to="Checkpoints/Checkpoint" method="_on_body_entered"]
+[connection signal="body_entered" from="Deathplane" to="Deathplane" method="_on_body_entered"]
