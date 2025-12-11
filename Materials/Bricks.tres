@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://c2r7yefsylpqp"]
+
+[ext_resource type="Texture2D" uid="uid://iumw5afki4om" path="res://Textures/CastleBrick.png" id="1_b3jo5"]
+
+[resource]
+albedo_texture = ExtResource("1_b3jo5")
+metallic_specular = 0.0
+uv1_scale = Vector3(0.1, 0.1, 0.1)
+uv1_triplanar = true
+uv1_world_triplanar = true

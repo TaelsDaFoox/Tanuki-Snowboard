@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://du7t20gs58drd"
-path="res://.godot/imported/the war.png-095578c796a20808e2458562ba5ad46a.ctex"
+uid="uid://durncktb81odo"
+path="res://.godot/imported/meeple-purple.png-c2a2b37960044f7b0fb87ac31b3a2a70.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/the war.png"
-dest_files=["res://.godot/imported/the war.png-095578c796a20808e2458562ba5ad46a.ctex"]
+source_file="res://Textures/meeple/meeple-purple.png"
+dest_files=["res://.godot/imported/meeple-purple.png-c2a2b37960044f7b0fb87ac31b3a2a70.ctex"]
 
 [params]
 

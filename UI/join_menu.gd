@@ -76,7 +76,7 @@ func _on_button_pressed() -> void:
 	if multiplayer.is_server() or not multiplayer.has_multiplayer_peer():
 		if multiplayer.is_server():
 			startMatch.rpc()
-		get_tree().change_scene_to_file("res://Scenes/Courses/Course1.tscn")
+		get_tree().change_scene_to_file("res://Scenes/Courses/Course2.tscn")
 
 
 func _on_flash_timer_timeout() -> void:

@@ -3,11 +3,13 @@ extends Node
 var musicCredit:='♪stuck - John "Joy" Tay'
 var CharSelectStart := "res://Audio/Music/02 Start Your Engines.mp3"
 var CharSelectLoop := "res://Audio/Music/RMenuLoop.mp3"
+var menuMusic := "res://Audio/Music/stuck.mp3"
 var playing:=false
 func play():
-	if not playing:
+	if not playing or not music.stream==load(menuMusic):
 		playing=true
 		musicCredit='♪stuck - John "Joy" Tay'
+		music.stream = load(menuMusic)
 		music.play(0.0)
 func stop():
 	music.stop()

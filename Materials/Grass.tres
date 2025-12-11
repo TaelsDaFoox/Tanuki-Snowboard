@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://ds30ey2pkgut8"]
+
+[ext_resource type="Texture2D" uid="uid://cu8q0mcs3u0tw" path="res://Textures/magicgrass.png" id="1_8s4ad"]
+
+[resource]
+albedo_texture = ExtResource("1_8s4ad")
+metallic_specular = 0.0
+uv1_scale = Vector3(0.1, 0.1, 0.1)
+uv1_triplanar = true
+uv1_world_triplanar = true

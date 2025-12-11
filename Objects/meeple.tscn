@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfcepkmo2md11"]
+
+[ext_resource type="Script" uid="uid://c3nii0plyp2sx" path="res://Objects/meeple.gd" id="1_djsaf"]
+[ext_resource type="Texture2D" uid="uid://dxrsvlc43jy81" path="res://Textures/meeple/meeple-red.png" id="1_t3pp6"]
+
+[node name="Meeple" type="Node3D"]
+script = ExtResource("1_djsaf")
+
+[node name="MeepleSpr" type="Sprite3D" parent="."]
+modulate = Color(0.67605376, 0.8132431, 0.9158447, 1)
+pixel_size = 0.015
+billboard = 2
+texture = ExtResource("1_t3pp6")

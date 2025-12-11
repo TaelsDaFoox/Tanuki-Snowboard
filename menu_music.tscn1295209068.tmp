@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpvdot3grpqak"]
+
+[ext_resource type="Script" uid="uid://5jm6jeviqa6s" path="res://menu_music.gd" id="1_doxou"]
+[ext_resource type="AudioStream" uid="uid://be5iedl0ctci1" path="res://Audio/Music/stuck.mp3" id="2_4lpn2"]
+
+[node name="MenuMusic" type="Node"]
+script = ExtResource("1_doxou")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_4lpn2")
+volume_db = -10.0
+
+[connection signal="finished" from="Music" to="." method="_on_music_finished"]
