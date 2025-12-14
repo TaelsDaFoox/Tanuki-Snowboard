@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://by02snxh2xedr"]
+[gd_scene load_steps=23 format=3 uid="uid://by02snxh2xedr"]
 
 [ext_resource type="Material" uid="uid://c2r7yefsylpqp" path="res://Materials/Bricks.tres" id="1_16i5s"]
 [ext_resource type="Material" uid="uid://c524r43urqh1v" path="res://Materials/Carpet.tres" id="2_veolm"]
@@ -12,6 +12,8 @@
 [ext_resource type="AudioStream" uid="uid://c1p3trwau4co6" path="res://Audio/Music/Blizzard Peaks (Act1 & 2 Mix).mp3" id="8_mkbso"]
 [ext_resource type="Script" uid="uid://b1vhg3lncnwdo" path="res://Scenes/Courses/checkpoint.gd" id="9_bmxr1"]
 [ext_resource type="Script" uid="uid://dv340etc0ar8e" path="res://Scenes/Courses/deathplane.gd" id="10_c1f2k"]
+[ext_resource type="PackedScene" uid="uid://hkot4a21y65c" path="res://Objects/ramp.tscn" id="13_x618d"]
+[ext_resource type="PackedScene" uid="uid://c6xq7a5vqye42" path="res://Objects/tree.tscn" id="14_tqbhu"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_go701"]
 sky_top_color = Color(0.18879999, 0.26904002, 0.59, 1)
@@ -63,8 +65,18 @@ size = Vector3(3.423462, 107.69626, 1110.0398)
 material = ExtResource("1_16i5s")
 
 [node name="CSGBox3D16" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 0.99727976, 0.07370817, 0, -0.07370817, 0.99727976, 129.99094, -76.83533, -511.38663)
-size = Vector3(53.690247, 114.81401, 1110.0398)
+transform = Transform3D(1, 0, 0, 0, 0.99727976, 0.07370817, 0, -0.07370817, 0.99727976, 127.654465, -78.08142, -511.29453)
+size = Vector3(58.36319, 112.31509, 1110.0398)
+material = ExtResource("1_16i5s")
+
+[node name="CSGBox3D23" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 0.9987421, 0.05013974, 0, -0.05013974, 0.9987421, -145.12064, -77.66553, -503.0096)
+size = Vector3(45.291092, 112.31509, 1093.4491)
+material = ExtResource("1_16i5s")
+
+[node name="CSGBox3D24" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 0.9987421, 0.05013974, 0, -0.05013974, 0.9987421, -124.253006, -76.38513, -503.0739)
+size = Vector3(3.5558243, 114.879005, 1093.4491)
 material = ExtResource("1_16i5s")
 
 [node name="CSGBox3D17" type="CSGBox3D" parent="CSGCombiner3D"]
@@ -107,14 +119,34 @@ transform = Transform3D(1, 0, 0, 0, 0.99727976, 0.07370817, 0, -0.07370817, 0.99
 size = Vector3(483.8767, 89.63721, 1936.9994)
 material = ExtResource("2_xvof0")
 
+[node name="CSGBox3D22" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 0.9998634, 0.016527526, 0, -0.016527526, 0.9998634, -124.782364, -311.93906, -1697.9883)
+size = Vector3(135.6984, 89.63721, 338.6626)
+material = ExtResource("2_xvof0")
+
+[node name="CSGBox3D21" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 0.99727976, 0.07370817, 0, -0.07370817, 0.99727976, 0, -215.45581, -862.7939)
+size = Vector3(855.041, 166.73804, 512.3023)
+material = ExtResource("2_xvof0")
+
+[node name="CSGBox3D20" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.9196159, -0.39281866, 0, 0.3917502, 0.9171144, 0.07370817, -0.028953949, -0.067783214, 0.99727976, 305.80176, -276.10486, -1572.6029)
+size = Vector3(483.8767, 89.63721, 1936.9994)
+material = ExtResource("2_xvof0")
+
+[node name="CSGBox3D19" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.93846893, 0.34536368, 1.8626451e-09, -0.34442428, 0.93591607, 0.07370817, 0.025456129, -0.06917283, 0.99727976, -403.55347, -229.57898, -1576.0414)
+size = Vector3(483.8767, 89.63721, 1936.9994)
+material = ExtResource("2_xvof0")
+
 [node name="CSGBox3D6" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 0.99909705, 0.04248599, 0, -0.04248599, 0.99909705, -81.418, -91.111694, -657.4009)
-size = Vector3(131.53131, 89.63721, 813.1262)
+transform = Transform3D(1, 0, 0, 0, 0.99909705, 0.04248599, 0, -0.04248599, 0.99909705, -81.418, -61.35437, -752.9351)
+size = Vector3(131.53131, 22.058655, 1001.4937)
 material = ExtResource("1_16i5s")
 
 [node name="CSGBox3D14" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 0.99909705, 0.04248599, 0, -0.04248599, 0.99909705, -79.2388, -94.856026, -745.5547)
-size = Vector3(50.856445, 89.63721, 636.65967)
+transform = Transform3D(1, 0, 0, 0, 0.99909705, 0.04248599, 0, -0.04248599, 0.99909705, -79.2388, -58.982544, -839.7204)
+size = Vector3(50.856445, 9.953369, 821.7727)
 material = ExtResource("2_veolm")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
@@ -138,196 +170,391 @@ size = Vector3(110.994385, 89.63721, 1102.9915)
 material = ExtResource("2_veolm")
 
 [node name="Meeple" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 98.23065, -7.654175, -359.9723)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 92.947495, -10.164429, -359.9723)
 
 [node name="Meeple2" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 98.23065, -6.482788, -344.3647)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 92.947495, -8.993042, -344.3647)
 
 [node name="Meeple3" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 98.23065, -5.8814697, -327.6068)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 92.947495, -8.391724, -327.6068)
 
 [node name="Meeple4" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 98.23065, -4.710083, -311.9992)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 92.947495, -7.220337, -311.9992)
 
 [node name="Meeple5" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 98.23065, -3.642456, -297.7889)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 92.947495, -6.15271, -297.7889)
 
 [node name="Meeple6" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 98.23065, -2.4710693, -282.1813)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 92.947495, -4.9813232, -282.1813)
 
 [node name="Meeple7" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 98.23065, -1.869873, -265.42343)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 92.947495, -4.380127, -265.42343)
 
 [node name="Meeple8" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 98.23065, -0.6984863, -249.81584)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 92.947495, -3.2087402, -249.81584)
 
 [node name="Meeple9" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 98.23065, 1.9222412, -236.19952)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 92.947495, -0.5880127, -236.19952)
 
 [node name="Meeple10" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 98.23065, 3.093628, -220.59192)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 92.947495, 0.583374, -220.59192)
 
 [node name="Meeple11" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 98.23065, 3.6949463, -203.83406)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 92.947495, 1.1846924, -203.83406)
 
 [node name="Meeple12" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 98.23065, 4.866333, -188.22644)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 92.947495, 2.356079, -188.22644)
 
 [node name="Meeple13" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 98.23065, 5.93396, -174.01616)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 92.947495, 3.423706, -174.01616)
 
 [node name="Meeple14" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 98.23065, 7.1053467, -158.40855)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 92.947495, 4.595093, -158.40855)
 
 [node name="Meeple15" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 98.23065, 7.706543, -141.6507)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 92.947495, 5.196289, -141.6507)
 
 [node name="Meeple16" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 98.23065, 8.87793, -126.04309)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 92.947495, 6.367676, -126.04309)
+
+[node name="Meeple65" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -130.82263, -8.869873, -360.07828)
+
+[node name="Meeple66" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -130.82263, -7.9212646, -344.45554)
+
+[node name="Meeple67" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -130.82263, -7.55896, -327.6908)
+
+[node name="Meeple68" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -130.82263, -6.6102295, -312.06805)
+
+[node name="Meeple69" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -130.82263, -5.7453613, -297.844)
+
+[node name="Meeple70" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -130.82263, -4.796509, -282.22125)
+
+[node name="Meeple71" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -130.82263, -4.434326, -265.45654)
+
+[node name="Meeple72" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -130.82263, -3.4857178, -249.83383)
+
+[node name="Meeple73" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -130.82263, -1.0593262, -236.18153)
+
+[node name="Meeple74" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -130.82263, -0.11071777, -220.5588)
+
+[node name="Meeple75" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -130.82263, 0.2515869, -203.79408)
+
+[node name="Meeple76" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -130.82263, 1.2004395, -188.17134)
+
+[node name="Meeple77" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -130.82263, 2.0653076, -173.9473)
+
+[node name="Meeple78" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -130.82263, 3.014038, -158.32458)
+
+[node name="Meeple79" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -130.82263, 3.3762207, -141.55984)
+
+[node name="Meeple80" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -130.82263, 4.324829, -125.937126)
+
+[node name="Meeple81" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -136.40459, -6.1000977, -369.93744)
+
+[node name="Meeple82" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -136.40459, -5.1514893, -354.3147)
+
+[node name="Meeple83" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -136.40459, -4.7891846, -337.54993)
+
+[node name="Meeple84" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -136.40459, -3.840454, -321.9272)
+
+[node name="Meeple85" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -136.40459, -2.975586, -307.70313)
+
+[node name="Meeple86" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -136.40459, -2.0267334, -292.08038)
+
+[node name="Meeple87" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -136.40459, -1.6645508, -275.31567)
+
+[node name="Meeple88" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -136.40459, -0.7159424, -259.693)
+
+[node name="Meeple89" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -136.40459, 1.7104492, -246.04068)
+
+[node name="Meeple90" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -136.40459, 2.6590576, -230.41795)
+
+[node name="Meeple91" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -136.40459, 3.0213623, -213.65323)
+
+[node name="Meeple92" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -136.40459, 3.9702148, -198.03049)
+
+[node name="Meeple93" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -136.40459, 4.835083, -183.80644)
+
+[node name="Meeple94" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -136.40459, 5.7838135, -168.18373)
+
+[node name="Meeple95" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -136.40459, 6.145996, -151.41899)
+
+[node name="Meeple96" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -136.40459, 7.0946045, -135.79626)
+
+[node name="Meeple97" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -130.82263, -21.407227, -609.48926)
+
+[node name="Meeple98" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -130.82263, -20.458618, -593.8665)
+
+[node name="Meeple99" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -130.82263, -20.096313, -577.1018)
+
+[node name="Meeple100" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -130.82263, -19.147583, -561.47906)
+
+[node name="Meeple101" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -130.82263, -18.282715, -547.255)
+
+[node name="Meeple102" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -130.82263, -17.333862, -531.63226)
+
+[node name="Meeple103" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -130.82263, -16.97168, -514.86755)
+
+[node name="Meeple104" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -130.82263, -16.023071, -499.2448)
+
+[node name="Meeple105" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -130.82263, -13.59668, -485.59253)
+
+[node name="Meeple106" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -130.82263, -12.648071, -469.9698)
+
+[node name="Meeple107" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -130.82263, -12.285767, -453.20508)
+
+[node name="Meeple108" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -130.82263, -11.336914, -437.58234)
+
+[node name="Meeple109" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -130.82263, -10.472046, -423.35828)
+
+[node name="Meeple110" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -130.82263, -9.523315, -407.7356)
+
+[node name="Meeple111" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -130.82263, -9.161133, -390.97083)
+
+[node name="Meeple112" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -130.82263, -8.212524, -375.3481)
+
+[node name="Meeple113" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -136.40459, -18.637451, -619.34845)
+
+[node name="Meeple114" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -136.40459, -17.688843, -603.7257)
+
+[node name="Meeple115" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -136.40459, -17.326538, -586.96094)
+
+[node name="Meeple116" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -136.40459, -16.377808, -571.3382)
+
+[node name="Meeple117" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -136.40459, -15.512939, -557.11414)
+
+[node name="Meeple118" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -136.40459, -14.564087, -541.4914)
+
+[node name="Meeple119" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -136.40459, -14.201904, -524.7267)
+
+[node name="Meeple120" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -136.40459, -13.253296, -509.104)
+
+[node name="Meeple121" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -136.40459, -10.826904, -495.45166)
+
+[node name="Meeple122" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -136.40459, -9.878296, -479.82895)
+
+[node name="Meeple123" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -136.40459, -9.515991, -463.0642)
+
+[node name="Meeple124" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -136.40459, -8.567139, -447.44147)
+
+[node name="Meeple125" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -136.40459, -7.7022705, -433.21744)
+
+[node name="Meeple126" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -136.40459, -6.75354, -417.59473)
+
+[node name="Meeple127" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -136.40459, -6.3913574, -400.83)
+
+[node name="Meeple128" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, 0.0009599307, 0, -0.0009599307, 0.9999995, -136.40459, -5.442749, -385.20728)
 
 [node name="Meeple17" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 98.23065, -25.814575, -609.84247)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 92.947495, -28.32483, -609.84247)
 
 [node name="Meeple18" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 98.23065, -24.643188, -594.23486)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 92.947495, -27.153442, -594.23486)
 
 [node name="Meeple19" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 98.23065, -24.04187, -577.4769)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 92.947495, -26.552124, -577.4769)
 
 [node name="Meeple20" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 98.23065, -22.870483, -561.8694)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 92.947495, -25.380737, -561.8694)
 
 [node name="Meeple21" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 98.23065, -21.802856, -547.65906)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 92.947495, -24.31311, -547.65906)
 
 [node name="Meeple22" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 98.23065, -20.63147, -532.0515)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 92.947495, -23.141724, -532.0515)
 
 [node name="Meeple23" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 98.23065, -20.030151, -515.2936)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 92.947495, -22.540405, -515.2936)
 
 [node name="Meeple24" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 98.23065, -18.858887, -499.68597)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 92.947495, -21.36914, -499.68597)
 
 [node name="Meeple25" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 98.23065, -16.238037, -486.0697)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 92.947495, -18.748291, -486.0697)
 
 [node name="Meeple26" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 98.23065, -15.066772, -470.46204)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 92.947495, -17.577026, -470.46204)
 
 [node name="Meeple27" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 98.23065, -14.465454, -453.7042)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 92.947495, -16.975708, -453.7042)
 
 [node name="Meeple28" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 98.23065, -13.294067, -438.09662)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 92.947495, -15.804321, -438.09662)
 
 [node name="Meeple29" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 98.23065, -12.22644, -423.8863)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 92.947495, -14.736694, -423.8863)
 
 [node name="Meeple30" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 98.23065, -11.055054, -408.27872)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 92.947495, -13.565308, -408.27872)
 
 [node name="Meeple31" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 98.23065, -10.453735, -391.52084)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 92.947495, -12.963989, -391.52084)
 
 [node name="Meeple32" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 98.23065, -9.282471, -375.9132)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 92.947495, -11.792725, -375.9132)
 
 [node name="Meeple33" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 108.65251, -1.6104736, -352.6699)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 103.369354, -4.1207275, -352.6699)
 
 [node name="Meeple34" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 108.65251, -0.43920898, -337.0623)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 103.369354, -2.949463, -337.0623)
 
 [node name="Meeple35" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 108.65251, 0.16210938, -320.3044)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 103.369354, -2.3481445, -320.3044)
 
 [node name="Meeple36" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 108.65251, 1.3334961, -304.6968)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 103.369354, -1.1767578, -304.6968)
 
 [node name="Meeple37" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 108.65251, 2.401123, -290.4865)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 103.369354, -0.10913086, -290.4865)
 
 [node name="Meeple38" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 108.65251, 3.5725098, -274.8789)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 103.369354, 1.0622559, -274.8789)
 
 [node name="Meeple39" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 108.65251, 4.173828, -258.12106)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 103.369354, 1.6635742, -258.12106)
 
 [node name="Meeple40" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 108.65251, 5.345093, -242.51344)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 103.369354, 2.8348389, -242.51344)
 
 [node name="Meeple41" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 108.65251, 7.9659424, -228.89713)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 103.369354, 5.4556885, -228.89713)
 
 [node name="Meeple42" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 108.65251, 9.137207, -213.28954)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 103.369354, 6.626953, -213.28954)
 
 [node name="Meeple43" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 108.65251, 9.738525, -196.53166)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 103.369354, 7.2282715, -196.53166)
 
 [node name="Meeple44" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 108.65251, 10.909912, -180.92404)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 103.369354, 8.399658, -180.92404)
 
 [node name="Meeple45" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 108.65251, 11.977539, -166.71376)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 103.369354, 9.467285, -166.71376)
 
 [node name="Meeple46" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 108.65251, 13.148926, -151.10616)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 103.369354, 10.638672, -151.10616)
 
 [node name="Meeple47" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 108.65251, 13.750244, -134.3483)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 103.369354, 11.23999, -134.3483)
 
 [node name="Meeple48" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 108.65251, 14.921631, -118.74069)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 103.369354, 12.411377, -118.74069)
 
 [node name="Meeple49" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 108.65251, -19.770874, -602.54004)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 103.369354, -22.281128, -602.54004)
 
 [node name="Meeple50" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 108.65251, -18.599487, -586.93243)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 103.369354, -21.109741, -586.93243)
 
 [node name="Meeple51" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 108.65251, -17.998291, -570.1745)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 103.369354, -20.508545, -570.1745)
 
 [node name="Meeple52" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 108.65251, -16.826904, -554.567)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 103.369354, -19.337158, -554.567)
 
 [node name="Meeple53" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 108.65251, -15.759277, -540.3566)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 103.369354, -18.269531, -540.3566)
 
 [node name="Meeple54" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 108.65251, -14.587891, -524.7491)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 103.369354, -17.098145, -524.7491)
 
 [node name="Meeple55" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 108.65251, -13.986572, -507.99118)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 103.369354, -16.496826, -507.99118)
 
 [node name="Meeple56" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 108.65251, -12.815186, -492.3836)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 103.369354, -15.325439, -492.3836)
 
 [node name="Meeple57" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 108.65251, -10.194458, -478.76727)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 103.369354, -12.704712, -478.76727)
 
 [node name="Meeple58" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 108.65251, -9.023071, -463.15967)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 103.369354, -11.533325, -463.15967)
 
 [node name="Meeple59" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 108.65251, -8.421875, -446.4018)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 103.369354, -10.932129, -446.4018)
 
 [node name="Meeple60" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 108.65251, -7.2504883, -430.79422)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 103.369354, -9.760742, -430.79422)
 
 [node name="Meeple61" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 108.65251, -6.1828613, -416.5839)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 103.369354, -8.693115, -416.5839)
 
 [node name="Meeple62" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 108.65251, -5.0114746, -400.97632)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 103.369354, -7.5217285, -400.97632)
 
 [node name="Meeple63" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 108.65251, -4.4101563, -384.21844)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 103.369354, -6.92041, -384.21844)
 
 [node name="Meeple64" parent="CSGCombiner3D" instance=ExtResource("4_vodk8")]
-transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 108.65251, -3.2387695, -368.6108)
+transform = Transform3D(1, 0, 0, 0, 0.9998842, 0.0152186835, 0, -0.0152186835, 0.9998842, 103.369354, -5.7490234, -368.6108)
+
+[node name="Ramp" parent="CSGCombiner3D" instance=ExtResource("13_x618d")]
+transform = Transform3D(24, 0, 0, 0, 4, 0, 0, 0, 8, -128.17627, -264.33325, -1843.3997)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_8j60k")
@@ -468,6 +695,17 @@ checkpointNum = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.677734, 82.10608, 0.23547363)
 shape = SubResource("BoxShape3D_x6fwp")
 
+[node name="Checkpoint2" type="Area3D" parent="Checkpoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1035156e-05, 1128.7112, -2267.9956)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("9_bmxr1")
+checkpointNum = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.677734, 82.10608, 0.23547363)
+shape = SubResource("BoxShape3D_x6fwp")
+
 [node name="Deathplane" type="Area3D" parent="."]
 collision_layer = 0
 collision_mask = 2
@@ -475,5 +713,72 @@ script = ExtResource("10_c1f2k")
 
 [node name="NetPlayers" type="Node" parent="."]
 
+[node name="Ramp" parent="." instance=ExtResource("13_x618d")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 12.239532, 1324.3558, -187.45299)
+
+[node name="Ramp2" parent="." instance=ExtResource("13_x618d")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -77.47005, 1307.4213, -442.04788)
+
+[node name="Ramp3" parent="." instance=ExtResource("13_x618d")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 19.874376, 1296.4634, -561.46375)
+
+[node name="Ramp5" parent="." instance=ExtResource("13_x618d")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 19.874376, 1272.4167, -882.711)
+
+[node name="Ramp4" parent="." instance=ExtResource("13_x618d")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -77.252914, 1295.1205, -728.0687)
+
+[node name="Ramp6" parent="." instance=ExtResource("13_x618d")]
+transform = Transform3D(25, 0, 0, 0, 4, 0, 0, 0, 4, -78.18773, 1273.9043, -1226.5204)
+
+[node name="Tree2" parent="." instance=ExtResource("14_tqbhu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 206.93094, 1107.9857, -1268.8551)
+
+[node name="Tree3" parent="." instance=ExtResource("14_tqbhu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 217.09908, 1097.6628, -1408.5232)
+
+[node name="Tree4" parent="." instance=ExtResource("14_tqbhu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 212.47261, 1090.1421, -1510.2815)
+
+[node name="Tree5" parent="." instance=ExtResource("14_tqbhu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 219.04976, 1081.3528, -1629.2012)
+
+[node name="Tree6" parent="." instance=ExtResource("14_tqbhu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 215.26718, 1070.3827, -1777.6274)
+
+[node name="Tree7" parent="." instance=ExtResource("14_tqbhu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 212.80476, 1060.0991, -1916.766)
+
+[node name="Tree11" parent="." instance=ExtResource("14_tqbhu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.949883, 1060.0991, -1683.4144)
+
+[node name="Tree17" parent="." instance=ExtResource("14_tqbhu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.050995, 1060.0991, -1619.3367)
+
+[node name="Tree15" parent="." instance=ExtResource("14_tqbhu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.8174896, 1060.0991, -1747.8438)
+
+[node name="Tree16" parent="." instance=ExtResource("14_tqbhu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.825312, 1060.0991, -1801.446)
+
+[node name="Tree8" parent="." instance=ExtResource("14_tqbhu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 184.25108, 1086.4084, -1560.7991)
+
+[node name="Tree9" parent="." instance=ExtResource("14_tqbhu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 180.41956, 1093.8988, -1459.4523)
+
+[node name="Tree10" parent="." instance=ExtResource("14_tqbhu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 179.83315, 1105.2529, -1305.8315)
+
+[node name="Tree12" parent="." instance=ExtResource("14_tqbhu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 213.89182, 1113.7173, -1191.3076)
+
+[node name="Tree13" parent="." instance=ExtResource("14_tqbhu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 171.02223, 1077.1082, -1686.6321)
+
+[node name="Tree14" parent="." instance=ExtResource("14_tqbhu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 185.85876, 1065.01, -1850.3224)
+
 [connection signal="body_entered" from="Checkpoints/Checkpoint" to="Checkpoints/Checkpoint" method="_on_body_entered"]
+[connection signal="body_entered" from="Checkpoints/Checkpoint2" to="Checkpoints/Checkpoint2" method="_on_body_entered"]
 [connection signal="body_entered" from="Deathplane" to="Deathplane" method="_on_body_entered"]

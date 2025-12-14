@@ -8,6 +8,6 @@ script = ExtResource("1_djsaf")
 
 [node name="MeepleSpr" type="Sprite3D" parent="."]
 modulate = Color(0.67605376, 0.8132431, 0.9158447, 1)
-pixel_size = 0.015
+pixel_size = 0.012
 billboard = 2
 texture = ExtResource("1_t3pp6")

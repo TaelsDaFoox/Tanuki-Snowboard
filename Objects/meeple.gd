@@ -3,7 +3,7 @@ extends Node3D
 var yv:=1.0
 var randomTime:float
 func _ready() -> void:
-	randomTime=randf_range(0.5,1.6)
+	randomTime=randf_range(0.5,1.4)
 	match randi_range(0,5):
 		0:
 			sprite.texture=load("res://Textures/meeple/meeple-merc.png")
@@ -18,7 +18,7 @@ func _ready() -> void:
 		5:
 			sprite.texture=load("res://Textures/meeple/meeple-purple.png")
 func _physics_process(delta: float) -> void:
-	yv-=delta*120.0
+	yv-=delta*150.0
 	sprite.position.y+=yv*delta
 	if sprite.position.y<=0.0:
 		sprite.position.y=0.0
