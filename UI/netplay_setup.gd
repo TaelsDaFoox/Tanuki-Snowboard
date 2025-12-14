@@ -44,6 +44,8 @@ func _process(delta: float) -> void:
 
 func _on_join_pressed() -> void:
 	consoleLabel.text = "peer!"
+	PlayerManager.playerUIDs.clear()
+	multiplayer.multiplayer_peer = OfflineMultiplayerPeer.new()
 	PlayerManager.peer = ENetMultiplayerPeer.new()
 	PlayerManager.peer.create_client(ipInput.text, int(portInput.text))
 	multiplayer.multiplayer_peer = PlayerManager.peer

@@ -5,6 +5,7 @@ extends Control
 @onready var joinPrompts = [$JoinPrompt1,$JoinPrompt2,$JoinPrompt3,$JoinPrompt4]
 @onready var charNameLabels = [$CharName1,$CharName2,$CharName3,$CharName4]
 @onready var startbtn = $StartButton
+#var event_rest:=true
 var joinPromptVisible = true
 @onready var musicCredit = $MusicCredit
 func _input(event: InputEvent) -> void:
@@ -23,7 +24,8 @@ func _input(event: InputEvent) -> void:
 			PlayerManager.playerChars[i]=$CharacterIcons.get_child_count()-1
 	if event.is_action_pressed("Crouch") and event is InputEventKey:
 		if not PlayerManager.playerDevices.has(-1):
-			PlayerManager.playerDevices.append(-1)
+			if PlayerManager.playerDevices.size()==0 or not multiplayer.has_multiplayer_peer():
+				PlayerManager.playerDevices.append(-1)
 		else:
 			print("kb already added!!")
 func _process(delta: float) -> void:
@@ -62,8 +64,9 @@ func _process(delta: float) -> void:
 		if MultiplayerInput.is_action_just_pressed(i, "Crouch"):
 			print("some input, somewhere")
 			if not PlayerManager.playerDevices.has(i):
-				PlayerManager.playerDevices.append(i)
-				print("append gamepad " + str(i))
+				if PlayerManager.playerDevices.size()==0 or not multiplayer.has_multiplayer_peer():
+					PlayerManager.playerDevices.append(i)
+					print("append gamepad " + str(i))
 			else:
 				print("device already added!!")
 	for i in cursors.size():
@@ -75,8 +78,10 @@ func _process(delta: float) -> void:
 func _on_button_pressed() -> void:
 	if multiplayer.is_server() or not multiplayer.has_multiplayer_peer():
 		if multiplayer.is_server():
-			startMatch.rpc()
-		get_tree().change_scene_to_file("res://Scenes/Courses/Course2.tscn")
+			#startMatch.rpc()
+			pass
+		#get_tree().change_scene_to_file("res://Scenes/Courses/Course2.tscn")
+		get_tree().change_scene_to_file("res://UI/course_select.tscn")
 
 
 func _on_flash_timer_timeout() -> void:

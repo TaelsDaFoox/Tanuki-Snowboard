@@ -1,35 +1,15 @@
-[gd_scene load_steps=26 format=3 uid="uid://b0uduid82tfom"]
+[gd_scene load_steps=14 format=3 uid="uid://b0uduid82tfom"]
 
-[ext_resource type="Script" uid="uid://djmvtalrua53t" path="res://UI/join_menu.gd" id="1_j4kah"]
+[ext_resource type="Script" uid="uid://brljn24cx5mvd" path="res://UI/course_select.gd" id="1_0sj8v"]
 [ext_resource type="Texture2D" uid="uid://c3vimms87tjyt" path="res://Textures/fillerBG.png" id="2_gf1gl"]
 [ext_resource type="Script" uid="uid://d30p27ii7dudq" path="res://Scenes/Courses/filler_bg_scroll.gd" id="3_saulr"]
-[ext_resource type="Script" uid="uid://2sy50bk3gxw3" path="res://UI/CSSsubview.gd" id="4_i2k3e"]
-[ext_resource type="PackedScene" uid="uid://v0n446d7hxhf" path="res://Models/Characters/Jolt.tscn" id="5_1qdpx"]
 [ext_resource type="FontFile" uid="uid://ckxc1xxfkae17" path="res://Fonts/FOT-Seurat Pro B.otf" id="6_152jn"]
 [ext_resource type="FontFile" uid="uid://b8xsi0etksurk" path="res://Fonts/FOT-Rodin Pro B.otf" id="7_v3cdk"]
-[ext_resource type="Texture2D" uid="uid://d1ehxnais38sy" path="res://Textures/Character Icons/jolt css v2.png" id="8_2oebp"]
 [ext_resource type="Texture2D" uid="uid://ys7qr68kgjuv" path="res://Textures/Character Icons/No Portrait.png" id="9_35p8f"]
-[ext_resource type="Texture2D" uid="uid://4mrdu8b23hdh" path="res://Textures/Character Icons/tammy css.png" id="10_8s8xt"]
-[ext_resource type="Texture2D" uid="uid://h5d5pw5lxlkp" path="res://Textures/Character Icons/sapph css.png" id="11_vptb2"]
-[ext_resource type="Texture2D" uid="uid://ds5fs6618krh1" path="res://Textures/Character Icons/pi css icon.png" id="12_hmblr"]
-[ext_resource type="Texture2D" uid="uid://btnafql0nh40k" path="res://Textures/Character Icons/the susans.png" id="13_e4e3e"]
-[ext_resource type="Texture2D" uid="uid://cplt53uxyb5vh" path="res://Textures/Character Icons/Penn Guiny Icon.png" id="14_ig25d"]
 [ext_resource type="Texture2D" uid="uid://blff5mgl0qwlg" path="res://Textures/CssCursorP1.png" id="15_ekcwh"]
 [ext_resource type="Texture2D" uid="uid://w1r2egnw3it" path="res://Textures/CssCursorP2.png" id="16_lqva8"]
 [ext_resource type="Texture2D" uid="uid://bmf1mg0hcnj21" path="res://Textures/CssCursorP3.png" id="17_4i7mf"]
 [ext_resource type="Texture2D" uid="uid://bak3gdbvf32n5" path="res://Textures/CssCursorP4.png" id="18_wiaem"]
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_27h71"]
-viewport_path = NodePath("SubViewport1")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_x35vu"]
-viewport_path = NodePath("SubViewport2")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_kkpwc"]
-viewport_path = NodePath("SubViewport3")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_csbn6"]
-viewport_path = NodePath("SubViewport4")
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qhe80"]
 sky_top_color = Color(0.17251666, 0.15950002, 0.55, 1)
@@ -44,14 +24,14 @@ sky_material = SubResource("ProceduralSkyMaterial_qhe80")
 background_mode = 2
 sky = SubResource("Sky_5a7ea")
 
-[node name="JoinMenu" type="Control"]
+[node name="CourseSelect" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_j4kah")
+script = ExtResource("1_0sj8v")
 
 [node name="FillerBG" type="TextureRect" parent="."]
 layout_mode = 1
@@ -86,119 +66,6 @@ theme_override_constants/outline_size = 15
 theme_override_font_sizes/font_size = 32
 text = "words"
 
-[node name="SubViewport1" type="SubViewport" parent="."]
-transparent_bg = true
-size = Vector2i(256, 256)
-script = ExtResource("4_i2k3e")
-
-[node name="Camera3D" type="Camera3D" parent="SubViewport1"]
-transform = Transform3D(-0.84946924, -0.10114816, 0.5178524, -2.3314044e-09, 0.98145366, 0.19169982, -0.52763826, 0.1628431, -0.83371466, 2.8491309, 1.2411065, -3.5951166)
-fov = 50.0
-
-[node name="Model" parent="SubViewport1" instance=ExtResource("5_1qdpx")]
-
-[node name="spawnPos" type="Node3D" parent="SubViewport1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.325, 2)
-
-[node name="SubViewport2" type="SubViewport" parent="."]
-transparent_bg = true
-size = Vector2i(256, 256)
-script = ExtResource("4_i2k3e")
-playerNum = 1
-
-[node name="Camera3D" type="Camera3D" parent="SubViewport2"]
-transform = Transform3D(-0.84946924, -0.10114816, 0.5178524, -2.3314044e-09, 0.98145366, 0.19169982, -0.52763826, 0.1628431, -0.83371466, -3.5940855, 28.345028, -11.14735)
-fov = 50.0
-
-[node name="Model" parent="SubViewport2" instance=ExtResource("5_1qdpx")]
-transform = Transform3D(-0.54499996, 0, 8.229271e-08, 0, 0.54499996, 0, -8.229271e-08, 0, -0.54499996, -6.4432163, 26.779303, -8.552234)
-
-[node name="spawnPos" type="Node3D" parent="SubViewport2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.4432163, 26.778921, -5.5522337)
-
-[node name="SubViewport3" type="SubViewport" parent="."]
-transparent_bg = true
-size = Vector2i(256, 256)
-script = ExtResource("4_i2k3e")
-playerNum = 2
-
-[node name="Camera3D" type="Camera3D" parent="SubViewport3"]
-transform = Transform3D(-0.84946924, -0.10114816, 0.5178524, -2.3314044e-09, 0.98145366, 0.19169982, -0.52763826, 0.1628431, -0.83371466, -17.967623, 52.921642, -27.128788)
-fov = 50.0
-
-[node name="Model" parent="SubViewport3" instance=ExtResource("5_1qdpx")]
-transform = Transform3D(-0.54499996, 0, 8.229271e-08, 0, 0.54499996, 0, -8.229271e-08, 0, -0.54499996, -20.816753, 51.35592, -24.53367)
-
-[node name="spawnPos" type="Node3D" parent="SubViewport3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.816753, 51.355534, -21.53367)
-
-[node name="SubViewport4" type="SubViewport" parent="."]
-transparent_bg = true
-size = Vector2i(256, 256)
-script = ExtResource("4_i2k3e")
-playerNum = 3
-
-[node name="Camera3D" type="Camera3D" parent="SubViewport4"]
-transform = Transform3D(-0.84946924, -0.10114816, 0.5178524, -2.3314044e-09, 0.98145366, 0.19169982, -0.52763826, 0.1628431, -0.83371466, -35.74235, 75.32037, -44.66586)
-fov = 50.0
-
-[node name="Model" parent="SubViewport4" instance=ExtResource("5_1qdpx")]
-transform = Transform3D(-0.54499996, 0, 8.229271e-08, 0, 0.54499996, 0, -8.229271e-08, 0, -0.54499996, -38.591484, 73.754654, -42.070744)
-
-[node name="spawnPos" type="Node3D" parent="SubViewport4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.591484, 73.754265, -39.070744)
-
-[node name="PlayerRect1" type="TextureRect" parent="."]
-texture_filter = 1
-layout_mode = 1
-offset_left = 15.0
-offset_top = 16.0
-offset_right = 271.0
-offset_bottom = 272.0
-texture = SubResource("ViewportTexture_27h71")
-
-[node name="PlayerRect2" type="TextureRect" parent="."]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -268.0
-offset_top = 16.0
-offset_right = -12.0
-offset_bottom = 272.0
-grow_horizontal = 0
-texture = SubResource("ViewportTexture_x35vu")
-
-[node name="PlayerRect3" type="TextureRect" parent="."]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 15.0
-offset_top = -271.0
-offset_right = 271.0
-offset_bottom = -15.0
-grow_vertical = 0
-texture = SubResource("ViewportTexture_kkpwc")
-
-[node name="PlayerRect4" type="TextureRect" parent="."]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -268.0
-offset_top = -271.0
-offset_right = -12.0
-offset_bottom = -15.0
-grow_horizontal = 0
-grow_vertical = 0
-texture = SubResource("ViewportTexture_csbn6")
-
 [node name="Header" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 10
@@ -208,81 +75,7 @@ grow_horizontal = 2
 theme_override_constants/outline_size = 24
 theme_override_fonts/font = ExtResource("6_152jn")
 theme_override_font_sizes/font_size = 64
-text = "Character Select"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="JoinPrompt1" type="Label" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 13.0
-offset_top = 16.0
-offset_right = 271.0
-offset_bottom = 272.0
-theme_override_constants/outline_size = 24
-theme_override_fonts/font = ExtResource("7_v3cdk")
-theme_override_font_sizes/font_size = 32
-text = "Press Button to
-Join as P1"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="JoinPrompt2" type="Label" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.99000007
-anchor_right = 0.99000007
-offset_left = -258.4801
-offset_top = 16.0
-offset_right = -0.48010254
-offset_bottom = 272.0
-theme_override_constants/outline_size = 24
-theme_override_fonts/font = ExtResource("7_v3cdk")
-theme_override_font_sizes/font_size = 32
-text = "Press Button to
-Join as P2"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="JoinPrompt3" type="Label" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 13.0
-offset_top = -271.0
-offset_right = 271.0
-offset_bottom = -15.0
-grow_vertical = 0
-theme_override_constants/outline_size = 24
-theme_override_fonts/font = ExtResource("7_v3cdk")
-theme_override_font_sizes/font_size = 32
-text = "Press Button to
-Join as P3"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="JoinPrompt4" type="Label" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -270.0
-offset_top = -271.0
-offset_right = -12.0
-offset_bottom = -15.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_constants/outline_size = 24
-theme_override_fonts/font = ExtResource("7_v3cdk")
-theme_override_font_sizes/font_size = 32
-text = "Press Button to
-Join as P4"
+text = "Course Select"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -299,52 +92,6 @@ theme_override_font_sizes/font_size = 32
 text = "Name"
 horizontal_alignment = 1
 
-[node name="CharName2" type="Label" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -270.0
-offset_top = 219.0
-offset_right = -12.0
-offset_bottom = 312.0
-grow_horizontal = 0
-theme_override_constants/outline_size = 24
-theme_override_fonts/font = ExtResource("6_152jn")
-theme_override_font_sizes/font_size = 32
-text = "Name"
-horizontal_alignment = 1
-
-[node name="CharName3" type="Label" parent="."]
-visible = false
-layout_mode = 0
-offset_top = 580.0
-offset_right = 258.0
-offset_bottom = 673.0
-theme_override_constants/outline_size = 24
-theme_override_fonts/font = ExtResource("6_152jn")
-theme_override_font_sizes/font_size = 32
-text = "Name"
-horizontal_alignment = 1
-
-[node name="CharName4" type="Label" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -283.0
-offset_top = 580.0
-offset_right = -25.0
-offset_bottom = 673.0
-grow_horizontal = 0
-theme_override_constants/outline_size = 24
-theme_override_fonts/font = ExtResource("6_152jn")
-theme_override_font_sizes/font_size = 32
-text = "Name"
-horizontal_alignment = 1
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_v6bfk")
 
@@ -352,14 +99,14 @@ environment = SubResource("Environment_v6bfk")
 transform = Transform3D(0.87280387, -0.48455507, -0.05847978, -0.11521066, -0.32097575, 0.94005394, -0.47427833, -0.8137451, -0.33597475, 0.059451103, 3.2686012, 4.7683716e-07)
 shadow_enabled = true
 
-[node name="CharacterIcons" type="GridContainer" parent="."]
+[node name="CourseIcons" type="GridContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 326.5
+offset_left = 147.0
 offset_top = 132.0
-offset_right = -313.5
+offset_right = -749.0
 offset_bottom = -132.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -367,89 +114,14 @@ theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 0
 columns = 4
 
-[node name="CharIcon1" type="TextureRect" parent="CharacterIcons"]
-texture_filter = 1
-layout_mode = 2
-size_flags_horizontal = 5
-size_flags_vertical = 5
-texture = ExtResource("8_2oebp")
-
-[node name="CharIcon2" type="TextureRect" parent="CharacterIcons"]
+[node name="CharIcon1" type="TextureRect" parent="CourseIcons"]
 texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 5
 texture = ExtResource("9_35p8f")
 
-[node name="CharIcon3" type="TextureRect" parent="CharacterIcons"]
-texture_filter = 1
-layout_mode = 2
-size_flags_horizontal = 5
-size_flags_vertical = 5
-texture = ExtResource("10_8s8xt")
-
-[node name="CharIcon4" type="TextureRect" parent="CharacterIcons"]
-texture_filter = 1
-layout_mode = 2
-size_flags_horizontal = 5
-size_flags_vertical = 5
-texture = ExtResource("11_vptb2")
-
-[node name="CharIcon5" type="TextureRect" parent="CharacterIcons"]
-texture_filter = 1
-layout_mode = 2
-size_flags_horizontal = 5
-size_flags_vertical = 5
-texture = ExtResource("12_hmblr")
-
-[node name="CharIcon6" type="TextureRect" parent="CharacterIcons"]
-texture_filter = 1
-layout_mode = 2
-size_flags_horizontal = 5
-size_flags_vertical = 5
-texture = ExtResource("13_e4e3e")
-
-[node name="CharIcon7" type="TextureRect" parent="CharacterIcons"]
-texture_filter = 1
-layout_mode = 2
-size_flags_horizontal = 5
-size_flags_vertical = 5
-texture = ExtResource("14_ig25d")
-
-[node name="CharIcon8" type="TextureRect" parent="CharacterIcons"]
-visible = false
-texture_filter = 1
-layout_mode = 2
-size_flags_horizontal = 5
-size_flags_vertical = 5
-texture = ExtResource("9_35p8f")
-
-[node name="CharIcon9" type="TextureRect" parent="CharacterIcons"]
-visible = false
-texture_filter = 1
-layout_mode = 2
-size_flags_horizontal = 5
-size_flags_vertical = 5
-texture = ExtResource("9_35p8f")
-
-[node name="CharIcon10" type="TextureRect" parent="CharacterIcons"]
-visible = false
-texture_filter = 1
-layout_mode = 2
-size_flags_horizontal = 5
-size_flags_vertical = 5
-texture = ExtResource("9_35p8f")
-
-[node name="CharIcon11" type="TextureRect" parent="CharacterIcons"]
-visible = false
-texture_filter = 1
-layout_mode = 2
-size_flags_horizontal = 5
-size_flags_vertical = 5
-texture = ExtResource("9_35p8f")
-
-[node name="CharIcon12" type="TextureRect" parent="CharacterIcons"]
-visible = false
+[node name="CharIcon2" type="TextureRect" parent="CourseIcons"]
 texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 5
@@ -463,18 +135,21 @@ offset_bottom = 40.0
 texture = ExtResource("15_ekcwh")
 
 [node name="CursorP2" type="TextureRect" parent="."]
+visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("16_lqva8")
 
 [node name="CursorP3" type="TextureRect" parent="."]
+visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("17_4i7mf")
 
 [node name="CursorP4" type="TextureRect" parent="."]
+visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
