@@ -212,6 +212,20 @@ text = "Character Select"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="analogNote" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 382.0
+offset_bottom = 447.0
+grow_horizontal = 2
+theme_override_constants/outline_size = 24
+theme_override_fonts/font = ExtResource("6_roaba")
+theme_override_font_sizes/font_size = 20
+text = "Hey! If these menus are working weirdly with an analog stick, use your dpad instead, please!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="JoinPrompt1" type="Label" parent="."]
 visible = false
 layout_mode = 0

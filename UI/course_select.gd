@@ -25,7 +25,7 @@ func _input(event: InputEvent) -> void:
 		#$CharacterIcons.get_child_count()
 	if PlayerManager.selectedCourse<0:
 		PlayerManager.selectedCourse=$CourseIcons.get_child_count()-1
-	if MultiplayerInput.is_action_just_pressed(PlayerManager.playerDevices[0],"Crouch"):
+	if MultiplayerInput.is_action_just_pressed(PlayerManager.playerDevices[0],"Crouch") and (not (PlayerManager.playerUIDs and not multiplayer.is_server())):
 		if multiplayer.is_server():
 			startMatch.rpc(PlayerManager.selectedCourse)
 		get_tree().change_scene_to_file(PlayerManager.coursePaths[PlayerManager.selectedCourse])
