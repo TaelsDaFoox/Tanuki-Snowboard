@@ -1,7 +1,7 @@
 extends Control
 @onready var cursor = $CursorP1
 @onready var courseNameLabel = $CourseName
-var courseNames:=["Glacial Slopes","Castle Siege"]
+var courseNames:=["Glacial Slopes","Castle Siege (unfinished)"]
 @onready var hostChoosingLabel = $HostChoosing
 func _process(delta: float) -> void:
 	musicCredit.text=MenuMusic.musicCredit
