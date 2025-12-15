@@ -17,6 +17,8 @@ var peer
 var localEmblem := Image.new()
 var netplayersCssReady:=[]
 signal netplayersRaceReadySignal
+var selectedCourse :=0
+var coursePaths :=["res://Scenes/Courses/Course1.tscn","res://Scenes/Courses/Course2.tscn"]
 #var readyToStart := false
 @rpc("any_peer", "call_remote", "reliable", 1)
 func readyToRace(pid:int):

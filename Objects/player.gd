@@ -168,9 +168,11 @@ func _physics_process(delta: float) -> void:
 		sfx.volume_db=-10-(5*(PlayerManager.playerDevices.size()-1))
 		if not sfx.playing:
 			sfx.playing=true
-		extraBoost=move_toward(extraBoost,0.0,delta*40)
 	else:
 		sfx.playing=false
+	if is_on_floor() and not inSlipsteam:
+		extraBoost=move_toward(extraBoost,0.0,delta*40)
+	else:
 		extraBoost=move_toward(extraBoost,0.0,delta*3)
 	#print(trickFailWait)
 	prevGrounded=is_on_floor()

@@ -79,17 +79,38 @@ text = "Course Select"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CharName1" type="Label" parent="."]
+[node name="CourseName" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 445.0
+offset_bottom = -75.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 24
+theme_override_fonts/font = ExtResource("6_152jn")
+theme_override_font_sizes/font_size = 64
+text = "Glacial Slopes"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HostChoosing" type="Label" parent="."]
 visible = false
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 offset_left = 13.0
-offset_top = 219.0
-offset_right = 271.0
-offset_bottom = 312.0
+offset_top = 546.0
+offset_right = -11.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/outline_size = 24
 theme_override_fonts/font = ExtResource("6_152jn")
 theme_override_font_sizes/font_size = 32
-text = "Name"
+text = "(Host is choosing the level...)"
 horizontal_alignment = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -159,21 +180,6 @@ texture = ExtResource("18_wiaem")
 wait_time = 0.25
 autostart = true
 
-[node name="Title" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = 510.0
-offset_top = 247.0
-offset_right = -495.0
-offset_bottom = 283.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 20
-text = "Return to Title"
-
 [node name="MusicCredit" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 2
@@ -189,20 +195,4 @@ theme_override_font_sizes/font_size = 24
 text = "♪stuck - John \"Joy\" Tay"
 vertical_alignment = 2
 
-[node name="StartButton" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 383.0
-offset_top = 437.0
-offset_right = -371.0
-offset_bottom = -79.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 90
-text = "Start"
-
 [connection signal="timeout" from="FlashTimer" to="." method="_on_flash_timer_timeout"]
-[connection signal="pressed" from="Title" to="." method="_on_netplay_setup_pressed"]
-[connection signal="pressed" from="StartButton" to="." method="_on_button_pressed"]
